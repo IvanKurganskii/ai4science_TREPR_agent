@@ -45,6 +45,10 @@
   - src/zfs_stats.py — модуль MAE/MAPE/RMSE/R2.  
   - src/make_statistics.py — расчёт статистик из Table_1.csv.  
   - results/tables/Table_1.csv, Table_2.csv, Table_3.csv, statistics.csv.  
-- Результат: check_tables.py PASS; pytest test_zfs_stats.py 12 passed.  
-- Точка проверки: python checks\check_tables.py results\tables.  
+- Результат: Собраны данные в таблицы из указанной статьи, написан скрипт и проведён расчёт статистик MAE, MAPE, RMSE, R²    
+- Точка проверки: python checks\check_tables.py results\tables. (проведено агентом)
 - Итог проверки: принято.  
+- Точка проверки: python checks\check_tables.py results\tables. (ручная проверка)
+- Итог проверки: принято. 
+- Точка проверки: ручная выборочная проверка таблиц и методово
+- Итог проверки: не принято (Table_1 -- passed, Table_2 -- нет деталей расчёта, Table_3 -- пропущены значения, смещены столбцы, агент не смог разобраться с пометками в таблице)
