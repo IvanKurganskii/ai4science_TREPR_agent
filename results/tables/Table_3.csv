@@ -1,0 +1,12 @@
+# Pentacene ZFS parameters at different calculation levels: DFT, CASSCF(n,n), DMRG-CASSCF(n,n) with bond dimension M; Dp,Ep defined by eq18; T1 in Eh
+method,bond_dimension,D_prime_cm-1,E_prime_cm-1,eta,E_T1_Eh,refs
+DFT,,0.0286,0.0025,0.09,,
+"CASSCF(4,4)",,0.0286,0.0059,0.21,-841.317403,
+"CASSCF(8,8)",,0.0307,0.0080,0.26,-841.383524,
+"CASSCF(12,12)",,0.0354,0.0050,0.14,-841.416827,
+"CASSCF(14,14)",,0.0371,-0.0021,0.06,-841.442815,
+"CASSCF(16,16)",,0.0402,-0.0029,0.07,-841.476852,
+"DMRG-CASSCF(18,18)",2048,0.0374,0.0037,0.10,-841.505719,
+"DMRG-CASSCF(22,22)",1024,0.0386,-0.0002,0.01,-841.577315,
+"DMRG-CASSCF(22,22)",1536,0.0398,-0.0009,0.02,-841.577315,
+exp,,0.0467,-0.0018,0.04,,59

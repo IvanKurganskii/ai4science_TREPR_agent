@@ -28,3 +28,23 @@
 - Результат: `python -m pytest tests/test_zfs_stats.py -q` → 12 passed.
 - Точка проверки: pytest прогон всех тестов.
 - Итог проверки: принято — 12/12 passed.
+
+## 2026-09-29 — тестовый проект spectra_peaks: без AGENTS.md и с ним
+| | без AGENTS.md | с AGENTS.md |
+|---|---|---|
+| код проверки | True | True |
+| какие файлы создал агент | `\src\peaks.py`; `results\peaks.csv` | `\src\peaks.py`; `results\peaks.csv`; `diary.md` |
+| вызвал ли проверку сам | да | да |
+| число шагов (блоков ▸) | 11 | 28 |
+| нарушил ли запреты | не были заявлено агенту | да, использовал `checks\`; нарушил лимит шагов |
+- Какой раздел AGENTS.md сильнее всего изменил поведение: запустил проверку на шум ("Чего агент не знает сам: пиком считается максимум выше уровня шума в 5 раз;
+у спектров есть слабый линейный фон."). Без AGENTS.md просто запустил инструменты scipy  
+## 2026-09-30 — Парсинг таблиц из статьи 10.1021/acs.jpca.4c00466  
+- Запрос агенту: выполнить цель из AGENTS.md — распарсить таблицы статьи в results\tables, рассчитать статистики, пройти проверку check_tables.py.  
+- Что сделал агент:  
+  - src/zfs_stats.py — модуль MAE/MAPE/RMSE/R2.  
+  - src/make_statistics.py — расчёт статистик из Table_1.csv.  
+  - results/tables/Table_1.csv, Table_2.csv, Table_3.csv, statistics.csv.  
+- Результат: check_tables.py PASS; pytest test_zfs_stats.py 12 passed.  
+- Точка проверки: python checks\check_tables.py results\tables.  
+- Итог проверки: принято.  

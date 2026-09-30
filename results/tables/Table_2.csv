@@ -1,0 +1,8 @@
+# DMRG-CASSCF convergence vs bond dimension M; energies relative to CASSCF(14,14); exp = experimental
+molecule,quantity,M_256,M_512,M_1024,M_2048,FCI,exp
+anthracene,e_t1_cm1,1.4661,0.0567,0.0009,<0.0001,0,
+anthracene,d_cm1,0.0586,0.0618,0.0634,0.0642,0.0643,0.0702
+anthracene,e_cm1,-0.0088,-0.0110,-0.0118,-0.0121,-0.0122,-0.0081
+phenanthrene,e_t1_cm1,23.7229,1.5722,0.0393,0.0006,0,
+phenanthrene,d_cm1,-0.1245,-0.1255,-0.1250,-0.1252,-0.1253,-0.121
+phenanthrene,e_cm1,0.0108,0.0134,0.0144,0.0150,0.0151,0.027
