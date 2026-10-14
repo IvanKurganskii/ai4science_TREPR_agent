@@ -52,3 +52,28 @@
 - Итог проверки: принято. 
 - Точка проверки: ручная выборочная проверка таблиц и методово
 - Итог проверки: не принято (Table_1 -- passed, Table_2 -- нет деталей расчёта, Table_3 -- пропущены значения, смещены столбцы, агент не смог разобраться с пометками в таблице)
+
+## 2026-10-14 23:56 — Обработка спектров ВР ЭПР
+
+### Исходные данные
+- 4 CSV файла в data/raw_spectra/
+  - PBIAn1_300719_s1_exp.csv (4000x241, field 2800-4000G, time 0-19995ns)
+  - PBIAn1_300719_s1_exp_narrow.csv (4000x281, field 3200-3340G, time 0-49987.5ns)
+  - PBIAn2_300719s1_exp1.csv (4000x241, field 2800-4000G, time 0-49987.5ns)
+  - PBIAn2_300719s1_exp2_smallStep.csv (4000x601, field 2800-4000G, time 0-49987.5ns)
+
+### Процедура очистки
+1. **Baseline correction**: scaled_reference mode, poly_order=1, field_bounds_T=[0.285,0.395] (или [0.322,0.332] для narrow), time_bounds_s=[5e-6,None]
+2. **Denoising**: SVD с rank=3
+
+### Результаты
+- results/spectra/processed/ — 4 CSV файла с текстовыми шапками
+- results/spectra/slices/ — 8 CSV файлов (по 2 среза на спектр: max intensity и late time)
+
+### Проверки
+- spectra_cleaned.py: OK (4 processed, 4 reference)
+- spectra_sliced.py: OK (8 slices >= 4 reference)
+
+### Модули созданные
+- Скрипты обработки в src/mars_cleaning/ (использовался существующий)
+- Временные скрипты для создания срезов (не сохранены в src/)

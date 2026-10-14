@@ -1,0 +1,8 @@
+{
+  "id": "inspect-raw",
+  "name": "inspect_epr_2d",
+  "arguments": {
+    "source": {"path": "data/raw_spectrum.csv", "time_unit": "ns"},
+    "singular_values": 20
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "simulate_high_j_1d",
+  "arguments": {
+    "field_axis": {
+      "start": 0.325,
+      "stop": 0.37,
+      "points": 101
+    },
+    "output": {
+      "name": "high_j_1d",
+      "save_plot": true
+    },
+    "hamiltonian": {
+      "g": 2.02,
+      "D": 180000000.0,
+      "E": 10000000.0,
+      "gauss": 0.001,
+      "lorentz": 0.001
+    },
+    "settings": {
+      "freq": 9800000000.0,
+      "temperature": 80.0,
+      "mesh": 25,
+      "device": "cpu",
+      "dtype": "float64",
+      "harmonic": 0,
+      "frame": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "populations": {
+      "p_x": 0.0,
+      "p_y": 0.3,
+      "p_z": 1.0
+    }
+  }
+}

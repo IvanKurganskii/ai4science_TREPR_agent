@@ -1,0 +1,7 @@
+# Python 3.11; the existing mars environment already supplies these packages.
+mars-epr==0.0.5.post5
+numpy>=1.26
+scipy>=1.15
+PyWavelets>=1.8
+matplotlib>=3.9
+threadpoolctl>=3.5

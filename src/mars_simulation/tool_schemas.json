@@ -1,0 +1,1994 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "simulate_high_j_1d",
+      "description": "High-J effective S=1 triplet: stationary field spectrum without kinetic relaxation; returns reusable spin_model.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "field_axis": {
+            "description": "Strictly increasing axis in tesla; endpoints are included.",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "number",
+                    "description": "First point in tesla",
+                    "minimum": 0
+                  },
+                  "stop": {
+                    "type": "number",
+                    "description": "Last point in tesla",
+                    "minimum": 0
+                  },
+                  "points": {
+                    "type": "integer",
+                    "minimum": 2
+                  }
+                },
+                "required": [
+                  "start",
+                  "stop",
+                  "points"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "values": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number",
+                      "description": "Point in tesla",
+                      "minimum": 0
+                    }
+                  }
+                },
+                "required": [
+                  "values"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "population_mode": {
+            "type": "string",
+            "enum": [
+              "notebook",
+              "raw",
+              "minmax",
+              "max"
+            ],
+            "default": "notebook",
+            "description": "notebook: high-J 1D minmax, high-J 2D raw, moderate-J max."
+          },
+          "normalization": {
+            "type": "string",
+            "enum": [
+              "none",
+              "maxabs"
+            ],
+            "default": "none",
+            "description": "Optional whole-spectrum amplitude normalization preserving E/A signs."
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Optional artifact name prefix: letters, digits, _ or -."
+              },
+              "save_plot": {
+                "type": "boolean",
+                "default": true
+              },
+              "include_data": {
+                "type": "boolean",
+                "default": false,
+                "description": "Inline axes and spectrum only for <=10000 samples; artifacts always contain all samples."
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "hamiltonian": {
+            "type": "object",
+            "properties": {
+              "D": {
+                "type": "number",
+                "description": "D in Hz, tensor diag(-D/3+E,-D/3-E,2D/3)."
+              },
+              "E": {
+                "type": "number",
+                "description": "E in Hz; |E| <= |D|/3."
+              },
+              "gauss": {
+                "type": "number",
+                "description": "Gaussian FWHM in tesla.",
+                "minimum": 0
+              },
+              "lorentz": {
+                "type": "number",
+                "description": "Lorentzian FWHM in tesla; at least one linewidth must be positive.",
+                "minimum": 0
+              },
+              "g": {
+                "description": "Dimensionless g factor or three principal values for effective S=1.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    }
+                  }
+                ]
+              }
+            },
+            "required": [
+              "D",
+              "E",
+              "gauss",
+              "lorentz",
+              "g"
+            ],
+            "additionalProperties": false
+          },
+          "settings": {
+            "type": "object",
+            "properties": {
+              "freq": {
+                "type": "number",
+                "description": "Microwave frequency in Hz; default 9.8e9",
+                "exclusiveMinimum": 0
+              },
+              "temperature": {
+                "type": "number",
+                "description": "Temperature in kelvin; default 80",
+                "exclusiveMinimum": 0
+              },
+              "mesh": {
+                "type": "integer",
+                "minimum": 2,
+                "default": 25,
+                "description": "One resolution for both powder meshes: (mesh, mesh)."
+              },
+              "frame": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "number"
+                },
+                "description": "Common molecular tensor frame, ZYZ Euler angles in radians; default [0,0,0]."
+              },
+              "device": {
+                "type": "string",
+                "enum": [
+                  "cpu",
+                  "cuda",
+                  "auto"
+                ],
+                "default": "cpu"
+              },
+              "dtype": {
+                "type": "string",
+                "enum": [
+                  "float64",
+                  "float32"
+                ],
+                "default": "float64"
+              },
+              "harmonic": {
+                "type": "integer",
+                "enum": [
+                  0,
+                  1
+                ],
+                "default": 0,
+                "description": "0 absorption; 1 first field derivative."
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "populations": {
+            "type": "object",
+            "properties": {
+              "p_x": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "p_y": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "p_z": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "required": [
+              "p_x",
+              "p_y",
+              "p_z"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "field_axis",
+          "hamiltonian",
+          "populations"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "simulate_high_j_2d",
+      "description": "High-J effective S=1 triplet: time-field map varying context with a fixed spin_model from 1D/full.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "field_axis": {
+            "description": "Strictly increasing axis in tesla; endpoints are included.",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "number",
+                    "description": "First point in tesla",
+                    "minimum": 0
+                  },
+                  "stop": {
+                    "type": "number",
+                    "description": "Last point in tesla",
+                    "minimum": 0
+                  },
+                  "points": {
+                    "type": "integer",
+                    "minimum": 2
+                  }
+                },
+                "required": [
+                  "start",
+                  "stop",
+                  "points"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "values": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number",
+                      "description": "Point in tesla",
+                      "minimum": 0
+                    }
+                  }
+                },
+                "required": [
+                  "values"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "population_mode": {
+            "type": "string",
+            "enum": [
+              "notebook",
+              "raw",
+              "minmax",
+              "max"
+            ],
+            "default": "notebook",
+            "description": "notebook: high-J 1D minmax, high-J 2D raw, moderate-J max."
+          },
+          "normalization": {
+            "type": "string",
+            "enum": [
+              "none",
+              "maxabs"
+            ],
+            "default": "none",
+            "description": "Optional whole-spectrum amplitude normalization preserving E/A signs."
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Optional artifact name prefix: letters, digits, _ or -."
+              },
+              "save_plot": {
+                "type": "boolean",
+                "default": true
+              },
+              "include_data": {
+                "type": "boolean",
+                "default": false,
+                "description": "Inline axes and spectrum only for <=10000 samples; artifacts always contain all samples."
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "spin_model": {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "high_j"
+                ]
+              },
+              "hamiltonian": {
+                "type": "object",
+                "properties": {
+                  "D": {
+                    "type": "number",
+                    "description": "D in Hz, tensor diag(-D/3+E,-D/3-E,2D/3)."
+                  },
+                  "E": {
+                    "type": "number",
+                    "description": "E in Hz; |E| <= |D|/3."
+                  },
+                  "gauss": {
+                    "type": "number",
+                    "description": "Gaussian FWHM in tesla.",
+                    "minimum": 0
+                  },
+                  "lorentz": {
+                    "type": "number",
+                    "description": "Lorentzian FWHM in tesla; at least one linewidth must be positive.",
+                    "minimum": 0
+                  },
+                  "g": {
+                    "description": "Dimensionless g factor or three principal values for effective S=1.",
+                    "anyOf": [
+                      {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      {
+                        "type": "array",
+                        "minItems": 3,
+                        "maxItems": 3,
+                        "items": {
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "D",
+                  "E",
+                  "gauss",
+                  "lorentz",
+                  "g"
+                ],
+                "additionalProperties": false
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
+                  "freq": {
+                    "type": "number",
+                    "description": "Microwave frequency in Hz; default 9.8e9",
+                    "exclusiveMinimum": 0
+                  },
+                  "temperature": {
+                    "type": "number",
+                    "description": "Temperature in kelvin; default 80",
+                    "exclusiveMinimum": 0
+                  },
+                  "mesh": {
+                    "type": "integer",
+                    "minimum": 2,
+                    "default": 25,
+                    "description": "One resolution for both powder meshes: (mesh, mesh)."
+                  },
+                  "frame": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": "number"
+                    },
+                    "description": "Common molecular tensor frame, ZYZ Euler angles in radians; default [0,0,0]."
+                  },
+                  "device": {
+                    "type": "string",
+                    "enum": [
+                      "cpu",
+                      "cuda",
+                      "auto"
+                    ],
+                    "default": "cpu"
+                  },
+                  "dtype": {
+                    "type": "string",
+                    "enum": [
+                      "float64",
+                      "float32"
+                    ],
+                    "default": "float64"
+                  },
+                  "harmonic": {
+                    "type": "integer",
+                    "enum": [
+                      0,
+                      1
+                    ],
+                    "default": 0,
+                    "description": "0 absorption; 1 first field derivative."
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "model",
+              "hamiltonian",
+              "settings"
+            ],
+            "additionalProperties": false
+          },
+          "device": {
+            "type": "string",
+            "enum": [
+              "cpu",
+              "cuda",
+              "auto"
+            ],
+            "description": "Optional execution-device override for a saved spin_model."
+          },
+          "time_axis": {
+            "description": "Strictly increasing axis in seconds since preparation (t=0); endpoints are included.",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "number",
+                    "description": "First point in seconds since preparation (t=0)",
+                    "minimum": 0
+                  },
+                  "stop": {
+                    "type": "number",
+                    "description": "Last point in seconds since preparation (t=0)",
+                    "minimum": 0
+                  },
+                  "points": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "start",
+                  "stop",
+                  "points"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "values": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "number",
+                      "description": "Point in seconds since preparation (t=0)",
+                      "minimum": 0
+                    }
+                  }
+                },
+                "required": [
+                  "values"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "context": {
+            "type": "object",
+            "properties": {
+              "p_x": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "p_y": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "p_z": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "tau_intra": {
+                "description": "Neighboring multiplet links (-1,0,+1); lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_out_x": {
+                "description": "Loss from molecular sublevel x; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_out_y": {
+                "description": "Loss from molecular sublevel y; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_out_z": {
+                "description": "Loss from molecular sublevel z; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "p_x",
+              "p_y",
+              "p_z",
+              "tau_intra",
+              "tau_out_x",
+              "tau_out_y",
+              "tau_out_z"
+            ],
+            "additionalProperties": false
+          },
+          "rise_time_us": {
+            "type": "number",
+            "description": "Optional positive rise time in us: S(B,t)-S(B,0)*exp(-t/T); omit for raw MaRS kinetics.",
+            "exclusiveMinimum": 0
+          }
+        },
+        "required": [
+          "field_axis",
+          "spin_model",
+          "time_axis",
+          "context"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "simulate_high_j_2d_full",
+      "description": "High-J effective S=1 triplet: full time-field map with explicit Hamiltonian and relaxation context; both may change between calls.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "field_axis": {
+            "description": "Strictly increasing axis in tesla; endpoints are included.",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "number",
+                    "description": "First point in tesla",
+                    "minimum": 0
+                  },
+                  "stop": {
+                    "type": "number",
+                    "description": "Last point in tesla",
+                    "minimum": 0
+                  },
+                  "points": {
+                    "type": "integer",
+                    "minimum": 2
+                  }
+                },
+                "required": [
+                  "start",
+                  "stop",
+                  "points"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "values": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number",
+                      "description": "Point in tesla",
+                      "minimum": 0
+                    }
+                  }
+                },
+                "required": [
+                  "values"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "population_mode": {
+            "type": "string",
+            "enum": [
+              "notebook",
+              "raw",
+              "minmax",
+              "max"
+            ],
+            "default": "notebook",
+            "description": "notebook: high-J 1D minmax, high-J 2D raw, moderate-J max."
+          },
+          "normalization": {
+            "type": "string",
+            "enum": [
+              "none",
+              "maxabs"
+            ],
+            "default": "none",
+            "description": "Optional whole-spectrum amplitude normalization preserving E/A signs."
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Optional artifact name prefix: letters, digits, _ or -."
+              },
+              "save_plot": {
+                "type": "boolean",
+                "default": true
+              },
+              "include_data": {
+                "type": "boolean",
+                "default": false,
+                "description": "Inline axes and spectrum only for <=10000 samples; artifacts always contain all samples."
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "hamiltonian": {
+            "type": "object",
+            "properties": {
+              "D": {
+                "type": "number",
+                "description": "D in Hz, tensor diag(-D/3+E,-D/3-E,2D/3)."
+              },
+              "E": {
+                "type": "number",
+                "description": "E in Hz; |E| <= |D|/3."
+              },
+              "gauss": {
+                "type": "number",
+                "description": "Gaussian FWHM in tesla.",
+                "minimum": 0
+              },
+              "lorentz": {
+                "type": "number",
+                "description": "Lorentzian FWHM in tesla; at least one linewidth must be positive.",
+                "minimum": 0
+              },
+              "g": {
+                "description": "Dimensionless g factor or three principal values for effective S=1.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    }
+                  }
+                ]
+              }
+            },
+            "required": [
+              "D",
+              "E",
+              "gauss",
+              "lorentz",
+              "g"
+            ],
+            "additionalProperties": false
+          },
+          "settings": {
+            "type": "object",
+            "properties": {
+              "freq": {
+                "type": "number",
+                "description": "Microwave frequency in Hz; default 9.8e9",
+                "exclusiveMinimum": 0
+              },
+              "temperature": {
+                "type": "number",
+                "description": "Temperature in kelvin; default 80",
+                "exclusiveMinimum": 0
+              },
+              "mesh": {
+                "type": "integer",
+                "minimum": 2,
+                "default": 25,
+                "description": "One resolution for both powder meshes: (mesh, mesh)."
+              },
+              "frame": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "number"
+                },
+                "description": "Common molecular tensor frame, ZYZ Euler angles in radians; default [0,0,0]."
+              },
+              "device": {
+                "type": "string",
+                "enum": [
+                  "cpu",
+                  "cuda",
+                  "auto"
+                ],
+                "default": "cpu"
+              },
+              "dtype": {
+                "type": "string",
+                "enum": [
+                  "float64",
+                  "float32"
+                ],
+                "default": "float64"
+              },
+              "harmonic": {
+                "type": "integer",
+                "enum": [
+                  0,
+                  1
+                ],
+                "default": 0,
+                "description": "0 absorption; 1 first field derivative."
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "time_axis": {
+            "description": "Strictly increasing axis in seconds since preparation (t=0); endpoints are included.",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "number",
+                    "description": "First point in seconds since preparation (t=0)",
+                    "minimum": 0
+                  },
+                  "stop": {
+                    "type": "number",
+                    "description": "Last point in seconds since preparation (t=0)",
+                    "minimum": 0
+                  },
+                  "points": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "start",
+                  "stop",
+                  "points"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "values": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "number",
+                      "description": "Point in seconds since preparation (t=0)",
+                      "minimum": 0
+                    }
+                  }
+                },
+                "required": [
+                  "values"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "context": {
+            "type": "object",
+            "properties": {
+              "p_x": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "p_y": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "p_z": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "tau_intra": {
+                "description": "Neighboring multiplet links (-1,0,+1); lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_out_x": {
+                "description": "Loss from molecular sublevel x; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_out_y": {
+                "description": "Loss from molecular sublevel y; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_out_z": {
+                "description": "Loss from molecular sublevel z; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "p_x",
+              "p_y",
+              "p_z",
+              "tau_intra",
+              "tau_out_x",
+              "tau_out_y",
+              "tau_out_z"
+            ],
+            "additionalProperties": false
+          },
+          "rise_time_us": {
+            "type": "number",
+            "description": "Optional positive rise time in us: S(B,t)-S(B,0)*exp(-t/T); omit for raw MaRS kinetics.",
+            "exclusiveMinimum": 0
+          }
+        },
+        "required": [
+          "field_axis",
+          "hamiltonian",
+          "time_axis",
+          "context"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "simulate_moderate_j_1d",
+      "description": "Moderate-J two S=1/2 radical pair: stationary field spectrum without kinetic relaxation; returns reusable spin_model.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "field_axis": {
+            "description": "Strictly increasing axis in tesla; endpoints are included.",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "number",
+                    "description": "First point in tesla",
+                    "minimum": 0
+                  },
+                  "stop": {
+                    "type": "number",
+                    "description": "Last point in tesla",
+                    "minimum": 0
+                  },
+                  "points": {
+                    "type": "integer",
+                    "minimum": 2
+                  }
+                },
+                "required": [
+                  "start",
+                  "stop",
+                  "points"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "values": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number",
+                      "description": "Point in tesla",
+                      "minimum": 0
+                    }
+                  }
+                },
+                "required": [
+                  "values"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "population_mode": {
+            "type": "string",
+            "enum": [
+              "notebook",
+              "raw",
+              "minmax",
+              "max"
+            ],
+            "default": "notebook",
+            "description": "notebook: high-J 1D minmax, high-J 2D raw, moderate-J max."
+          },
+          "normalization": {
+            "type": "string",
+            "enum": [
+              "none",
+              "maxabs"
+            ],
+            "default": "none",
+            "description": "Optional whole-spectrum amplitude normalization preserving E/A signs."
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Optional artifact name prefix: letters, digits, _ or -."
+              },
+              "save_plot": {
+                "type": "boolean",
+                "default": true
+              },
+              "include_data": {
+                "type": "boolean",
+                "default": false,
+                "description": "Inline axes and spectrum only for <=10000 samples; artifacts always contain all samples."
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "hamiltonian": {
+            "type": "object",
+            "properties": {
+              "D": {
+                "type": "number",
+                "description": "D in Hz, tensor diag(-D/3+E,-D/3-E,2D/3)."
+              },
+              "E": {
+                "type": "number",
+                "description": "E in Hz; |E| <= |D|/3."
+              },
+              "gauss": {
+                "type": "number",
+                "description": "Gaussian FWHM in tesla.",
+                "minimum": 0
+              },
+              "lorentz": {
+                "type": "number",
+                "description": "Lorentzian FWHM in tesla; at least one linewidth must be positive.",
+                "minimum": 0
+              },
+              "g0": {
+                "type": "number",
+                "description": "Mean isotropic g factor; g1,2 = g0 +/- delta_g/2.",
+                "exclusiveMinimum": 0
+              },
+              "delta_g": {
+                "type": "number",
+                "description": "Signed isotropic g1-g2 difference, dimensionless."
+              },
+              "J": {
+                "type": "number",
+                "description": "Exchange in Hz, convention +J*S1 dot S2; negative J is allowed."
+              }
+            },
+            "required": [
+              "D",
+              "E",
+              "gauss",
+              "lorentz",
+              "g0",
+              "delta_g",
+              "J"
+            ],
+            "additionalProperties": false
+          },
+          "settings": {
+            "type": "object",
+            "properties": {
+              "freq": {
+                "type": "number",
+                "description": "Microwave frequency in Hz; default 9.8e9",
+                "exclusiveMinimum": 0
+              },
+              "temperature": {
+                "type": "number",
+                "description": "Temperature in kelvin; default 80",
+                "exclusiveMinimum": 0
+              },
+              "mesh": {
+                "type": "integer",
+                "minimum": 2,
+                "default": 25,
+                "description": "One resolution for both powder meshes: (mesh, mesh)."
+              },
+              "frame": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "number"
+                },
+                "description": "Common molecular tensor frame, ZYZ Euler angles in radians; default [0,0,0]."
+              },
+              "device": {
+                "type": "string",
+                "enum": [
+                  "cpu",
+                  "cuda",
+                  "auto"
+                ],
+                "default": "cpu"
+              },
+              "dtype": {
+                "type": "string",
+                "enum": [
+                  "float64",
+                  "float32"
+                ],
+                "default": "float64"
+              },
+              "harmonic": {
+                "type": "integer",
+                "enum": [
+                  0,
+                  1
+                ],
+                "default": 0,
+                "description": "0 absorption; 1 first field derivative."
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "populations": {
+            "type": "object",
+            "properties": {
+              "p_s": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "p_x": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "p_y": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "p_z": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "required": [
+              "p_s",
+              "p_x",
+              "p_y",
+              "p_z"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "field_axis",
+          "hamiltonian",
+          "populations"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "simulate_moderate_j_2d",
+      "description": "Moderate-J two S=1/2 radical pair: time-field map varying context with a fixed spin_model from 1D/full.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "field_axis": {
+            "description": "Strictly increasing axis in tesla; endpoints are included.",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "number",
+                    "description": "First point in tesla",
+                    "minimum": 0
+                  },
+                  "stop": {
+                    "type": "number",
+                    "description": "Last point in tesla",
+                    "minimum": 0
+                  },
+                  "points": {
+                    "type": "integer",
+                    "minimum": 2
+                  }
+                },
+                "required": [
+                  "start",
+                  "stop",
+                  "points"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "values": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number",
+                      "description": "Point in tesla",
+                      "minimum": 0
+                    }
+                  }
+                },
+                "required": [
+                  "values"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "population_mode": {
+            "type": "string",
+            "enum": [
+              "notebook",
+              "raw",
+              "minmax",
+              "max"
+            ],
+            "default": "notebook",
+            "description": "notebook: high-J 1D minmax, high-J 2D raw, moderate-J max."
+          },
+          "normalization": {
+            "type": "string",
+            "enum": [
+              "none",
+              "maxabs"
+            ],
+            "default": "none",
+            "description": "Optional whole-spectrum amplitude normalization preserving E/A signs."
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Optional artifact name prefix: letters, digits, _ or -."
+              },
+              "save_plot": {
+                "type": "boolean",
+                "default": true
+              },
+              "include_data": {
+                "type": "boolean",
+                "default": false,
+                "description": "Inline axes and spectrum only for <=10000 samples; artifacts always contain all samples."
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "spin_model": {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "moderate_j"
+                ]
+              },
+              "hamiltonian": {
+                "type": "object",
+                "properties": {
+                  "D": {
+                    "type": "number",
+                    "description": "D in Hz, tensor diag(-D/3+E,-D/3-E,2D/3)."
+                  },
+                  "E": {
+                    "type": "number",
+                    "description": "E in Hz; |E| <= |D|/3."
+                  },
+                  "gauss": {
+                    "type": "number",
+                    "description": "Gaussian FWHM in tesla.",
+                    "minimum": 0
+                  },
+                  "lorentz": {
+                    "type": "number",
+                    "description": "Lorentzian FWHM in tesla; at least one linewidth must be positive.",
+                    "minimum": 0
+                  },
+                  "g0": {
+                    "type": "number",
+                    "description": "Mean isotropic g factor; g1,2 = g0 +/- delta_g/2.",
+                    "exclusiveMinimum": 0
+                  },
+                  "delta_g": {
+                    "type": "number",
+                    "description": "Signed isotropic g1-g2 difference, dimensionless."
+                  },
+                  "J": {
+                    "type": "number",
+                    "description": "Exchange in Hz, convention +J*S1 dot S2; negative J is allowed."
+                  }
+                },
+                "required": [
+                  "D",
+                  "E",
+                  "gauss",
+                  "lorentz",
+                  "g0",
+                  "delta_g",
+                  "J"
+                ],
+                "additionalProperties": false
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
+                  "freq": {
+                    "type": "number",
+                    "description": "Microwave frequency in Hz; default 9.8e9",
+                    "exclusiveMinimum": 0
+                  },
+                  "temperature": {
+                    "type": "number",
+                    "description": "Temperature in kelvin; default 80",
+                    "exclusiveMinimum": 0
+                  },
+                  "mesh": {
+                    "type": "integer",
+                    "minimum": 2,
+                    "default": 25,
+                    "description": "One resolution for both powder meshes: (mesh, mesh)."
+                  },
+                  "frame": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": "number"
+                    },
+                    "description": "Common molecular tensor frame, ZYZ Euler angles in radians; default [0,0,0]."
+                  },
+                  "device": {
+                    "type": "string",
+                    "enum": [
+                      "cpu",
+                      "cuda",
+                      "auto"
+                    ],
+                    "default": "cpu"
+                  },
+                  "dtype": {
+                    "type": "string",
+                    "enum": [
+                      "float64",
+                      "float32"
+                    ],
+                    "default": "float64"
+                  },
+                  "harmonic": {
+                    "type": "integer",
+                    "enum": [
+                      0,
+                      1
+                    ],
+                    "default": 0,
+                    "description": "0 absorption; 1 first field derivative."
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "model",
+              "hamiltonian",
+              "settings"
+            ],
+            "additionalProperties": false
+          },
+          "device": {
+            "type": "string",
+            "enum": [
+              "cpu",
+              "cuda",
+              "auto"
+            ],
+            "description": "Optional execution-device override for a saved spin_model."
+          },
+          "time_axis": {
+            "description": "Strictly increasing axis in seconds since preparation (t=0); endpoints are included.",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "number",
+                    "description": "First point in seconds since preparation (t=0)",
+                    "minimum": 0
+                  },
+                  "stop": {
+                    "type": "number",
+                    "description": "Last point in seconds since preparation (t=0)",
+                    "minimum": 0
+                  },
+                  "points": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "start",
+                  "stop",
+                  "points"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "values": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "number",
+                      "description": "Point in seconds since preparation (t=0)",
+                      "minimum": 0
+                    }
+                  }
+                },
+                "required": [
+                  "values"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "context": {
+            "type": "object",
+            "properties": {
+              "p_s": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "p_x": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "p_y": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "p_z": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "tau_outer": {
+                "description": "Energy-ordered eigenstate links 1-2, 1-3, 2-4, 3-4; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_inner": {
+                "description": "Energy-ordered eigenstate link 2-3; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_out_s": {
+                "description": "Loss from molecular sublevel s; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_out_x": {
+                "description": "Loss from molecular sublevel x; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_out_y": {
+                "description": "Loss from molecular sublevel y; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_out_z": {
+                "description": "Loss from molecular sublevel z; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "p_s",
+              "p_x",
+              "p_y",
+              "p_z",
+              "tau_outer",
+              "tau_inner",
+              "tau_out_s",
+              "tau_out_x",
+              "tau_out_y",
+              "tau_out_z"
+            ],
+            "additionalProperties": false
+          },
+          "rise_time_us": {
+            "type": "number",
+            "description": "Optional positive rise time in us: S(B,t)-S(B,0)*exp(-t/T); omit for raw MaRS kinetics.",
+            "exclusiveMinimum": 0
+          }
+        },
+        "required": [
+          "field_axis",
+          "spin_model",
+          "time_axis",
+          "context"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "simulate_moderate_j_2d_full",
+      "description": "Moderate-J two S=1/2 radical pair: full time-field map with explicit Hamiltonian and relaxation context; both may change between calls.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "field_axis": {
+            "description": "Strictly increasing axis in tesla; endpoints are included.",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "number",
+                    "description": "First point in tesla",
+                    "minimum": 0
+                  },
+                  "stop": {
+                    "type": "number",
+                    "description": "Last point in tesla",
+                    "minimum": 0
+                  },
+                  "points": {
+                    "type": "integer",
+                    "minimum": 2
+                  }
+                },
+                "required": [
+                  "start",
+                  "stop",
+                  "points"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "values": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number",
+                      "description": "Point in tesla",
+                      "minimum": 0
+                    }
+                  }
+                },
+                "required": [
+                  "values"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "population_mode": {
+            "type": "string",
+            "enum": [
+              "notebook",
+              "raw",
+              "minmax",
+              "max"
+            ],
+            "default": "notebook",
+            "description": "notebook: high-J 1D minmax, high-J 2D raw, moderate-J max."
+          },
+          "normalization": {
+            "type": "string",
+            "enum": [
+              "none",
+              "maxabs"
+            ],
+            "default": "none",
+            "description": "Optional whole-spectrum amplitude normalization preserving E/A signs."
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Optional artifact name prefix: letters, digits, _ or -."
+              },
+              "save_plot": {
+                "type": "boolean",
+                "default": true
+              },
+              "include_data": {
+                "type": "boolean",
+                "default": false,
+                "description": "Inline axes and spectrum only for <=10000 samples; artifacts always contain all samples."
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "hamiltonian": {
+            "type": "object",
+            "properties": {
+              "D": {
+                "type": "number",
+                "description": "D in Hz, tensor diag(-D/3+E,-D/3-E,2D/3)."
+              },
+              "E": {
+                "type": "number",
+                "description": "E in Hz; |E| <= |D|/3."
+              },
+              "gauss": {
+                "type": "number",
+                "description": "Gaussian FWHM in tesla.",
+                "minimum": 0
+              },
+              "lorentz": {
+                "type": "number",
+                "description": "Lorentzian FWHM in tesla; at least one linewidth must be positive.",
+                "minimum": 0
+              },
+              "g0": {
+                "type": "number",
+                "description": "Mean isotropic g factor; g1,2 = g0 +/- delta_g/2.",
+                "exclusiveMinimum": 0
+              },
+              "delta_g": {
+                "type": "number",
+                "description": "Signed isotropic g1-g2 difference, dimensionless."
+              },
+              "J": {
+                "type": "number",
+                "description": "Exchange in Hz, convention +J*S1 dot S2; negative J is allowed."
+              }
+            },
+            "required": [
+              "D",
+              "E",
+              "gauss",
+              "lorentz",
+              "g0",
+              "delta_g",
+              "J"
+            ],
+            "additionalProperties": false
+          },
+          "settings": {
+            "type": "object",
+            "properties": {
+              "freq": {
+                "type": "number",
+                "description": "Microwave frequency in Hz; default 9.8e9",
+                "exclusiveMinimum": 0
+              },
+              "temperature": {
+                "type": "number",
+                "description": "Temperature in kelvin; default 80",
+                "exclusiveMinimum": 0
+              },
+              "mesh": {
+                "type": "integer",
+                "minimum": 2,
+                "default": 25,
+                "description": "One resolution for both powder meshes: (mesh, mesh)."
+              },
+              "frame": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "number"
+                },
+                "description": "Common molecular tensor frame, ZYZ Euler angles in radians; default [0,0,0]."
+              },
+              "device": {
+                "type": "string",
+                "enum": [
+                  "cpu",
+                  "cuda",
+                  "auto"
+                ],
+                "default": "cpu"
+              },
+              "dtype": {
+                "type": "string",
+                "enum": [
+                  "float64",
+                  "float32"
+                ],
+                "default": "float64"
+              },
+              "harmonic": {
+                "type": "integer",
+                "enum": [
+                  0,
+                  1
+                ],
+                "default": 0,
+                "description": "0 absorption; 1 first field derivative."
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "time_axis": {
+            "description": "Strictly increasing axis in seconds since preparation (t=0); endpoints are included.",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "number",
+                    "description": "First point in seconds since preparation (t=0)",
+                    "minimum": 0
+                  },
+                  "stop": {
+                    "type": "number",
+                    "description": "Last point in seconds since preparation (t=0)",
+                    "minimum": 0
+                  },
+                  "points": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "start",
+                  "stop",
+                  "points"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "values": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "number",
+                      "description": "Point in seconds since preparation (t=0)",
+                      "minimum": 0
+                    }
+                  }
+                },
+                "required": [
+                  "values"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "context": {
+            "type": "object",
+            "properties": {
+              "p_s": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "p_x": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "p_y": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "p_z": {
+                "type": "number",
+                "description": "Relative molecular XYZ (or singlet) weight, not a unit-sum probability.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "tau_outer": {
+                "description": "Energy-ordered eigenstate links 1-2, 1-3, 2-4, 3-4; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_inner": {
+                "description": "Energy-ordered eigenstate link 2-3; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_out_s": {
+                "description": "Loss from molecular sublevel s; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_out_x": {
+                "description": "Loss from molecular sublevel x; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_out_y": {
+                "description": "Loss from molecular sublevel y; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tau_out_z": {
+                "description": "Loss from molecular sublevel z; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "p_s",
+              "p_x",
+              "p_y",
+              "p_z",
+              "tau_outer",
+              "tau_inner",
+              "tau_out_s",
+              "tau_out_x",
+              "tau_out_y",
+              "tau_out_z"
+            ],
+            "additionalProperties": false
+          },
+          "rise_time_us": {
+            "type": "number",
+            "description": "Optional positive rise time in us: S(B,t)-S(B,0)*exp(-t/T); omit for raw MaRS kinetics.",
+            "exclusiveMinimum": 0
+          }
+        },
+        "required": [
+          "field_axis",
+          "hamiltonian",
+          "time_axis",
+          "context"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+]

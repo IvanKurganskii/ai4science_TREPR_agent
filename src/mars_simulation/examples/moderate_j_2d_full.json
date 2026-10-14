@@ -1,0 +1,54 @@
+{
+  "name": "simulate_moderate_j_2d_full",
+  "arguments": {
+    "field_axis": {
+      "start": 0.325,
+      "stop": 0.37,
+      "points": 101
+    },
+    "output": {
+      "name": "moderate_j_2d_full",
+      "save_plot": true
+    },
+    "hamiltonian": {
+      "g0": 1.985,
+      "delta_g": 0.02,
+      "D": 180000000.0,
+      "E": 10000000.0,
+      "J": 100000000.0,
+      "gauss": 0.001,
+      "lorentz": 0.001
+    },
+    "settings": {
+      "freq": 9800000000.0,
+      "temperature": 80.0,
+      "mesh": 25,
+      "device": "cpu",
+      "dtype": "float64",
+      "harmonic": 0,
+      "frame": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "time_axis": {
+      "start": 0.0,
+      "stop": 5e-06,
+      "points": 31
+    },
+    "context": {
+      "p_s": 0.0,
+      "p_x": 0.5,
+      "p_y": 1.0,
+      "p_z": 0.0,
+      "tau_outer": 50.0,
+      "tau_inner": 0.5,
+      "tau_out_s": 0.01,
+      "tau_out_x": 5.0,
+      "tau_out_y": 1.0,
+      "tau_out_z": 10.0
+    },
+    "rise_time_us": 0.2
+  }
+}

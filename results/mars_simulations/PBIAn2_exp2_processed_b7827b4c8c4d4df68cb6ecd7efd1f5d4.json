@@ -1,0 +1,129 @@
+{
+  "source": {
+    "path": "/mnt/c/Users/kurga/OneDrive/Документы/YSDA/AI4Science/my_project/results/mars_simulations/PBIAn2_exp2_denoised_6be3018abebe478991e38caf1b17526f.npz",
+    "dataset": "PBIAn2_300719s1_exp2_smallStep",
+    "sha256": "fa76d406d02e21b57a928f82fe60789b74e24c7fc1affafe58fdb083cd228229",
+    "field_unit": "T",
+    "time_unit": "s",
+    "signal_key": "signal"
+  },
+  "history": [
+    {
+      "stage": "baseline",
+      "options": {
+        "poly_order": 1,
+        "subtract_average_background": true,
+        "correct_baseline": true,
+        "baseline_mode": "scaled_reference",
+        "fit_intensity_shift": true,
+        "field_bounds_T": [
+          0.285,
+          0.395
+        ],
+        "time_bounds_s": [
+          5e-06,
+          null
+        ]
+      },
+      "reference_index": 406,
+      "reference_time_s": 5.0750000000000005e-06,
+      "internal_fit_units": {
+        "field": "G",
+        "time": "ns"
+      },
+      "backend": "Notebook BaselineCorrector2D",
+      "backend_sha256": "6364589dc1199c07a0f165d0237f2f6da5289f611356b5a5a0246d93fe1824a2",
+      "warnings": []
+    },
+    {
+      "stage": "denoising",
+      "options": {
+        "method": "svd",
+        "svd_rank": 3
+      },
+      "backend": "mars.filter_noise_2d",
+      "backend_sha256": "812fadbf2626f234d196058cdaa7fbc1b3d60774cf1c805ba87c7c5f1805180e",
+      "warnings": [],
+      "effective_svd_rank": 3
+    }
+  ],
+  "axis_order": [
+    "time",
+    "field"
+  ],
+  "units": {
+    "field": "T",
+    "time": "s",
+    "signal": "a.u."
+  },
+  "baseline_correction": {
+    "stage": "baseline",
+    "options": {
+      "poly_order": 1,
+      "subtract_average_background": true,
+      "correct_baseline": true,
+      "baseline_mode": "scaled_reference",
+      "fit_intensity_shift": true,
+      "field_bounds_T": [
+        0.285,
+        0.395
+      ],
+      "time_bounds_s": [
+        5e-06,
+        null
+      ]
+    },
+    "reference_index": 406,
+    "reference_time_s": 5.0750000000000005e-06,
+    "internal_fit_units": {
+      "field": "G",
+      "time": "ns"
+    },
+    "backend": "Notebook BaselineCorrector2D",
+    "backend_sha256": "6364589dc1199c07a0f165d0237f2f6da5289f611356b5a5a0246d93fe1824a2",
+    "warnings": []
+  },
+  "dataset": "PBIAn2_300719s1_exp2_smallStep",
+  "shape": [
+    4000,
+    601
+  ],
+  "created_utc": "2026-10-14T16:56:36.942679+00:00",
+  "versions": {
+    "python": "3.11.16",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "mars_epr": "0.0.5.post5",
+    "PyWavelets": "1.9.0"
+  },
+  "threads": 2,
+  "source_history": [
+    {
+      "path": "/mnt/c/Users/kurga/OneDrive/Документы/YSDA/AI4Science/my_project/data/raw_spectra/PBIAn2_300719s1_exp2_smallStep.csv",
+      "dataset": "PBIAn2_300719s1_exp2_smallStep",
+      "sha256": "5f94db8fd43c16fd4b89c2b6476b0735da25780ef7bd6b5817be5e49f9489dba",
+      "field_unit": "G",
+      "time_unit": "ns",
+      "signal_key": "signal"
+    },
+    {
+      "path": "/mnt/c/Users/kurga/OneDrive/Документы/YSDA/AI4Science/my_project/results/mars_simulations/PBIAn2_300719s1_exp2_smallStep_baseline_corrected_1d2c246d6ace4a0bacafeb44e5c060b3.npz",
+      "dataset": "PBIAn2_300719s1_exp2_smallStep",
+      "sha256": "09e417a085758464b445029024b743b114aa55f2b8aecb370f466661f26eb912",
+      "field_unit": "T",
+      "time_unit": "s",
+      "signal_key": "signal"
+    }
+  ],
+  "denoising": {
+    "stage": "denoising",
+    "options": {
+      "method": "svd",
+      "svd_rank": 3
+    },
+    "backend": "mars.filter_noise_2d",
+    "backend_sha256": "812fadbf2626f234d196058cdaa7fbc1b3d60774cf1c805ba87c7c5f1805180e",
+    "warnings": [],
+    "effective_svd_rank": 3
+  }
+}

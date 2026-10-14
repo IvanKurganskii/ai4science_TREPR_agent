@@ -1,0 +1,16 @@
+{
+  "id": "clean-selected",
+  "name": "clean_epr_2d",
+  "arguments": {
+    "source": {"path": "data/raw_spectrum.csv", "time_unit": "ns"},
+    "baseline": {
+      "field_bounds_T": [0.345, 0.355],
+      "time_bounds_s": [0, null],
+      "poly_order": 1,
+      "baseline_mode": "scaled_reference",
+      "fit_intensity_shift": true
+    },
+    "denoising": {"method": "svd", "svd_rank": 10},
+    "output": {"name": "cleaned_spectrum", "formats": ["npz", "pkl"], "save_plot": true}
+  }
+}

@@ -1,0 +1,5 @@
+# Recommended environment. Nevergrad is unnecessary for these simulation tools.
+# PyTorch/CUDA choice may be prepared separately by the host.
+mars-epr==0.0.5.post5
+numpy==1.26.4
+matplotlib>=3.8

@@ -1,0 +1,42 @@
+{
+  "name": "simulate_moderate_j_1d",
+  "arguments": {
+    "field_axis": {
+      "start": 0.325,
+      "stop": 0.37,
+      "points": 101
+    },
+    "output": {
+      "name": "moderate_j_1d",
+      "save_plot": true
+    },
+    "hamiltonian": {
+      "g0": 1.985,
+      "delta_g": 0.02,
+      "D": 180000000.0,
+      "E": 10000000.0,
+      "J": 100000000.0,
+      "gauss": 0.001,
+      "lorentz": 0.001
+    },
+    "settings": {
+      "freq": 9800000000.0,
+      "temperature": 80.0,
+      "mesh": 25,
+      "device": "cpu",
+      "dtype": "float64",
+      "harmonic": 0,
+      "frame": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "populations": {
+      "p_s": 0.0,
+      "p_x": 0.5,
+      "p_y": 1.0,
+      "p_z": 0.0
+    }
+  }
+}

@@ -1,0 +1,20 @@
+# Instructions for the simulation agent
+
+Use the six supplied function tools to calculate powder EPR spectra. The host executes the Python functions. Do not invent a MaRS result, execute notebook cells, or ask the host to install an optimizer for a simulation.
+
+1. Choose `high_j` for the effective S=1 triplet model, or `moderate_j` for the coupled two-electron S=1/2 model. If the user's physical model is unclear, ask before choosing.
+2. Use `simulate_<model>_1d` for a stationary field spectrum with initial polarization and no kinetic rates. Use `simulate_<model>_2d` to vary context with the fixed `spin_model` snapshot from a previous 1D/full result. Use `simulate_<model>_2d_full` when specifying/changing both Hamiltonian and context. Full does not mean optimization or a different Hamiltonian algorithm.
+3. Supply all required Hamiltonian and population/context fields. Never infer them from slider defaults. Tool defaults for frequency/temperature are example settings; override with the user's acquisition conditions.
+4. Convert inputs: fields T, field widths FWHM T, frequency and D/E/J Hz, axis times s, temperature K, frame radians. Context lifetimes and rise_time_us use microseconds. In moderate-J, J multiplies +S1 dot S2; do not silently import an ORCA -2J convention. The DE tensor convention is stated in README.md.
+5. Initial weights refer to molecular Tx/Ty/Tz and, for moderate-J, S first. Moderate-J relaxation links refer to energy-ordered eigenstates. They are not product-state transitions. The model has no nuclear/hyperfine interactions or independent tensor frames.
+6. The default `population_mode=notebook` reproduces the notebook's different population conventions. For a direct 1D/2D consistency check use `raw` in both calls, identical Hamiltonian/settings/field grid, no rise, and null for every lifetime (zero rates). Large finite lifetimes only approximate this limit. `null` disables a lifetime rate; numeric zero is invalid.
+7. Optional rise is S(B,t)-S(B,0)*exp(-t/T_rise), evaluated from true t=0. Do not describe it as a population-generation master equation. A cropped time axis remains time since preparation, not time since its first point.
+8. Start with mesh=25, float64 and CPU unless the user requests another device. A mesh value controls both meshes. Requesting unavailable CUDA produces an error; use cpu/auto explicitly. Change mesh via a full call if the existing spin_model is fixed.
+9. Prefer output files for maps. Read the compact summary, shape, metadata and artifact paths. Set output.include_data only for small results. Return artifact paths exactly as supplied, never fabricate links or claim to have inspected a PNG unless the host exposes its contents.
+10. Check `ok` after every call. On failure, correct the supplied parameter/unit/device issue and call again; do not report a failed simulation as successful. Preserve E/A signs: maxabs normalization uses one positive divisor for the whole map, never a per-time divisor.
+11. These functions calculate spectra; they do not fit experimental data or produce confidence intervals. For an optimization loop the host may repeatedly call full tools or reuse the lower-level engine. Do not claim that any individual parameter set is a best fit without an actual objective/search result.
+12. Keep version/settings/context metadata with scientific results. The existing project's solver audit documents a MaRS resonance-solver issue. Wrapper tests reproduce the notebook backend; they do not establish resonance accuracy or mesh convergence. Do not state that a simulation is quantitatively validated from these tests alone.
+
+Start the host from the VS Code project root. By default, artifacts are saved in `results/mars_simulations` under the process working directory; the directory is created automatically. The host can override this with `output_dir` or `--output-dir`.
+
+Tool schemas are in `tool_schemas.json`. Every tool returns a portable `spin_model` JSON object, not a torch object or pickled archive. CPU/CUDA switching for fixed-model 2D calls uses the optional `device` argument.

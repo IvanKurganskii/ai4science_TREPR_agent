@@ -1,0 +1,89 @@
+{
+  "source": {
+    "path": "/mnt/c/Users/kurga/OneDrive/Документы/YSDA/AI4Science/my_project/data/raw_spectra/PBIAn1_300719_s1_exp.csv",
+    "dataset": "PBIAn1_300719_s1_exp",
+    "sha256": "b4da42cb5db14ba195bbbee3cbabc3e991492a29c2261057325a55b3d1e900c8",
+    "field_unit": "G",
+    "time_unit": "ns",
+    "signal_key": "signal"
+  },
+  "history": [
+    {
+      "stage": "baseline",
+      "options": {
+        "poly_order": 1,
+        "subtract_average_background": true,
+        "correct_baseline": true,
+        "baseline_mode": "scaled_reference",
+        "fit_intensity_shift": true,
+        "field_bounds_T": [
+          0.285,
+          0.395
+        ],
+        "time_bounds_s": [
+          5e-06,
+          null
+        ]
+      },
+      "reference_index": 3551,
+      "reference_time_s": 1.7755000000000002e-05,
+      "internal_fit_units": {
+        "field": "G",
+        "time": "ns"
+      },
+      "backend": "Notebook BaselineCorrector2D",
+      "backend_sha256": "6364589dc1199c07a0f165d0237f2f6da5289f611356b5a5a0246d93fe1824a2",
+      "warnings": []
+    }
+  ],
+  "axis_order": [
+    "time",
+    "field"
+  ],
+  "units": {
+    "field": "T",
+    "time": "s",
+    "signal": "a.u."
+  },
+  "baseline_correction": {
+    "stage": "baseline",
+    "options": {
+      "poly_order": 1,
+      "subtract_average_background": true,
+      "correct_baseline": true,
+      "baseline_mode": "scaled_reference",
+      "fit_intensity_shift": true,
+      "field_bounds_T": [
+        0.285,
+        0.395
+      ],
+      "time_bounds_s": [
+        5e-06,
+        null
+      ]
+    },
+    "reference_index": 3551,
+    "reference_time_s": 1.7755000000000002e-05,
+    "internal_fit_units": {
+      "field": "G",
+      "time": "ns"
+    },
+    "backend": "Notebook BaselineCorrector2D",
+    "backend_sha256": "6364589dc1199c07a0f165d0237f2f6da5289f611356b5a5a0246d93fe1824a2",
+    "warnings": []
+  },
+  "dataset": "PBIAn1_300719_s1_exp",
+  "shape": [
+    4000,
+    241
+  ],
+  "created_utc": "2026-10-14T16:34:36.674926+00:00",
+  "versions": {
+    "python": "3.11.16",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "mars_epr": "0.0.5.post5",
+    "PyWavelets": "1.9.0"
+  },
+  "threads": 2
+}
