@@ -1,0 +1,13 @@
+t,действие,наблюдение,φ
+0,list_files({}),results/tables/Table_1.csv,
+1,"read_file({""path"":""results/tables/Table_1.csv""})","# DMRG-CASSCF, full-pi active space, bond dimension M=1024, basis cc-p",
+2,"calc({""expr"":""(0.0068 + 0.2460 + 0.0071 + 0.0096 + 0.1763 + ",0.093931,
+3,"write_file({""path"":""result.txt"",""content"":""MAE(D_calc vs D_e",записано 31 символов в result.txt,
+4,ответ,"
+
+MAE (D_calc vs D_exp) вычислен и записан в result.txt.",0
+5,ответ,,0
+6,ответ,,0
+7,ответ,,0
+8,ответ,,0
+9,ответ,,0
