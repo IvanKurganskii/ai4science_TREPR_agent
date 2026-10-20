@@ -1,0 +1,56 @@
+{
+  "dimension": "1d",
+  "shape": [
+    241
+  ],
+  "axis_order": [
+    "field"
+  ],
+  "mars_epr_version": "0.0.5.post5",
+  "numpy_version": "2.4.6",
+  "torch_version": "2.14.1+cu130",
+  "python_version": "3.11.16",
+  "population_mode": "minmax",
+  "input_populations": {
+    "p_x": 0.0,
+    "p_y": 1.0,
+    "p_z": 0.0
+  },
+  "effective_populations": [
+    0.0,
+    1.0,
+    0.0
+  ],
+  "context": null,
+  "rise_time_us": null,
+  "normalization": "none",
+  "normalization_divisor": 1.0,
+  "threads": 2,
+  "relaxation_basis": null,
+  "population_basis": "molecular_xyz",
+  "backend": "MaRS StationarySpectra",
+  "created_utc": "2026-10-20T15:28:52.622239+00:00",
+  "spin_model": {
+    "model": "high_j",
+    "hamiltonian": {
+      "D": 1288000000.0,
+      "E": 112000000.0,
+      "g": 2.0,
+      "gauss": 0.0005,
+      "lorentz": 0.0001
+    },
+    "settings": {
+      "freq": 9800000000.0,
+      "temperature": 80.0,
+      "mesh": 25,
+      "frame": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "device": "cpu",
+      "dtype": "float64",
+      "harmonic": 1
+    }
+  }
+}

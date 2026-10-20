@@ -1,0 +1,1496 @@
+WORKING COPY - TR-EPR results removed
+
+Accepted Article
+Accepted Article
+Title: Efficient Spin Orbit Charge Transfer Intersystem Crossing and
+Slow Intramolecular Triplet-Triplet Energy Transfer in BodipyPerylenebisimide Compact Dyads and Triads
+Authors: Xi Chen, Noreen Rehmat, Ivan V. Kurganskii, Partha Maity,
+Ayhan Elmali, Jianzhang Zhao, Ahmet Karatay, Omar F.
+Mohammed, and Matvey V. Fedin
+This manuscript has been accepted after peer review and appears as an
+Accepted Article online prior to editing, proofing, and formal publication
+of the final Version of Record (VoR). The VoR will be published online
+in Early View as soon as possible and may be different to this Accepted
+Article as a result of editing. Readers should obtain the VoR from the
+journal website shown below when it is published to ensure accuracy of
+information. The authors are responsible for the content of this Accepted
+Article.
+To be cited as: Chem. Eur. J. 2023, e202302137
+Link to VoR: https://doi.org/10.1002/chem.202302137
+
+01/2020
+
+WORKING COPY - TR-EPR results removed
+
+Efficient Spin Orbit Charge Transfer Intersystem Crossing and
+Slow Intramolecular Triplet-Triplet Energy Transfer in BodipyPerylenebisimide Compact Dyads and Triads
+Xi Chen+,[a] Noreen Rehmat+,[a] Ivan V. Kurganskii+,[b] Partha Maity+,[c] Ayhan Elmali,[d] Jianzhang Zhao*[a]
+Ahmet Karatay*[d] Omar F. Mohammed*[c] and Matvey V. Fedin*[b]
+
+
+[a] X. Chen, Dr. N. Rehmat, Prof. J. Zhao
+State Key Laboratory of Fine Chemicals, Frontiers Science Center for Smart Materials, School of Chemical Engineering, Dalian University of
+Technology, Dalian 116024 (P. R. China)
+E-mail: zhaojzh@dlut.edu.cn
+Homepage: http://photochem.dlut.edu.cn
+[b] I. Kurganskii, Prof. M. V. Fedin
+International Tomography Center, SB RAS, and Novosibirsk State University, 630090 Novosibirsk (Russia)
+E-mail: mfedin@tomo.nsc.ru
+Homepage: https://www.tomo.nsc.ru/homepages/LMR/
+[c] P. Maity, Prof. O. F. Mohammed
+Division of Physical Sciences and Engineering, King Abdullah University of Science and Technology (KAUST), Thuwal 23955-6900, (Kingdom of
+Saudi Arabia). E-mail: omar.abdelsaboor@kaust.edu.sa
+Homepage: https://femto.kaust.edu.sa/
+[d] Prof. A. Elmali, Dr. A. Karatay
+Department of Engineering Physics, Faculty of Engineering, Ankara University, 06100 Beşevler, Ankara, (Türkiye)
+E-mail: Ahmet.Karatay@eng.ankara.edu.tr
+Homepage: https://avesis.ankara.edu.tr/akaratay
+[+] These authors contributed equally to this work.
+Supporting information for this article is given via a link at the end of the document.
+
+Abstract: We prepared Bodipy (BDP)-perylenebisimide (PBI) donor-acceptor dyads/triad to study the spin orbit charge transfer intersystem
+crossing (SOCT-ISC). For BDP-PBI-3, in which BDP was attached at the imide position of PBI, higher singlet oxygen quantum yield ( = 85%)
+was observed than the bay-substituted derivative BDP-PBI-1 ( = 30%). Femtosecond transient absorption spectra indicate slow Förster
+resonance energy transfer (FRET; 40.4 ps) and charge separation (CS; 1.55 ns) in BDP-PBI-3, while for BDP-PBI-1, CS takes 2.8 ps. For triad
+BDP-PBI-2, ultrafast FRET (149 fs) and CS (4.7 ps) process were observed, the subsequent charge recombination (CR) takes 5.8 ns and long
+lived 3PBI* (179.8 µs) state is populated. Nanosecond transient absorption spectra of BDP-PBI-3 show that the CR gives upper triplet excited
+state (3BDP*) and subsequently, via a slow intramolecular triplet energy transfer (14.5 µs), the 3PBI* state is finally populated, indicating that
+upper triplet state is involved in SOCT-ISC.
+
+Introduction
+
+drawbacks, for instance, high cost of the precious metals, dark
+toxicity due to heavy atom and difficult synthesis, shortened triplet
+state lifetimes, etc.[36,37]
+Previous studies on electron donor-acceptor dyads showing
+photo-induced electron transfer (or charge separation, CS) have
+shown that ISC can be induced via charge recombination
+(CR).[3840] Two different mechanisms have been proposed for the
+triplet state population in donor-acceptor system through CR, i.e.
+radical pair intersystem crossing (RP-ISC) and spin orbit charge
+transfer intersystem crossing (SOCT-ISC).[41,42] RP-ISC requires
+very weak coupling between donor and acceptor, in other words,
+the electron exchange energy (J) is extremely small, which is
+usually obtained by using a long, rigid linker to connect the donor
+with acceptor. This results in an extremely small J, i.e. the small
+energy gap between charge transfer (1CT/3CT) states. The main
+
+Triplet excited state plays fundamental role in photochemical
+applications, such as photodynamic therapy,[15] photovoltaics,[6,7]
+photocatalysis,[813] and triplet-triplet annihilation upconversion.[14,
+15]
+Triplet excited state of organic compounds is formed through
+intersystem crossing (ISC) after photoexcitation. ISC is an
+electron spin forbidden process,[16] the most typical approach to
+enhance ISC in organic compounds is the heavy atom effect,
+realized by attaching heavy atoms, such as Ir, Ru, Pt, I and Br etc.,
+to a chromophore.[1722] Some alternative approaches without
+invoking of heavy atom effect are available, include use of spin
+convertor,[2326] exciton coupling,[2729] singlet fission,[3032]
+interaction of a photo-excited chromophore with stable radical
+etc.[3335] However, these conventional methods suffer from some
+
+1
+
+This article is protected by copyright. All rights reserved.
+
+Acc pted Manuscript
+
+RESEARCH ARTICLE
+
+15213765, ja, Downloaded from https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202302137 by Institute International Tomography Center SB RAS, Wiley Online Library on [21/09/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+10.1002/chem.202302137
+
+Chemistry - A European Journal
+
+WORKING COPY - TR-EPR results removed
+
+driving force in RP-ISC is the hyperfine coupling interaction (HFI).
+However, the ISC kinetics of RP-ISC is slow, and the dyads
+containing long, rigid linkers are difficult to synthesize.
+Recently, some compact donor-acceptor systems with
+orthogonal geometry are found to exhibit efficient triplet
+population, via SOCT-ISC mechanism.[38] In such kind of electron
+donor-acceptor molecular systems, CR is accompanied with orbit
+angular momentum change of electron, which off-sets its spin
+angular momentum change during ISC, thus ISC is enhanced in
+such orthogonal dyads.[38] A few examples of SOCT-ISC systems
+were reported, including Bodipy-anthracene,[4346] Bodipyphenothiazine,[47]
+naphthalene-acridine,[48]
+phenothiazineanthracene[49] and carbazole-perylenebisimide donor-acceptor
+dyads.[50] However, there is still much room left for studying the
+SOCT-ISC mechanism. For instance, although it was proposed
+previously that an upper triplet state should be involved in SOCTISC, there is no experimental evidence for this postulate.
+Unfortunately, it is difficult to directly observe the upper triplet
+state, because the upper triplet states are usually short-lived and
+the internal conversion to low lying localized excited (3LE) state is
+fast. Moreover, although it was assumed that 1CT3LE is fast in
+the dyads showing SOCT-ISC, it’s still an open question whether
+or not other processes also play a role in SOCT-ISC. Finally,
+experimental evidence for the sign and magnitude of the J value
+of compact electron donor-acceptor dyads was rarely reported.
+Herein we designed a series of Bodipy (BDP)perylenebisimide (PBI) donor-acceptor dyads and triads by
+connecting the BDP electron donor at either the bay or imide
+position of PBI, and via one or two phenyl linkers (BDP-PBI-1,
+BDP-PBI-2 and BDP-PBI-3. Scheme 1). The phenyl spacers
+were introduced as a bridge between BDP and PBI moieties to
+achieve the weak coupling between donor-acceptor moieties. The
+aim of this work is to study the detail mechanism of the SOCTISC in the BDP-PBI donor-acceptor systems. The photophysical
+properties of the dyads and triads were studied with steady state
+
+and time-resolved transient optical spectroscopic methods, as
+well as time-resolved electron paramagnetic resonance (TREPR)
+spectroscopy. Photoinduced CS and CR and efficient SOCT-ISC
+were observed. Interestingly, upper triplet state was observed, as
+well as an unusually slow intramolecular triplet-triplet-energytransfer (TTET).
+
+Results and Discussion
+
+PBI is highly fluorescent and possess intense visible light
+absorption, but it lacks ISC ability. [51] Previously, some attempts
+were made to access the triplet state of PBI through SOCT-ISC
+approach by introducing strong donor phenothiazine moiety at the
+bay position of PBI, but no triplet formation upon photoexcitation
+was observed.[52] This may be due to large energy gap between
+CT (1.88 eV) and triplet states (1.20 eV).[52] Keeping this in mind,
+we devised donor-acceptor dyads/triads by attaching weak donor
+(BDP) moiety to the electron deficient PBI acceptor, with aim to
+achieve better matching of CT (ca. 2.1 eV) and triplet state
+energies (ca. 1.63 eV for the BDP unit) which in turn results in the
+efficient triplet formation.
+The synthesis of the compounds are based on the routine
+derivatization chemistry of PBI and BDP chromophores. The
+introducing of BDP moiety at the bay and imide position of PBI
+chromophore were realized by Suzuki-Miyaura crossing coupling
+reactions (Scheme 1). Proper reference compounds were
+prepared and used in spectral studies.
+
+Scheme 1. Synthesis of BDP-PBI Derivatives and Reference Compounds: (a) 2-Ethylhexylamine, imidazole, 140 C, 4 h, N2, yield: 95%; (b) Br2, K2CO3, CHCl3, 60
+C, 2 h, N2, yield: 45%; (c) K2CO3, Pd(PPh3)4, PhCH3/C2H5OH/H2O (4/2/1, v/v/v), 90 C, 8 h, N2, yield: 70%; (d) 3-Pentylamine, p-bromoaniline, imidazole, 140 C,
+4 h, N2, yield: 50%; (e) Similar to (c), yield: 40%; (f) Br2, K2CO3, CHCl3, 60 C, 2 h, N2, yield: 55%; (g) Similar to (c), yield: 60%; (h) Similar to (c), with phenylboronic
+acid, yield: 65%; (i) 3-Pentylamine, aniline, imidazole, 140 C, 4 h, N2, yield: 50%; (j) Similar to (c), yield: 55%.
+
+2
+
+This article is protected by copyright. All rights reserved.
+
+Accepted Manuscript
+
+RESEARCH ARTICLE
+
+15213765, ja, Downloaded from https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202302137 by Institute International Tomography Center SB RAS, Wiley Online Library on [21/09/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+10.1002/chem.202302137
+
+Chemistry - A European Journal
+
+WORKING COPY - TR-EPR results removed
+
+60°
+94°
+
+9.3°
+13.2°
+
+63°
+0.4°
+
+BDP-PBI-1
+
+BDP-PBI-2
+
+BDP-PBI-3
+
+Figure 2. UVvis absorption spectra of (a) BDP-PBI-1, BDP-PBI-2 and BDPPBI-3; (b) Reference compounds R-1, R-2 and R-3, c = 1.0 × 10–5 M in toluene,
+20 °C.
+
+Figure 1. Optimized ground state geometry and the selected dihedral angles
+(degree) of the PBI and BDP units in the dyads calculated by DFT (CAMB3LYP/6-31G (d)) with Gaussian 09.
+
+The position of the attachment of PBI moiety with BDP
+chromophore was varied to study the effect of mutual
+chromophore orientation on the photophysical properties,
+especially SOCT-ISC efficiency. Two dyads (BDP-PBI-1 and
+BDP-PBI-3) were constructed by linking BDP moiety to the PBI
+acceptor at the bay position and imide position, respectively. A
+triad (BDP-PBI-2) was also prepared by introducing two BDP
+units at the bay region of PBI. BDP-PBI-1 and BDP-PBI-2 were
+reported previously,[53] but the triplet state formation was not
+studied.
+The ground state geometries of the BDP-PBI dyads/triad are
+optimized (Figure 1). For BDP-PBI-1 and BDP-PBI-2, the
+dihedral angles between the PBI and the intervening phenyl
+moiety of BDP is 60°and 63°respectively. On the other hand, the
+dihedral angle between the intervening phenyl ring and the PBI
+moiety in BDP-PBI-3 is 94°. Moreover, BDP-PBI-1 and BDP-PBI2 show the distorted PBI core, which is common feature observed
+in bay-substituted PBI derivatives.[52,54,55] For BDP-PBI-1, BDPPBI-2 and BDP-PBI-3, the distortion angles of PBI core are ca.
+9.3°, 13.2° and 0.4° respectively. Previously, we showed that
+substitution of anthryl unit at bay position of PBI leads to twisting
+of PBI core by 14°to 17°.[54] Whereas in case of BDP-PBI-3, PBI
+chromophore exhibit almost a planar geometry which indicates
+that the substitution of BDP at imide position of PBI has negligible
+effect on electronic feature of PBI. The PBI core was also found
+to be planar in previously studied imide substituted PBI-Cz
+dyads.[50] The dihedral angle between the planes of BDP and PBI
+in BDP-PBI dyads/triads was also determined (Figure S26). For
+BDP-PBI-1, BDP-PBI-2 and BDP-PBI-3, the dihedral angles
+between BDP and PBI planes are ca. 36.7°, 34.8° and 40.7°
+respectively.
+
+Figure 3. (a) Fluorescence emission spectra of BDP-PBI-1, BDP-PBI-2, BDPPBI-3, R-1, R-2 and R-3. (b) Normalized fluorescence emission spectra of the
+dyads BDP-PBI-1 and BDP-PBI-3. Optically matched solutions were used in
+toluene (all the compounds have the same absorbance at the excitation
+wavelength c ≈ 1.0 × 10–5 M, A = 0.1), ex = 480 nm, 20 °C.
+
+position) of PBI core, the absorption spectra became slightly red
+shifted and the vibration progression becomes less distinct.[54]
+The absorption spectra of BDP-PBI dyads/triad consist of
+absorption profiles of their independent components but is not
+exactly the sum of absorbance of the components. For BDP-PBI3, two absorption bands centered at 502 nm and 525 nm were
+observed, which are attributed to BDP and PBI moiety,
+respectively. For BDP-PBI-1 and BDP-PBI-2, the absorption
+spectra also consist of two absorption bands; the band centered
+at 502 nm is attributed to BDP moiety, while the PBI absorption
+band is greatly reduced in intensity and red shifted. These
+spectral features indicate that by attaching of donor (BDP) at the
+bay positions (1 or 1, 7-position) of PBI through phenyl spacer,
+the -conjugation framework of PBI moiety is perturbed while
+substitution at imide position (BDP-PBI-3) exerts no influence on
+the ground state electronic structure of the PBI core.
+The fluorescence of BDP-PBI dyads/triads were studied
+(Figure 3). BDP-PBI dyads/triad are weakly emissive even in nonpolar solvent such as toluene, whereas reference compound R-3
+is highly fluorescent (optically matched solution was used).
+Fluorescence spectrum of R-3 shows vibronic bands at 534 nm,
+574 nm and 625 nm, which is characteristic emission of PBI
+fluorophore.[50] For BDP-PBI-3, the fluorescence spectrum is
+similar to R-3, but emission bands are reduced in intensity, the
+fluorescence quantum yield (F) of BDP-PBI-3 is 60% in toluene.
+For BDP-PBI-1 and BDP-PBI-2 the emission is strongly
+quenched, the  F of BDP-PBI-1 and BDP-PBI-2 is 1% and 0.2%
+respectively (in toluene, Table 1).[53] The results indicate that
+
+The UVvis absorption spectra of the BDP-PBI dyads/triads and
+reference compounds in toluene are shown in Figure 2. [53] The
+PBI chromophore has characteristic structured absorption band
+in the range of 400−550 nm, which is assigned to the S 0S1
+transition of the PBI core. In case of R-3 (phenyl group substituted
+at imide position of PBI), characteristic structured absorption
+bands centered at 489 and 502 nm were observed, similar to that
+of PBI.[50] Whereas for reference compounds (R-1 and R-2), in
+which phenyl groups are attached at bay positions (1 and 1,7-
+
+3
+
+This article is protected by copyright. All rights reserved.
+
+Accepted Manuscript
+
+RESEARCH ARTICLE
+
+15213765, ja, Downloaded from https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202302137 by Institute International Tomography Center SB RAS, Wiley Online Library on [21/09/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+10.1002/chem.202302137
+
+Chemistry - A European Journal
+
+WORKING COPY - TR-EPR results removed
+
+Table 1. Photophysical parameters of the compounds
+
+abs[a]
+
+ [b]
+
+em
+
+F[c]
+
+F[d]
+
+[f]
+
+T [h]
+
+BDP-PBI-1
+
+504/534
+
+1.09/0.37
+
+514/549
+
+0.01
+
+2.8 (94.4%), 7.8 (5.6%)[e]
+
+0.30/0.06[g]
+
+191.8
+
+BDP-PBI-2
+
+504/552
+
+1.73/0.25
+
+520/595
+
+0.002
+
+2.6 (97.6%), 7.9 (2.4%)[e]
+
+0.27/0.05[g]
+
+179.8
+
+BDP-PBI-3
+
+502/526
+
+0.84/0.66
+
+535
+
+0.60
+
+1.8 (95.7%), 15.2 (4.3%)[e]
+
+0.40/0.85[g]
+
+14.0, 118.9[e]
+
+R-1
+
+534
+
+0.47
+
+574
+
+0.42
+
+6.0
+
+0.15
+
+‒[j]
+
+R-2
+
+552
+
+0.31
+
+597
+
+0.50
+
+7.3
+
+0.06
+
+‒[j]
+
+R-3
+
+526
+
+0.65
+
+535
+
+0.90
+
+4.4
+
+‒[i]
+
+‒[j]
+
+[a] In toluene (1.0 × 10−5 M). The wavelength is in nm. [b] Molar absorption coefficient (105 M−1cm−1). [c] Fluorescence quantum yield with BDP as a standard (F =
+72% in tetrahydrofuran). [d] Fluorescence lifetime (in ns). [e] Biexponential decay, components population ratio is presented in parenthesis. [f] Singlet oxygen
+quantum yield in toluene with diiodo-BDP as a standard ( = 0.83 in dichloromethane) at ex = 525 nm, [g] Singlet oxygen quantum yield in chloroform, [h] Triplet
+state lifetime (μs), [i] Not determined. [j] Not applicable.
+
+Figure 4. Fluorescence emission decay traces of BDP-PBI dyads/triad and the reference compounds. (a) BDP-PBI-1 (em = 548 nm), R-1 (em = 573 nm); (b) BDPPBI-2 (em = 580 nm), R-2 (em = 596 nm) and (c) BDP-PBI-3 (em = 535 nm), R-3 (em = 535 nm), ex = 510 nm, c = 1.0 × 10–5 M in toluene, 20 °C.
+
+attachment of electron donor (BDP) at bay position (1- and 1,7position) of PBI, leads to photoinduced electron transfer (PET)
+which result in strong fluorescence quenching as compared to
+imide substituted donor-acceptor dyad. Moreover, no CT
+emission was observed in BDP-PBI dyads/triad, similar to that
+was observed in imide substituted PBI-Cz dyads,[50] which
+indicates that the CT state is dark state in these derivatives.
+However, broad structureless and red-shifted CT emission was
+observed in the bay substituted PBI-anthracene (An) and PBIphenothiazine (PTZ) dyads due to existence of stronger electronic
+coupling between donor and acceptor moieties. [52,54]
+The fluorescence of BDP-PBI-1 and BDP-PBI-3 were
+compared upon normalization (Figure 3b). In case of BDP-PBI-1,
+two emission bands were observed, i.e., a narrow band at 514 nm
+which can be assigned to the BDP chromophore while a broad
+emission band at 549 nm belongs to the PBI moiety. While for
+BDP-PBI-3, characteristic emission profile of PBI chromophore
+was observed, no BDP emission appeared. The result indicates
+that in BDP-PBI-3, the Fӧrster resonance energy transfer (FRET)
+is very efficient. The solvent-dependent fluorescence of BDP-PBI
+dyads/triad was also studied (Figure S14). Upon increasing the
+solvent polarity, the fluorescence of BDP-PBI dyads/triad is
+
+progressively quenched, which support the PET process in these
+derivatives.
+The fluorescence emission decay traces of BDP-PBI
+dyads/triad along with reference compounds were also studied in
+toluene using time correlated single photon counting (TCSPC)
+detection technique (Figure 4). The fluorescence emission of all
+the BDP-PBI dyads/triad decay following a biexponential feature,
+while in case of reference compounds mono-exponential
+fluorescence decay traces were observed. In case of BDP-PBI-3,
+the biexponential decay showed a fast component (1.8 ns,
+population ratio: 95.7%) and a slow component (15.2 ns,
+population ratio: 4.3%. Figure 4c). The shorting of the
+fluorescence lifetimes of the energy acceptor infers electron
+transfer.
+The fluorescence lifetime of BDP-PBI-1 and BDP-PBI-2 was
+measured at two emission bands corresponding to the BDP and
+PBI unit (Figure 4 and Figure S15). At PBI emission band, both
+dyad (BDP-PBI-1) and triad (BDP-PBI-2) showed a biexponential
+decay feature (Figure 4a and 4b). BDP-PBI-1 shows lifetime of
+2.8 ns (population ratio: 94.4%) and 7.8 ns (5.6%) while in case
+of BDP-PBI-2, the fast component decays with a lifetime of 2.6 ns
+(97.6%) and slow component lifetime is 7.9 ns (2.4%).
+
+4
+
+This article is protected by copyright. All rights reserved.
+
+Accepted Manuscript
+
+RESEARCH ARTICLE
+
+15213765, ja, Downloaded from https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202302137 by Institute International Tomography Center SB RAS, Wiley Online Library on [21/09/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+10.1002/chem.202302137
+
+Chemistry - A European Journal
+
+WORKING COPY - TR-EPR results removed
+
+Figure 5. Cyclic voltammogram of (a) BDP-PBI-1; (b) BDP-PBI-2 and (c) BDP-PBI-3 in deaerated dichloromethane containing 0.10 M Bu4N[PF6] as supporting
+electrolyte. Ferrocene (Fc) was used as the internal reference. Scan rates: 50 mV/s. c = 5 × 10−4 M, 20 °C.
+
+Interestingly, monoexponential decay traces were observed at
+BDP emission band for both BDP-PBI-1 and BDP-PBI-2, with
+lifetime of 2.9 ns and 3.2 ns, respectively (Figure S15). Whereas
+the reference compounds R-1, R-2 and R-3 show lifetime of 6.0
+ns, 7.3 ns and 4.4 ns, respectively (Figure 4). [50] The quenched
+and biexponential feature of fluorescence lifetime in BDP-PBI
+dyads/triad as compared to reference compounds is an indication
+of PET process in these derivatives.
+The detailed photophysical properties of the BDP-PBI
+dyads/triad along with reference compounds are compiled in
+Table 1. To confirm the ISC capability of BDP-PBI dyads/triad, the
+singlet oxygen quantum yield () of the compounds was
+measured. For BDP-PBI-3,  up to 85% (in chloroform) and 40%
+(in toluene) was observed. For BDP-PBI-1 and BDP-PBI-2,
+moderate   of 30% and 27%, respectively, were observed (in
+toluene). The reference compounds R-1 and R-2 exhibited 
+values of only 15% and 6%, respectively (in toluene). The results
+indicate that the ISC capability of dyads BDP-PBI-1 and BDPPBI-2 are caused by the presence of the BDP chromophore, for
+instance by the charge recombination induced-ISC. Meanwhile
+negligible 1O2 was observed for R-3. Moreover, in polar solvents,
+no 1O2 generation was observed by BDP-PBI derivatives. This
+solvent dependent 1O2 generation ability of these derivatives
+supports the SOCT-ISC mechanism of triplet state population,
+and the ISC of the dyads and triad is not caused by the twisted
+PBI chromophore.[5660]
+
+Table 2. Electrochemical redox potentials of the compounds [a]
+Compounds
+
+Eox (V)
+
+Ered (V)
+
+BDP-PBI-1
+
++0.79
+
+1.05, 1.26, 1.73
+
+BDP-PBI-2
+
++0.79
+
+1.02, 1.25, 1.72
+
+BDP-PBI-3
+
++0.76
+
+1.06, 1.23, 1.70
+
+R-1
+
+[b]
+
+1.09, 1.29
+
+R-2
+
+[b]
+
+1.09, 1.28
+
+R-3
+
+[b]
+
+1.11, 1.33
+
+BDP
+
++0.76
+
+1.70
+
+[a] Cyclic voltammetry in N2-saturated dichloromethane containing a 0.10 M
+Bu4NPF6. Counter electrode is Pt electrode and working electrode is glassy
+carbon electrode, Ferrocene (Fc) was used as the internal reference. [b] Not
+observed.
+
+mV) in electrochemical potential. Whereas in case of reference
+compounds (PBI derivatives), only two reduction waves belonging
+to PBI moiety were observed, no oxidation wave was found in the
+electrochemical window of solvent used for the study (Table 2). In
+BDP-PBI-3, the BDP redox potentials remains unaffected on
+attaching with PBI chromophore while the redox potentials of PBI
+chromophore are anodically shifted slightly compared to
+reference compound R-3. Similarly, in BDP-PBI-1 and BDP-PBI2 the slight anodic shift in the redox potential of PBI chromophore
+was observed compared to reference derivatives R-1 and R-2.
+The ΔG0CS of PET process and energy of CT state in BDPPBI dyads/triad were calculated using Weller equation and are
+given in Table 3. For bay substituted dyad/triad BDP-PBI-1 and
+BDP-PBI-2, the ΔG0CS values (0.31 eV and 0.34 eV,
+respectively) are comparable in moderate polar solvent toluene.
+While for BDP-PBI-3, the ΔG0CS value (0.01 eV) is comparatively
+less negative. The ΔG0CS values indicated that the CS is
+thermodynamically allowed for all BDP-PBI dyads/triads even in
+non-polar solvent such as toluene which is agreement with
+fluorescence emission studies.
+
+𝑮𝟎𝑪𝑺
+
+To confirm the thermodynamic feasibility of PET process, the
+electrochemical measurements were carried out and the Gibbs
+free energy changes (ΔG0CS) of electron transfer were calculated
+for all the BDP-PBI derivatives (Figure 5). All the BDP-PBI
+derivatives exhibited nearly similar electrochemical feature with
+multiple reduction waves and one oxidation potential wave in
+dichloromethane. For BDP-PBI-1, two reversible reduction waves
+at  1.05 V and  1.26 V (vs. Fc/Fc+) were observed, which are
+attributed to the PBI moiety. The reversible reduction wave at 
+1.73 V and the reversible oxidation wave at +0.79 V are assigned
+to BDP moiety.[53] Similar electrochemical features were also
+observed for BDP-PBI-2 and BDP-PBI-3 with a slight shift (few
+
+5
+
+This article is protected by copyright. All rights reserved.
+
+Accepted Manuscript
+
+RESEARCH ARTICLE
+
+15213765, ja, Downloaded from https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202302137 by Institute International Tomography Center SB RAS, Wiley Online Library on [21/09/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+10.1002/chem.202302137
+
+Chemistry - A European Journal
+
+WORKING COPY - TR-EPR results removed
+
+Table 3. Driving forces of charge separation (G0CS) and charge recombination (G0CR) and the energy of charge separated state (CSS) for dyads/triad in different
+solvents [a]
+ΔG0CS (eV)
+
+ΔG0CR (eV)
+
+ECSS (eV)
+
+TOL
+
+DCM
+
+ACN
+
+TOL
+
+DCM
+
+ACN
+
+TOL
+
+DCM
+
+ACN
+
+BDP-PBI-1
+
+0.31
+
+0.81
+
+0.95
+
+2.14
+
+1.64
+
+1.50
+
+2.14
+
+1.64
+
+1.50
+
+BDP-PBI-2
+
+0.34
+
+0.84
+
+0.98
+
+2.11
+
+1.61
+
+1.47
+
+2.11
+
+1.61
+
+1.47
+
+BDP-PBI-3
+
+0.01
+
+0.63
+
+0.81
+
+2.34
+
+1.72
+
+1.54
+
+2.34
+
+1.72
+
+1.54
+
+[a] E00 = 2.45 eV, E00 = 2.45 eV and E00 = 2.35 eV were used for BDP-PBI-1, BDP-PBI-2 and BDP-PBI-3 respectively. E00 is the approximated energy level with
+the cross point of UV−vis absorption and fluorescence emission spectra. TOL is toluene, DCM is dichloromethane, ACN is acetonitrile.
+
+Figure 6. Femtosecond transient absorption spectra of (a) BDP-PBI-1 and (d) BDP-PBI-3 at different time delay; Evolution associated difference spectra (EADS)
+of (b) BDP-PBI-1 and (e) BDP-PBI-3; Decay traces at selected wavelengths (c) BDP-PBI-1 and (f) BDP-PBI-3. ex = 500 nm, in toluene, 20 °C.
+
+Moreover, from the ΔG0CS values, it is obvious that the PET
+process is comparatively stronger in BDP-PBI-1 and BDP-PBI-2
+as compared to BDP-PBI-3, which is in accordance with strong
+fluorescence quenching in the bay-substituted donor-acceptor
+derivatives. Hence on the basis of fluorescence emission and
+electrochemical studies; we can claim that the PET is more
+efficient in the bay-substituted PBI donor-acceptor system as
+compared to imide substituted PBI donor-acceptor system. This
+assumption will be further verified by femtosecond transient
+absorption studies and theoretical computations in the later
+section.
+The charge separated state energy levels (ECSS) of the dyads
+were calculated (Table 3). The ECSS values are similar for all the
+compounds in a specific solvent, but the ECSS energy level
+decreases from that in non-polar solvent to polar solvents.
+Moreover, since the T1 state of the PBI chromophore is 1.2 eV,
+thus, we expect a 3LE triplet state should be observed for all the
+dyads, not a CS state.
+
+To study the CS and the ISC processes, the fs-TA spectra of the
+BDP-PBI derivatives were measured, using the 500 nm excitation,
+which predominantly excite the BDP unit.
+Figure 6 depicts the fs-TA spectra of BDP-PBI-1 and BDPPBI-3 in toluene. For BDP-PBI-1, an intense negative band at ca.
+503 nm along with a shoulder band at 538 nm appeared
+immediately after photoexcitation (Figure 6a). These negative
+bands are assigned as ground state bleach (GSB) bands, which
+are consistent with the UVvis absorption spectra. Within 1 ps,
+the GSB band at 538 nm slightly grows in intensity and a new
+broad excited state absorption (ESA) at ca. 713 nm appears,
+which is attributed to the PBI S1Sn absorption.[61,62] These
+changes can be assigned to the FRET process. Within a few ps,
+the new ESA band becomes narrow and red shifted by 6 nm. The
+ESA band also continue to grows in intensity till 100 ps and
+
+6
+
+This article is protected by copyright. All rights reserved.
+
+Accepted Manuscript
+
+RESEARCH ARTICLE
+
+15213765, ja, Downloaded from https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202302137 by Institute International Tomography Center SB RAS, Wiley Online Library on [21/09/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+10.1002/chem.202302137
+
+Chemistry - A European Journal
+
+WORKING COPY - TR-EPR results removed
+
+simultaneously the GSB associated with BDP unit at 503 nm also
+rise. These transient absorption changes can be assigned to the
+CS process. The absorption of BDP+ (540 nm) may overlap with
+the GSB, thus no obvious absorption of radical cation was
+observed. At nanosecond timescale, the CR process takes place
+as evident by the decay of ESA band but triplet population was
+not observed in the time window of the fs-TA measurements.
+Similar photophysical process was observed for BDP-PBI-2
+(Figure S19), with slightly different excited state dynamics.
+To obtain the rate constant of FRET and CS process, global
+fitting and target analysis of fs-TA data were performed, the EADS
+were obtained. In case of BDP-PBI-1, five components were
+required for the proper fitting of the transient absorption data.
+Upon photoexcitation of BDP unit in BDP-PBI-1 (Figure 6b), the
+BDP singlet state populate along with the appearance of PBI GSB
+(black evolution in Figure 6b). FRET process takes ca. 163 fs, as
+evident by the appearance of ESA at 713 nm associated with
+S1Sn absorption of PBI (evolution from black to red). The CS
+process takes 2.8 ps (evolution from red to blue) and is apparently
+a biexponential process. The CR takes place more than 3 ns,
+giving a long-lived species, but major fraction directly decays to
+the ground state (evolution from green to magenta). For BDPPBI-2(Figure S19), the FRET completes within 149 fs and the
+charge separation and recombination take 4.7 ps and > 3 ns,
+respectively. Previously, anthracene substituted PBI derivatives
+were studied for the CR induced ISC, in which the CS was also
+takes place at similar timescale of 2.8 ps.[62] While for the
+previously reported PBI-PTZ dyad, ultrafast CS process (0.6 ps)
+was observed.[61] The fs-TA spectra of BDP-PBI-3 in toluene were
+studied (Figure 6d). Upon photoexcitation at 500 nm, the BDP
+singlet state is populated, indicated by the appearance of BDP
+GSB band at 505 nm and a weak ESA band at 440 nm. Within
+less than 1 ps, the BDP GSB band starts depleting with the
+appearance of PBI GSB band at ca. 530 nm, SE band at ca. 580
+nm and ESA band at ca. 690 nm were observed. These spectral
+features changes show the population of PBI singlet state via
+FRET process, but the kinetics is slightly slower as compared to
+bay substituted PBI derivatives (BDP-PBI-1 and BDP-PBI-2).
+This might be due to the presence of long spacer between BDP
+unit and PBI moiety, or the different mutual orientation of the
+transition dipole moments of the two chromophores. The global
+analysis of transient absorption data shows that the FRET in
+BDP- PBI-3 takes 40.4 ps (red to blue evolution in Figure 6f). At
+1.55 ns time delay, the SE band disappears, the ESA band
+emerges at 690 nm red shifted by 10 nm along with slight change
+in the shape. Moreover, a new ESA band at 540 nm appears and
+GSB band at 502 nm reappears. These spectral changes are
+associated with the CS process. The weak ESA band at 540 nm
+can be assigned to BDP+,[63] while the band at 701 nm belongs
+to the PBI radical anion.[53,64] The slow CS in BDP-PBI-3
+compared to BDP-PBI-1 might be due to the long spacer and
+different substitution position. In BDP-PBI-3, the CR process
+takes place at longer timescale and was not observed within the
+timescale window of the measurement. Fs-TA measurements of
+the BDP-PBI dyads/triad were also carried out in chloroform,
+nearly similar spectral features were observed with slight change
+in the excited state dynamics (Figure S17 and S18).
+
+Figure 7. (a) Sub-nanosecond transient absorption spectra of BDP-PBI-1
+extracted at different time delay, (b) decay traces monitored at selected
+wavelengths, (c) Sub-nanosecond transient absorption spectra of BDP-PBI-3
+at different delay time, (d) decay traces monitored at selected wavelengths. ex
+= 500 nm, in toluene, 20 °C.
+
+t
+
+In order to determine the kinetics of the ISC, sub-nanosecond
+transient absorption measurement was performed for the BDPPBI derivatives (Figure 7). Upon selective excitation of BDP unit
+in bay substituted PBI derivatives, ultrafast CS (< 10 ps) was
+observed, as shown by the fs-TA spectra (Figure 6 and Figure
+S17). The formation of PBI radical anion (PBI−•), indicated by the
+sharp positive absorption bands centered at 720 nm and 806 nm,
+was confirmed and is also consistent with PBI−• absorption
+obtained by chemical reduction method (see later section). At
+longer time delay, the absorption bands belonging to the PBI−•
+decays and new absorption bands at 470 nm and 580 nm rise
+gradually, which are assigned to the ESA band of the triplet state
+of the PBI moiety (T1Tn transition).[6567] ISC rate was found to
+be 6.8 ns and 6.0 ns for BDP-PBI-1 and BDP-PBI-2, respectively,
+by monitoring the growth of the ESA band at 470 nm.
+For BDP-PBI-3 (Figure 7c), upon excitation the PBI
+chromophore, singlet excited state appears firstly, then within 1.5
+ns, the CS occurs, as confirmed by the fs-TA studies (Figure S19).
+Interestingly, the CR for BDP-PBI-3 is quite slow, which takes 21
+ns (Figure 7d). The CR leads to the population of the upper triplet
+state, i.e. 3BDP*, supported by the broad ESA band centered at
+ca. 440 nm, which is the typical 3BDP* state absorption.[18, 68, 69]
+The BDP triplet decays at slow timescale, as confirmed in the later
+section by the nanosecond to microsecond transient absorption
+measurements. To the best of our knowledge, this is an rare
+experimental evidence that the upper triplet state is involved in
+SOCT-ISC.
+
+7
+
+This article is protected by copyright. All rights reserved.
+
+Accepted Manuscript
+
+RESEARCH ARTICLE
+
+15213765, ja, Downloaded from https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202302137 by Institute International Tomography Center SB RAS, Wiley Online Library on [21/09/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+10.1002/chem.202302137
+
+Chemistry - A European Journal
+
+WORKING COPY - TR-EPR results removed
+
+observed. After excitation, a broad ESA band in the range of 380
+nm−465 nm was observed, as well as a sharp GBS band centered
+at 503 nm, indicating the triplet state is localized on BDP unit. [18,73]
+At longer delay time (a few microseconds), however, the BDP
+triplet signal diminished and concomitantly the PBI localized triplet
+excited state developed, as indicated by the broad ESA band in
+the range of 400−510 nm and the GSB band centered at 525 nm
+(Figure 9a).[50,54] On the basis of these results, we propose that in
+BDP-PBI-3, the CR first leads to formation of BDP (donor) triplet
+state. As BDP T1 energy level (1.63 eV) is higher than PBI (1.20
+eV), and it is close the CT state energy (2.34 eV), thus we propose
+the 3BDP state will be formed by the CR, then through
+intramolecular TTET process, PBI triplet state will be finally
+populated. This is rare solid evidence for formation of upper triplet
+states by CR in SOCT-ISC processes.[45,46,74]
+To unravel the photophysical process and obtain the direct
+information of the different species and the kinetics explicitly,
+global analysis of the ns-TA spectra data was performed (Figure
+9b). Two triplet species with apparent lifetimes of 14.5 μs and
+161.2 μs were obtained, which belongs to BDP and PBI triplet
+states, respectively. The decay curve at 470 nm was also
+monitored for the evolution of the transient species of BDP-PBI3, a biphasic kinetic trace was observed that contains a rise phase,
+taking 14.0 μs, and a decay phase taking 118.9 μs (Figure 9c).
+The rise phase is attributed to the intramolecular TTET, and the
+second phase is attributed to the decay of the PBI triplet state.
+TTET is usually occur via Dexter mechanism, the weak electronic
+coupling between the BDP and PBI moiety may render the slow
+intramolecular TTET in BDP-PBI-3.
+To exclude the possibility of intermolecular character of the
+TTET process for the slow kinetics of BDP-PBI-3, i.e. via
+diffusion-controlled process, the ns-TA spectra of the BDP-PBI-3
+were also carried out in viscous solvent (Figure S23), i.e. soybean
+oil (viscosity = 57.1 mPas, in comparison, the viscosity is 0.59
+mPas for toluene. 20 °C). Similar rising phase in the evolution of
+the transient absorption kinetic trace at 470 nm, taking 22.4 s,
+was observed, as that in fluid solvent toluene (14 s). The decay
+phase takes much longer time (255.2 s) than that in toluene
+(118.9 s). This is clear evidence that the TTET is an
+intramolecular process. It is known that the triplet state lifetime
+can be shorten by triplet-triplet annihilation (TTA) effect.[75] The
+transient absorption measurements of the BDP-PBI-3 were also
+carried out in chloroform, similar, but strong triplet signal was
+recorded which is in agreement with its high triplet yield in
+chloroform.
+
+Figure 8. Nanosecond transient absorption spectra of (a) BDP-PBI-1; (b) BDPPBI-2. Decay curve of (c) BDP-PBI-1 monitored at 470 nm and (d) BDP-PBI-2
+monitored at 470 nm. ex = 532 nm (nanosecond pulsed laser), in deaerated
+toluene, c = 1.0 × 10−5 M, 20 °C.
+
+To confirm the triplet excited state population in the BDP-PBI
+dyads/triad, ns-TA spectral measurements of the compounds in
+toluene were carried out (Figure 8). Upon photoexcitation, BDPPBI-1 and BDP-PBI-2 exhibit similar transient absorption features.
+An ESA band in the range of 400−650 nm and very weak GSB
+band centered at ca. 545 nm was observed, which is the typical
+absorption profile of the PBI triplet. [50,53,54] Both BDP-PBI-1 and
+BDP-PBI-2 exhibit long triplet lifetime in the range of 179  191
+µs. These lifetimes are longer than that observed for bromosubstituted PBI derivatives (T = 0.9 µs for 1-bromoPBI and T =
+0.5 µs for 1,7-dibromoPBI).[55] The triplet state of these derivatives
+is also long-lived compared to that accessed in Pt (II) complex
+containing PBI ligands (T = 246 ns‒1.0 µs).[70,71] The triplet
+lifetime is even much longer as compared to that observed with
+heavy atom free PBI derivatives ( T = 30 µs ‒ 60 µs) in which
+triplet state populate due to S1/Tn (n ˃ 1) energy level matching.[72]
+ns-TA spectra of BDP-PBI-3 upon pulsed laser excitation at 500
+nm were also recorded (Figure 9a), interesting results were
+
+Figure 9. (a) Nanosecond transient absorption counter map of BDP-PBI-3 in toluene; (b) EADS obtained by global analysis of the transient data in (a); (c) Trace of
+the transient signal of BDP-PBI-3 monitored at 470 nm. ex = 500 nm (nanosecond pulsed laser), in deaerated toluene, c = 1.0 × 10−5 M. 20 °C.
+
+8
+
+This article is protected by copyright. All rights reserved.
+
+Accepted Manuscript
+
+RESEARCH ARTICLE
+
+15213765, ja, Downloaded from https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202302137 by Institute International Tomography Center SB RAS, Wiley Online Library on [21/09/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+10.1002/chem.202302137
+
+Chemistry - A European Journal
+
+WORKING COPY - TR-EPR results removed
+
+TR-EPR Figure 10 removed
+
+Slow intramolecular TTET inorganic molecules is rare. [76]
+Previously the intramolecular TTET in Pt(II) tetrabenzoporphyrin
+complex, appended with BDP antenna, was studied, the TTET
+from the porphyrin unit to the BDP units takes 100 ps. [77] In BDPPt(II)
+(diimine)(dithiolate)
+conjugated
+complexes,
+the
+intramolecular TTET takes 5  160 ps.[78] In ruthenium (II)
+complexes, in which anthryl moiety is attached on the tridentate
+polypyridine ligand, the downward 3MLCT  3An takes 80 ps, the
+upward (backward) TTET 3An  3MLCT takes 1.2 ns (the energy
+gap is 430 cm1). Slightly slower TTET processes were observed
+in (2,2-bipyridine) tetracyanoruthenate (II) complexes, in which
+pyrenyl moiety was attached via flexible linkers, the TTET is
+slower (200 ps  1.2 ns).[79,80] In Pt (II)-Schiff base complex
+appended with BDP moiety, we observed an intramolecular TTET
+(3MLCT  3BDP) takes 148 ps. In analogue Pt (II)-Schiff base
+complexes containing anthryl moiety, the TTET takes 55 ps. We
+also studied the intramolecular TTET in organic energy donoracceptor systems, which contain long, flexible linkers, much
+slower intramolecular TTET was observed, which take 12  26
+ns.[80] All these results indicate that the electronic coupling
+between the PBI and BDP moieties is very weak in BDP-PBI-3,
+and it contributes to the slow TTET.
+
+compounds were carried out (Figure 10). TREPR spectroscopy is
+a special spectroscopic method to determine the electron spin
+selectivity of the ISC, i.e. the population ratio of the sublevels of
+the T1 state, and the spatial confinement of the triplet wave
+functions.[81,82] In other words, based on the ESP pattern of the
+triplet state TREPR spectrum, the ISC mechanism can be
+revealed.[8183] On the other hand, the zero field splitting (ZFS)
+parameters D and E give information about the spatial
+confinement of the triplet state wave function, which is important
+for multi-chromophore compounds.
+The TREPR spectra of the compounds were obtained upon
+532 nm excitation in frozen toluene
+
+To illustrate the ISC mechanism involved in BDP-PBI derivatives
+upon photoexcitation and to unravel the spatial confinement of
+triplet state wave function, TREPR spectral studies of the
+
+9
+
+This article is protected by copyright. All rights reserved.
+
+ted M
+
+RESEARCH ARTICLE
+
+15213765, ja, Downloaded from https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202302137 by Institute International Tomography Center SB RAS, Wiley Online Library on [21/09/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+10.1002/chem.202302137
+
+Chemistry - A European Journal
+
+WORKING COPY - TR-EPR results removed
+
+RESEARCH ARTICLE
+TR-EPR Table 4 removed
+
+TR-EPR discussion removed
+
+In order to rationalize the photophysical properties, the ground
+state geometries of the BDP-PBI dyads/triads were optimized with
+
+10
+
+This article is protected by copyright. All rights reserved.
+
+15213765, ja, Downloaded from https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202302137 by Institute International Tomography Center SB RAS, Wiley Online Library on [21/09/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+10.1002/chem.202302137
+Chemistry - A European Journal
+
+TR-EPR discussion removed
+
+WORKING COPY - TR-EPR results removed
+
+of BDP-PBI-3, the triplet state spin density is confined on the PBI
+moiety, which is in line with nanosecond transient absorption
+profile. The spin density surface of the radical anion and cation
+forms of the dyads and triad were studied (Figure 11). It was found
+that the radical cation spin density is mainly localized mainly on
+the PBI unit. However, there is minor but non-negligible over-lap
+between the radical anion and cation spin density.
+
+Feasible reduction of PBI chromophore into PBI−• make these
+versatile organic molecules of great interest in photocatalysis and
+photoconduction.[75] PBI−• display characteristic red-shifted NIR
+absorption bands, therefore these NIR absorbers plays an
+important role as photothermal agents in photothermal therapy, [97]
+and photocatalysis.[98101] Photoreduction experiments were
+conducted for BDP-PBI-1 (Figure 12). The UV−vis absorption
+changes were monitored upon photo-irradiation by xenon lamp in
+the presence of sacrificial electron donor triethanolamine (TEOA)
+in acetonitrile. Upon photo-irradiation of the mixture, BDP-PBI-1
+exhibits the formation of PBI−• with NIR absorption bands centered
+at 717, 804 and 975 nm. These new absorption bands at 717, 804
+and 975 nm are characteristic D0⟶Dn absorption of PBI−•. [102104]
+The initial absorption band of neutral BDP-PBI-1 at 528 nm
+decreased in intensity upon photo-irradiation of the solution of
+BDP-PBI-1 by xenon lamp in the presence of TEOA and new
+absorption bands at 717 nm, 804 nm and 975 nm appeared that
+intensified concomitantly (Figure 12a). It should be noted that the
+absorption at 498 nm is still present even at longtime irradiation
+but slightly reduced in intensity. These results indicate that both
+PBI and BDP moieties have absorption in this region and BDP
+moiety remain intact upon photoirradiation.
+After the photo-reduction, the PBI− solution was exposed to
+air, the PBI− absorption bands centered at 717 nm, 804 nm and
+975 nm decreased in intensity, and concomitantly, the ground
+state absorption band of PBI at 528 nm is recovered (Figure 12b).
+These results indicated the oxidation of PBI− by the O2 in air. The
+radical formation was reproduced again upon photoirradiation
+with more than 4 cycles without any significant decomposition of
+the system, which indicates the excellent
+
+Figure 11. Spin density distribution of the triplet state and the radical anion or
+cation of the BDP-PBI dyads/triad calculated at B3LYP/6-31G (d) level using
+Gaussian 09.
+
+DFT method. The frontier molecular orbitals of the dyads/triads
+were obtained to study the electronic distribution of the
+compounds (Scheme S1). For all the BDP-PBI derivatives, the
+HOMO is localized on the BDP moiety while LUMO is confined on
+the PBI unit. These results indicate that in BDP-PBI derivatives,
+BDP moiety acts as electron donor while PBI moiety acts as
+acceptor and there is possibility of electron transfer upon
+photoexcitation. Furthermore, the HOMO and LUMO separation
+in BDP-PBI derivatives support that the 1CT state is a dark state
+(non-emissive).
+The electron spin density surfaces of the T1 states of the BDPPBI dyads/triad were studied (Figure 11). For BDP-PBI-1 and
+BDP-PBI-2, the triplet states are localized on the PBI moieties
+with spin leakage to the intervening phenyl moieties. While in case
+
+Figure 12. (a) UVvis absorption spectra of BDP-PBI-1 in the presence of TEOA in the deaerated ACN upon photoirradiation; (b) Reversibility of the formation of
+PBI radical anion upon photoirradiation and re-exposure to air will oxidize the radical anion to the neutral form; (c) Photographs showing the reversible color
+change of the BDP-PBI-1/TEOA mixed solution upon sequential photo-irradiation and re-exposure to air. c [BDP-PBI-1] = 1.0  105 M, c [TEOA] = 1.0  104 M.
+The white light source is a xenon lamp, power density is 250 mW/cm2. 20 °C.
+
+11
+
+This article is protected by copyright. All rights reserved.
+
+Accepted Manuscript
+
+RESEARCH ARTICLE
+
+15213765, ja, Downloaded from https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202302137 by Institute International Tomography Center SB RAS, Wiley Online Library on [21/09/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+10.1002/chem.202302137
+
+Chemistry - A European Journal
+
+WORKING COPY - TR-EPR results removed
+
+Scheme 2. Jablonski Diagram Demonstrating the Photophysical Processes
+Involved in BDP-PBI-3 upon Photoexcitation. The energy levels of the excited
+state are derived from the spectroscopic and electrochemical data. Energy level
+of 1LE state energy level was approximated by taking the crossing point of
+UV−vis absorption and fluorescence emission spectra after normalization and
+energy level of CS state are determined from electrochemical data. The triplet
+energy levels are estimated by TD-DFT method in toluene. The numbers in
+superscripts indicates the spin multiplicity.
+
+reversibility of persistent PBI−• radical anion formation (Figure
+S25). The colorimetric changes of the photoirradiated solution can
+be easily distinguished by naked eye. The orange color of BDPPBI-1 solution changes to green color upon radical anion
+formation and original color of compound get restored upon
+exposure of the photoirradiated solution to air (Figure 12c). For
+BDP-PBI-2 radical anion formation was not very efficient under
+the same conditions. No radical anion formation was observed in
+BDP-PBI-3 due to the poor solubility of the compound of in
+acetonitrile.
+Based on the above studies, the photophysical process
+involved in BDP-PBI-3 upon photoexcitation are summarized in
+the Scheme 2. Upon photoexcitation of the BDP unit, first the
+singlet excited state of BDP is populated. Then FRET takes place
+and PBI singlets state is populated. According to fs-TA studies,
+the FRET in BDP-PBI-3 is quite slow process and takes 40.4 ps.
+Afterwards, the CS occurs with time constant of 1.5 ns. The slow
+CR process (21 ns) populate the upper triplet of donor part ( 3BDP).
+Then, via intramolecular TTET process, the acceptor triplet( 3PBI)
+is populated. Interestingly, the intramolecular TTET process
+found to be unusually slow, it takes 14.5 µs. The slow
+intramolecular TTET process and observation of upper triplet
+excited state population in SOCT-ISC channel make this
+molecule different from the previously reported compact electron
+donor-acceptor dyads.[53] The schematic diagram demonstrating
+the photophysical process involved in bay substituted BDP-PBI
+derivatives (BDP-PBI-1 and BDP-PBI-2) are presented in
+Scheme S2. In case of BDP-PBI-1 and BDP-PBI-2, ultrafast
+FRET process was observed which takes less than 1 ps. The
+subsequent charge transfer takes place (takes ca. 2.8 ps) then
+direct PBI triplet state population was observed with ns-TA
+spectroscopy.
+
+Conclusion
+In summary, boron-dipyrromethene (BDP)-perylenebisimide (PBI)
+donor-acceptor dyads and triad were prepared by attaching the
+electron donor BDP at either the bay or the imide position of PBI
+unit, to study the spin orbit charge recombination-induced
+
+Photo-reduction of the dyad in the presence of
+sacrificial electron donor was achieved and reversible generation
+of the near IR-absorbing PBI radical anion formation was
+observed. This study is useful to clarify the photophysical pathway
+involved in SOCT-ISC, the related electron spin dynamics, and for
+design of new heavy atom-free triplet photosensitizers.
+
+Experimental Section
+Synthesis of BDP-PBI-3. Under N2 atmosphere, compound 4
+(116.0 mg, 0.15 mmol), 5 (135.0 mg, 0.3 mmol), K2CO3 (125.0 mg,
+0.9 mmol) and EtOH: toluene: water (v: v: v = 2: 4: 1, 50 mL) were
+mixed. After 15 min of bubbling in N2, Pd(PPh3)4 (9.0 mg, 0.007
+mmol, 5 mol%) was added. The reaction mixture was refluxed and
+stirred under N2 atmosphere for 8 h. After completion of the
+reaction, the mixture was cooled to room temperature. The
+reaction mixture was extracted with CH2Cl2, washed with water (2
+ 100 mL) and the organic layer was dried over Na2SO4. The
+solution was evaporated to dryness under reduced pressure to
+obtain a crude solid. The crude product was further purified with
+column chromatography (silica gel, CH2Cl2) to give the product as
+a orange solid (120 mg, yield: 64%). mp  250 C. 1H NMR (CDCl3,
+400 MHz):  8.79 (d, 2H, J = 8.0 Hz), 8.728.70 (m, 6H), 7.89 (d,
+2H, J = 8.0 Hz), 7.84 (d, 2H, J = 4.0 Hz), 7.49 (d, 2H, J = 8.0 Hz),
+7.41 (d, 2H, J = 8.0 Hz), 6.02 (s, 2H), 5.125.06 (m, 1H), 2.58 (s,
+6H), 2.322.24 (m, 2H), 2.001.92 (m, 2H), 1.47 (s, 6H), 0.94 (t,
+6H, J = 8.0 Hz). TOF MALDIHRMS (C54H41BN4O4F2‒) Calcd:
+m/z = 858.3189. Found: m/z = 858.3212.
+
+12
+
+This article is protected by copyright. All rights reserved.
+
+ript
+
+intersystem crossing (SOCT-ISC). The photophysics of BDP-PBI
+derivatives was studied in detail using steady-state and transient
+optical spectroscopic methods, as well as time resolved electron
+paramagnetic resonance (TREPR) spectroscopy. For the dyad
+with attachment of the BDP moiety at the imide position (BDPPBI-3), higher singlet oxygen quantum yield ( = 85%) was
+observed as compared to the dyad with attachment of BDP unit
+at bay position of the PBI unit (BDP-PBI-1,  =30%). For bay
+substituted BDP-PBI derivatives, the ultrafast charge separation
+(CS) was observed (<5 ps), followed by the charge recombination
+(6.8 ns) which populates the PBI triplet excited state. For BDPPBI-3, slower FRET (40.4 ps) and CS process (1.55 ns) were
+observed. In this case, upper 3BDP* was populated via CR,
+followed by the slow intramolecular triplet-triplet energy transfer
+(TTET, takes 14.5 µs) which generates 3PBI*, as demonstrated
+by the nanosecond transient absorption spectra. This slow
+intramolecular TTET is rare, and this is an interesting clear
+evidence that the upper triplet state is involved in the SOCT-ISC
+mechanism.
+
+Accepted
+
+RESEARCH ARTICLE
+
+15213765, ja, Downloaded from https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202302137 by Institute International Tomography Center SB RAS, Wiley Online Library on [21/09/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+10.1002/chem.202302137
+
+Chemistry - A European Journal
+
+WORKING COPY - TR-EPR results removed
+
+Supporting Information
+
+The authors have cited additional references within the
+Supporting Information.[105107]
+
+Acknowledgements
+J.Z. thanks the NSFC (U2001222), the Research and Innovation
+Team Project of Dalian University of Technology (DUT2022TB10),
+the Fundamental Research Funds for the Central Universities
+(DUT22LAB610) and the State Key Laboratory of Fine Chemicals
+for financial support. M. F. and I. K. thank the Ministry of Science
+and Higher Education of the Russian Federation (Grant No. 07515-2020-779).
+Keywords: charge transfer • intersystem crossing • time resolved
+electron paramagnetic resonance • triplet-triplet energy transfer •
+triplet state
+[1] S. G. Awuah, Y. You, RSC Adv. 2012, 2, 1116911183.
+[2] A. Kamkaew, S. H. Lim, H. B. Lee, L. V. Kiew, L. Y. Chung, K. Burgess,
+Chem. Soc. Rev. 2013, 42, 7788.
+[3] X. Li, S. Kolemen, J. Yoon, E. U. Akkaya, Adv. Funct. Mater. 2017, 27,
+1604053.
+[4] Z. Wang, L. Huang, Y. Yan, A. M. El-Zohry, A. Toffoletti, J. Zhao, A. Barbon,
+B. Dick, O. F. Mohammed, G. Han, Angew. Chem. Int. Ed. 2020, 59,
+1611416121. Angew. Chem. 2020, 132, 16248–16255.
+[5] G. P. A. Bongaerts, R. M. Williams, M. W. J. v. d. Wielen, M. C. Feiters, J.
+Porphyrins Phthalocyanines 2022, 26, 601621.
+[6] F.-R. Dai, H.-M. Zhan, Q. Liu, Y.-Y. Fu, J.-H. Li, Q.-W. Wang, Z. Xie, L. Wang,
+F. Yan, W.-Y. Wong, Chem. Eur. J. 2012, 18, 15021511.
+[7] D. N. Congreve, J. Lee, N. J. Thompson, E. Hontz, S. R. Yost, P. D.
+Reusswig, M. E. Bahlke, S. Reineke, T. Van Voorhis, M. A. Baldo, Science
+2013, 340, 334337.
+[8] L. Shi, W. Xia, Chem. Soc. Rev. 2012, 41, 76877697.
+[9] S. Fukuzumi, K. Ohkubo, Chem. Sci. 2013, 4, 561574.
+[10] C. K. Prier, D. A. Rankic, D. W. C. MacMillan, Chem. Rev. 2013, 113,
+53225363.
+[11] Q. Song, X. Zhang, J. Ma, Y. Guo, D. L. Phillips, Sci. Rep. 2017, 7, 9154.
+[12] J. Ma, X. Zhang, D. L. Phillips, Acc. Chem. Res. 2019, 52, 726737.
+[13] M. Dai, M. Duan, X. Li, Y. Guo, J. Ma, J. Phys. Chem. B 2023, 127, 710716.
+[14] J. Zhao, S. Ji, H. Guo, RSC Adv. 2011, 1, 937950.
+[15] X. Guo, Y. Liu, Q. Chen, D. Zhao, Y. Ma, Adv. Opt. Mater. 2018, 6, 1700981.
+[16] E. Bassan, A. Gualandi, P. G. Cozzi, P. Ceroni, Chem. Sci. 2021, 12,
+66076628.
+[17] T. Yogo, Y. Urano, Y. Ishitsuka, F. Maniwa, T. Nagano, J. Am. Chem. Soc.
+2005, 127, 1216212163.
+[18] R. P. Sabatini, T. M. McCormick, T. Lazarides, K. C. Wilson, R. Eisenberg,
+D. W. McCamant, J. Phys. Chem. Lett. 2011, 2, 223227.
+[19] Y. You, W. Nam, Chem. Soc. Rev. 2012, 41, 70617084.
+[20] Z.-L. Gong, K. Tang, Y.-W. Zhong, Inorg. Chem. 2021, 60, 66076615.
+[21] P. C. P. Teeuwen, Z. Melissari, M. O. Senge, R. M. Williams, Molecules
+2022, 27, 6967.
+[22] E. Bassan, Y. Dai, D. Fazzi, A. Gualandi, P. G. Cozzi, F. Negri, P. Ceroni,
+Photochem. Photobiol. Sci. 2022, 21, 777786.
+[23] W. Wu, J. Zhao, J. Sun, S. Guo, J. Org. Chem. 2012, 77, 53055312.
+[24] L. Huang, X. Yu, W. Wu, J. Zhao, Org. Lett. 2012, 14, 25942597.
+[25] D. Huang, J. Zhao, W. Wu, X. Yi, P. Yang, J. Ma, Asian J. Org. Chem. 2012,
+1, 264273.
+[26] L. Huang, X. Cui, B. Therrien, J. Zhao, Chem. Eur. J. 2013, 19,
+1747217482.
+[27] M. Bröring, R. Krüger, S. Link, C. Kleeberg, S. Köhler, X. Xie, B. Ventura,
+L. Flamigni, Chem. Eur. J. 2008, 14, 29762983.
+
+[28] B. Ventura, G. Marconi, M. Bröring, R. Krüger, L. Flamigni, New J. Chem.
+2009, 33, 428438.
+[29] W. Pang, X.-F. Zhang, J. Zhou, C. Yu, E. Hao, L. Jiao, Chem. Commun.
+2012, 48, 54375439.
+[30] M. B. Smith, J. Michl, Chem. Rev. 2010, 110, 68916936.
+[31] H. Liu, R. Wang, L. Shen, Y. Xu, M. Xiao, C. Zhang, X. Li, Org. Lett. 2017,
+19, 580583.
+[32] R. Montero, V. Martínez-Martínez, A. Longarte, N. Epelde-Elezcano, E.
+Palao, I. Lamas, H. Manzano, A. R. Agarrabeitia, I. López Arbeloa, M. J.
+Ortiz, I. Garcia-Moreno, J. Phys. Chem. Lett. 2018, 9, 641646.
+[33] N. Hirota, S. Yamauchi, J. Photochem. Photobiol. C 2003, 4, 109124.
+[34] Z. Wang, J. Zhao, A. Barbon, A. Toffoletti, Y. Liu, Y. An, L. Xu, A. Karatay,
+H. G. Yaglioglu, E. A. Yildiz, M. Hayvali, J. Am. Chem. Soc. 2017, 139,
+78317842.
+[35] Z. Wang, Y. Gao, M. Hussain, S. Kundu, V. Rane, M. Hayvali, E. A. Yildiz,
+J. Zhao, H. G. Yaglioglu, R. Das, L. Luo, J. Li, Chem. Eur. J. 2018, 24,
+1866318675.
+[36] J. Zhao, W. Wu, J. Sun, S. Guo, Chem. Soc. Rev. 2013, 42, 53235351.
+[37] J. Zhao, K. Xu, W. Yang, Z. Wang, F. Zhong, Chem. Soc. Rev. 2015, 44,
+89048939.
+[38] Z. E. X. Dance, S. M. Mickley, T. M. Wilson, A. B. Ricks, A. M. Scott, M. A.
+Ratner, M. R. Wasielewski, J. Phys. Chem. A 2008, 112, 41944201.
+[39] M. A. Filatov, S. Karuthedath, P. M. Polestshuk, H. Savoie, K. J. Flanagan,
+C. Sy, E. Sitte, M. Telitchko, F. Laquai, R. W. Boyle, M. O. Senge, J. Am.
+Chem. Soc. 2017, 139, 62826285.
+[40] Y. Zhao, R. Duan, J. Zhao, C. Li, Chem. Commun. 2018, 54, 1232912332.
+[41] M. T. Colvin, A. B. Ricks, A. M. Scott, D. T. Co, M. R. Wasielewski, J. Phys.
+Chem. A 2012, 116, 19231930.
+[42] Z. Wang, M. Ivanov, Y. Gao, L. Bussotti, P. Foggi, H. Zhang, N. Russo, B.
+Dick, J. Zhao, M. Di Donato, G. Mazzone, L. Luo, M. Fedin, Chem. Eur. J.
+2020, 26, 10911102.
+[43] X.-F. Zhang, N. Feng, Chem. Asian J. 2017, 12, 24472456.
+[44] X.-F. Zhang, Y. Zhang, B. Xu, J. Photochem. Photobiol. A: Chem. 2017,
+349, 197206.
+[45] X.-F. Zhang, N. Feng, Spectrochim. Acta. A Mol. Biomol. Spectrosc. 2018,
+189, 1321.
+[46] M. A. Filatov, Org. Biomol. Chem. 2020, 18, 1027.
+[47] K. Chen, W. Yang, Z. Wang, A. Iagatti, L. Bussotti, P. Foggi, W. Ji, J. Zhao,
+M. Di Donato, J. Phys. Chem. A 2017, 121, 75507564.
+[48] H. van Willigen, G. Jones, M. S. Farahat, J. Phys. Chem. 1996, 100,
+33123316.
+[49] Y. Hou, T. Biskup, S. Rein, Z. Wang, L. Bussotti, N. Russo, P. Foggi, J.
+Zhao, M. Di Donato, G. Mazzone, S. Weber, J. Phys. Chem. C 2018, 122,
+2785027865.
+[50] N. Rehmat, A. Toffoletti, Z. Mahmood, X. Zhang, J. Zhao, A. Barbon, J.
+Mater. Chem. C 2020, 8, 47014712.
+[51] X. Zhang, A. A. Sukhanov, E. A. Yildiz, Y. E. Kandrashkin, J. Zhao, H. G.
+Yaglioglu, V. K. Voronkova, ChemPhysChem 2021, 22, 5568.
+[52] Y. Zhao, X. Li, Z. Wang, W. Yang, K. Chen, J. Zhao, G. G. Gurzadyan, J.
+Phys. Chem. C 2018, 122, 37563772.
+[53] Z. Mahmood, K. Xu, B. Küçüköz, X. Cui, J. Zhao, Z. Wang, A. Karatay, H.
+G. Yaglioglu, M. Hayvali, A. Elmali, J. Org. Chem. 2015, 80, 30363049.
+[54] N. Rehmat, I. V. Kurganskii, Z. Mahmood, Q. L. Guan, J. Zhao, Y. H. Xing,
+G. G. Gurzadyan, M. V. Fedin, Chem. Eur. J. 2021, 27, 55215535.
+[55] F. Sadiq, Z. Wang, Y. Hou, J. Zhao, A. Elmali, D. Escudero, A. Karatay,
+Dyes Pigm. 2021, 184, 108708.
+[56] O. E. W. Jr., J. A. Turner, P. A. Trouard, J. Chem. Phys. 1966, 45,
+11261134.
+[57] M. Sapir, E. V. Donckt, Chem. Phys. Lett. 1975, 36, 108110.
+[58] K. Schmidt, S. Brovelli, V. Coropceanu, D. Beljonne, J. Cornil, C. Bazzini,
+T. Caronna, R. Tubino, F. Meinardi, Z. Shuai, J.-L. Brédas, J. Phys. Chem.
+A 2007, 111, 1049010499.
+[59] K. Nagarajan, A. R. Mallia, V. S. Reddy, M. Hariharan, J. Phys. Chem. C
+2016, 120, 84438450.
+[60] Z. Mahmood, A. A. Sukhanov, N. Rehmat, M. Hu, A. Elmali, Y. Xiao, J.
+Zhao, A. Karatay, B. Dick, V. K. Voronkova, J. Phys. Chem. B 2021, 125,
+93179332.
+
+13
+
+This article is protected by copyright. All rights reserved.
+
+Accepted Manuscript
+
+RESEARCH ARTICLE
+
+15213765, ja, Downloaded from https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202302137 by Institute International Tomography Center SB RAS, Wiley Online Library on [21/09/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+10.1002/chem.202302137
+
+Chemistry - A European Journal
+
+WORKING COPY - TR-EPR results removed
+
+[61] M. J. Ahrens, L. E. Sinks, B. Rybtchinski, W. Liu, B. A. Jones, J. M. Giaimo,
+A. V. Gusev, A. J. Goshe, D. M. Tiede, M. R. Wasielewski, J. Am. Chem.
+Soc. 2004, 126, 82848294.
+[62] C. Flors, I. Oesterling, T. Schnitzler, E. Fron, G. Schweitzer, M. Sliwa, A.
+Herrmann, M. van der Auweraer, F. C. de Schryver, K. Müllen, J.
+Hofkens, J. Phys. Chem. C 2007, 111, 48614870.
+[63] Y. Liu, J. Zhao, A. Iagatti, L. Bussotti, P. Foggi, E. Castellucci, M. Di Donato,
+K.-L. Han, J. Phys. Chem. C 2018, 122, 25022511.
+[64] C. Hippius, I. H. M. van Stokkum, E. Zangrando, R. M. Williams, F. Würthner,
+J. Phys. Chem. C 2007, 111, 1398813996.
+[65] Y. Liu, J. Zhao, Chem. Commun. 2012, 48, 37513753.
+[66] J. Sun, F. Zhong, J. Zhao, Dalton Trans. 2013, 42, 95959605.
+[67] W. Yang, J. Zhao, C. Sonn, D. Escudero, A. Karatay, H. G. Yaglioglu, B.
+Küçüköz, M. Hayvali, C. Li, D. Jacquemin, J. Phys. Chem. C 2016, 120,
+1016210175.
+[68] Z. Wang, J. Zhao, Org. Lett. 2017, 19, 44924495.
+[69] Z. Mahmood, M. Taddei, N. Rehmat, L. Bussotti, S. Doria, Q. Guan, S. Ji,
+J. Zhao, M. Di Donato, Y. Huo, Y. H. Xing, J. Phys. Chem. C 2020, 124,
+59445957.
+[70] A. A. Rachford, S. Goeb, F. N. Castellano, J. Am. Chem. Soc. 2008, 130,
+27662767.
+[71] B. A. Llewellyn, A. G. Slater, G. Goretzki, T. L. Easun, X.-Z. Sun, E. S.
+Davies, S. P. Argent, W. Lewis, A. Beeby, M. W. George, N. R.
+Champness, Dalton Trans. 2014, 43, 8594.
+[72] Z. Yu, Y. Wu, Q. Peng, C. Sun, J. Chen, J. Yao, H. Fu, Chem. Eur. J. 2016,
+22, 47174722.
+[73] Y. Dong, A. A. Sukhanov, J. Zhao, A. Elmali, X. Li, B. Dick, A. Karatay, V.
+K. Voronkova, J. Phys. Chem. C 2019, 123, 2279322811.
+[74] X. Zhang, Z. Wang, Y. Hou, Y. Yan, J. Zhao, B. Dick, J. Mater. Chem. C
+2021, 9, 1194411973.
+[75] Z. Lou, Y. Hou, K. Chen, J. Zhao, S. Ji, F. Zhong, Y. Dede, B. Dick, J. Phys.
+Chem. C 2018, 122, 185193.
+[76] M. Li, M.-J. Sun, J. Yang, D. Huo, J. Lv, D. Shi, Y.-W. Zhong, Y. Wan, J.
+Mater. Chem. C 2022, 126, 1103311041.
+[77] M. T. Whited, P. I. Djurovich, S. T. Roberts, A. C. Durrell, C. W. Schlenker,
+S. E. Bradforth, M. E. Thompson, J. Am. Chem. Soc. 2011, 133, 8896.
+[78] T. Lazarides, T. M. McCormick, K. C. Wilson, S. Lee, D. W. McCamant, R.
+Eisenberg, J. Am. Chem. Soc. 2011, 133, 350364.
+[79] M. T. Indelli, M. Ghirotti, A. Prodi, C. Chiorboli, F. Scandola, N. D.
+McClenaghan, F. Puntoriero, S. Campagna, Inorg. Chem. 2003, 42,
+54895497.
+[80] K. Xu, J. Zhao, E. G. Moore, J. Phys. Chem. C 2017, 121, 2266522679.
+[81] Y. Hou, X. Zhang, K. Chen, D. Liu, Z. Wang, Q. Liu, J. Zhao, A. Barbon, J.
+Mater. Chem. C 2019, 7, 1204812074.
+[82] Z. Wang, X. Zhang, J. Zhao, J. Phys. Chem. C 2021, 125, 1909719109.
+[83] X. Chen, X. Xiao, J. Zhao, J. Mater. Chem. C 2022, 10, 45464557.
+[84] S. Richert, C. E. Tait, C. R. Timmel, J. Magn. Reson. 2017, 280, 103116.
+[85] E. A. Weiss, M. A. Ratner, M. R. Wasielewski, J. Phys. Chem. A 2003, 107,
+36393647.
+[86] M. T. Colvin, A. B. Ricks, A. M. Scott, A. L. Smeigh, R. Carmieli, T. Miura,
+M. R. Wasielewski, J. Am. Chem. Soc. 2011, 133, 12401243.
+[87] J. W. Verhoeven, J. Photochem. Photobiol., C 2006, 7, 4060.
+[88] E. A. Weiss, M. J. Ahrens, L. E. Sinks, A. V. Gusev, M. A. Ratner, M. R.
+Wasielewski, J. Am. Chem. Soc. 2004, 126, 55775584.
+[89] Z. E. X. Dance, Q. Mi, D. W. McCamant, M. J. Ahrens, M. A. Ratner, M. R.
+Wasielewski, J. Phys. Chem. B 2006, 110, 2516325173.
+[90] A. Weller, H. Staerk, R. Treichel, Faraday Discuss. Chem. Soc. 1984, 78,
+271278.
+[91] S. Nishizawa, J.-y. Hasegawa, K. Matsuda, Chem. Lett. 2014, 43, 530532.
+[92] M. Imran, A. A. Sukhanov, P. Maity, A. Elmali, J. Zhao, A. Karatay, O. F.
+Mohammed, V. K. Voronkova, J. Phys. Chem. B 2021, 125, 92449259.
+[93] Y. Zhao, A. A. Sukhanov, R. Duan, A. Elmali, Y. Hou, J. Zhao, G. G.
+Gurzadyan, A. Karatay, V. K. Voronkova, C. Li, J. Phys. Chem. C 2019,
+123, 1827018282.
+[94] M. Terazima, S. Yamauchi, N. Hirota, Chem. Phys. Lett. 1985, 120,
+321326.
+[95] M. Terazima, N. Hirota, H. Shinohara, Y. Saito, Chem. Phys. Lett. 1992,
+195, 333338.
+
+[96] Z. Wang, A. Toffoletti, Y. Hou, J. Zhao, A. Barbon, B. Dick, Chem. Sci. 2021,
+12, 28292840.
+[97] B. Lü, Y. Chen, P. Li, B. Wang, K. Müllen, M. Yin, Nat. Commun. 2019, 10,
+767.
+[98] N. T. La Porte, J. F. Martinez, S. Hedström, B. Rudshteyn, B. T. Phelan, C.
+M. Mauck, R. M. Young, V. S. Batista, M. R. Wasielewski, Chem. Sci. 2017,
+8, 38213831.
+[99] J. F. Martinez, N. T. La Porte, C. M. Mauck, M. R. Wasielewski, Faraday
+Discuss. 2017, 198, 235249.
+[100] S. Hedström, S. Chaudhuri, N. T. La Porte, B. Rudshteyn, J. F. Martinez,
+M. R. Wasielewski, V. S. Batista, J. Am. Chem. Soc. 2017, 139,
+1646616469.
+[101] H. Li, O. S. Wenger, Angew.Chem.Int. Ed. 2022, 61, e202110491. Angew.
+Chem. 2022, 134, e202110491.
+[102] D. Gosztola, M. P. Niemczyk, W. Svec, A. S. Lukas, M. R. Wasielewski, J.
+Phys. Chem. A 2000, 104, 65456551.
+[103] F. S. Goodson, D. K. Panda, S. Ray, A. Mitra, S. Guha, S. Saha, Org.
+Biomol. Chem. 2013, 11, 47974803.
+[104] V. V. Roznyatovskiy, D. M. Gardner, S. W. Eaton, M. R. Wasielewski, Org.
+Lett. 2014, 16, 696699.
+[105] J. J. Snellenburg, S. P. Laptenok, R. Seger, K. M. Mullen, J. Stat. Softw.
+2012, 49, 122.
+[106] S. Stoll, A. Schweiger, J. Magn. Reson. 2006, 178, 4255.
+[107] M. J. Frisch, G. Trucks, H. B. Schlegel, G. E. Scuseria, M. A. Robb, J.
+Cheeseman, G. Scalmani, V. Barone, B. Mennucci, G. A. Petersson, H.
+Nakatsuji, M. Caricato, X. Li, H. P. Hratchian, A. F. Izmaylov, J. Bloino, G.
+Zheng, J. Sonnenberg, M. Hada, D. Fox, Gaussian 09 Revision A.1.
+Gaussian Inc. 2009.
+
+14
+
+This article is protected by copyright. All rights reserved.
+
+Accepted Manuscript
+
+RESEARCH ARTICLE
+
+15213765, ja, Downloaded from https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202302137 by Institute International Tomography Center SB RAS, Wiley Online Library on [21/09/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+10.1002/chem.202302137
+
+Chemistry - A European Journal
+
+WORKING COPY - TR-EPR results removed
+
+Entry for the Table of Contents
+
+Mixed graphical abstract removed
+
+Unusually Slow Intramolecular Triplet-Triplet Energy Transfer (TTET) in Bodipy-Perylenebisimide Dyads： FRET (40.4 ps) and
+CS (1.55 ns) were observed, upper 3BDP* was populated via charge recombination, followed by the slow intramolecular TTET (14.5
+µs) which generates 3PBI* state,
+
+15
+
+This article is protected by copyright. All rights reserved.
+
+Accepted Manus ript
+
+RESEARCH ARTICLE
+
+15213765, ja, Downloaded from https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202302137 by Institute International Tomography Center SB RAS, Wiley Online Library on [21/09/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+10.1002/chem.202302137
+
+Chemistry - A European Journal
+
+
