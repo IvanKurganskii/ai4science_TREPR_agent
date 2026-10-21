@@ -5,3 +5,6 @@ __pycache__/
 .DS_Store
 .ipynb_checkpoints/
 data
+library
+results/spectra/processed
+.vscode
