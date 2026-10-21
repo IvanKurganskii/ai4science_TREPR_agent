@@ -8,3 +8,5 @@ data
 library
 results/spectra/processed
 .vscode
+.obsidian
+.pytest_cache
