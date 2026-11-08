@@ -1,0 +1,110 @@
+{
+  "model": "high_j",
+  "dimension": "1d",
+  "objective": "noise_k",
+  "simulation": {
+    "hamiltonian": {
+      "g": 2.0109350859051216,
+      "D": 1216360290.0765185,
+      "E": 119272506.43161783,
+      "gauss": 0.00011486837951053634,
+      "lorentz": 2.283686313882912e-06,
+      "ham_strain": 0.0
+    },
+    "populations": {
+      "p_x": 0.6419628300351875,
+      "p_y": 0.21341051427728627,
+      "p_z": 0.1446266556875262
+    },
+    "settings": {
+      "freq": 9707944540.0,
+      "temperature": 80.031,
+      "harmonic": 0,
+      "mesh": 25,
+      "frame": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "device": "cpu",
+      "dtype": "float64"
+    },
+    "population_mode": "raw",
+    "normalization": "none",
+    "population_basis": "xyz"
+  },
+  "calibration": {
+    "scale": 3.552078058389647e-09,
+    "offset": 0.0
+  },
+  "variables": [
+    {
+      "path": "simulation.hamiltonian.g",
+      "bounds": [
+        2.0,
+        2.12
+      ]
+    },
+    {
+      "path": "simulation.hamiltonian.D",
+      "bounds": [
+        500000000.0,
+        1500000000.0
+      ]
+    },
+    {
+      "path": "simulation.hamiltonian.E",
+      "bounds": [
+        0.0,
+        400000000.0
+      ]
+    },
+    {
+      "path": "simulation.hamiltonian.gauss",
+      "bounds": [
+        1e-05,
+        0.0005
+      ]
+    },
+    {
+      "path": "simulation.hamiltonian.lorentz",
+      "bounds": [
+        0.0,
+        0.0005
+      ]
+    },
+    {
+      "path": "simulation.populations.p_x",
+      "bounds": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "path": "simulation.populations.p_y",
+      "bounds": [
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "target": "simulation.populations.p_z",
+      "constant": 1.0,
+      "terms": {
+        "simulation.populations.p_x": -1.0,
+        "simulation.populations.p_y": -1.0
+      }
+    }
+  ],
+  "constraints": [
+    {
+      "path": "simulation.populations.p_z",
+      "bounds": [
+        0.0,
+        1.0
+      ]
+    }
+  ]
+}

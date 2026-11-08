@@ -1,0 +1,73 @@
+{
+  "authorship": "[порожденоКодекс]",
+  "date": "2026-11-09",
+  "phase": "existing_snapshots_as_published",
+  "scope": "Read-only Pearson/Q controls; no fit optimization or source spectra changes",
+  "sources_sha256": {
+    "results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/problem_1d.json": "512d30e7f95e9a7bfa1829d7cb65977d8ba6e1a7976d7e5d90645c624c192f46",
+    "results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/cobyla/cobyla_best_spectrum.npz": "94a07d315646f5416c287ef68ac906309630b492a2665ccccda50fae9b02cf38",
+    "results/spectra/slices/PBIAn1_exp_slice_max_7fa112cd9c81459eb36b403a510aae79.csv": "d9651c9956352e5a3629fc47fa8de273be0d1cb2c35fd17504a6b8a7241f6f8c",
+    "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/cobyla/cobyla_best_spectrum.npz": "46f31153ba85c956732d8897845f226e3c3ee4d24a1894f85f02a78c3c5b527a",
+    "results/spectra/slices/PBIAn2_exp2_slice_max_b7827b4c8c4d4df68cb6ecd7efd1f5d4.csv": "9ee1af6c00a328eba013622716daea020a2675827f28c5a4697ee9227adb53d3",
+    "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/problem_1d.json": "534418dea0f819ce6f1f68a589416deca91d3f4031964829b24c910a68967a9b"
+  },
+  "checkers_sha256": {
+    "checks_tmp_for_hw2/check_fit_1d.py": "be4581427f2d331918fecf26cbb831108cacfadb6bc05318992ce629c6e2b61d",
+    "checks_tmp_for_hw2/check_fit_2d.py": "5f1ce18f15a5f432b2ef220d60b579e669a53db02d73e8b67675b094eb339c06",
+    "checks_tmp_for_hw2/check_fit_draw_1d.py": "ec1d36909cd1fbcf397141146bde06db72d60366d5fcb5c78c22126962d2a96d",
+    "checks_tmp_for_hw2/check_fit_draw_2d.py": "fbe07ffa0bf615bba50847d2edd9270835deb9d732b344eb24e7f77935829567",
+    "checks_tmp_for_hw2/check_fit_perturbation_1d.py": "56410b7997dfc75a4da5ff377cfa67d699637bf9501d338f3e29983be6313bc5",
+    "checks_tmp_for_hw2/check_fit_perturbation_2d.py": "832e7c818d146dbe1175d3c3dabcc8e707963338cc0ac703388561522128b546",
+    "checks_tmp_for_hw2/check_fit_table.py": "46bbc4716660bd3ac4fdaab1668664d2ed9217b78190cef2d4a40519e1e25fe5",
+    "checks_tmp_for_hw2/check_project_workflow.py": "f516b0e840a0bd48bc3f7b02f21e163c76f8471f5329b8af0c224873f4e6c081",
+    "checks_tmp_for_hw2/check_refit_1d.py": "20148ec5127be2843f1d7e4ebb8656e1676627a0eb96ef4032904f65a8a6fdd6",
+    "checks_tmp_for_hw2/check_refit_2d.py": "0cd26d500a7791055bd0a34245ce2f190e51cadb7c273d37c2f269457386db25",
+    "checks_tmp_for_hw2/fit_draw_check.py": "2816cf4ca2654fa630fd9fda883b52033bafb9e4a37a7b756594662472b7cadd",
+    "checks_tmp_for_hw2/fit_noise.py": "5f414032715683aa638f9dd3917341ef1031114b1e0b9a0dfe373087fa4dfcf6",
+    "checks_tmp_for_hw2/fit_perturbation.py": "71a04980780ee06602cbb7fdf133382b6a7bac1e093ce7b4ee12068a2b85c7c3",
+    "checks_tmp_for_hw2/fit_refinement.py": "5fdc2fe57ba40a2ca518089578b647dec38f34291f702c205ebb3ed58adec2a4",
+    "checks_tmp_for_hw2/gen_ontology_notes.py": "23e761ac9aa2484b09bc791602f4846bd6f7644ea25ce65a3b6484e1a0730c9b",
+    "checks_tmp_for_hw2/spectra_cleaned.py": "705559822c3e4ef97d6806e58d887833d7351c999efd74ada4ab78e4873c2cde",
+    "checks_tmp_for_hw2/spectra_sliced.py": "b4ac91b09b945f111de63fc4673ec7fd4a09f9098384718b46d76e50f43ae2c3",
+    "checks_tmp_for_hw2/spectrum_validator.py": "eb0f309b8ae72cc83e23d3cace88baa01fc70de0949952c78828a1e4c1b73b16",
+    "checks_tmp_for_hw2/check_support/data.py": "2a4ceae994543ee339bbd8117e4e442cb1f05dc67e334e9390bc2c3d824bbbfb",
+    "checks_tmp_for_hw2/check_support/engine.py": "ef49d8d7d05a95acb063eb1a31670887f924c5ce5efaac4b2bd15b385779c27a",
+    "checks_tmp_for_hw2/check_support/validation.py": "877b5ee3bc571390fba04f2c2bdb2e7b730b8e489bcd2e22c03ad0ea60ac9fbb",
+    "checks_tmp_for_hw2/check_support/_runtime.py": "6745e01bc86c54357720f9562b660d1e2e5c2615569f7989f6d4a2ffecfc31a0",
+    "checks_tmp_for_hw2/check_support/__init__.py": "514b5b3de2c13596e67320d1264b8c22903cc36d29de78ebd994037f20a174a8"
+  },
+  "results": [
+    {
+      "id": "PBIAn1_existing_snapshot",
+      "slice": "results/spectra/slices/PBIAn1_exp_slice_max_7fa112cd9c81459eb36b403a510aae79.csv",
+      "fit": "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/cobyla/cobyla_best_spectrum.npz",
+      "parameters": "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/problem_1d.json",
+      "exit_code": 2,
+      "started_local": "2026-11-09T02:46:04+07:00",
+      "elapsed_seconds": 29.4893242509861,
+      "report": "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/existing_snapshots/PBIAn1_existing_snapshot.json",
+      "status": "invalid",
+      "error": "Snapshot does not reproduce the saved spectrum within --spectrum-rtol",
+      "reason": null,
+      "original": null,
+      "controls": null,
+      "spectrum_relative_error": null
+    },
+    {
+      "id": "PBIAn2_existing_snapshot",
+      "slice": "results/spectra/slices/PBIAn2_exp2_slice_max_b7827b4c8c4d4df68cb6ecd7efd1f5d4.csv",
+      "fit": "results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/cobyla/cobyla_best_spectrum.npz",
+      "parameters": "results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/problem_1d.json",
+      "exit_code": 2,
+      "started_local": "2026-11-09T02:46:04+07:00",
+      "elapsed_seconds": 29.39328690399998,
+      "report": "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/existing_snapshots/PBIAn2_existing_snapshot.json",
+      "status": "invalid",
+      "error": "Snapshot does not reproduce the saved spectrum within --spectrum-rtol",
+      "reason": null,
+      "original": null,
+      "controls": null,
+      "spectrum_relative_error": null
+    }
+  ]
+}

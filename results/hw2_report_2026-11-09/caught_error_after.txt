@@ -1,0 +1,9 @@
+[порожденоКодекс] Оформление записи; значения ниже получены проверяющим кодом.
+
+Historical replay during report preparation, 2026-11-09
+Source revision: c970b94bb8db8bdab40798ddc5d4feef130e2b2a
+Source file: results/spectra/slices/PBIAn1_exp_slice_max_7fa112cd9c81459eb36b403a510aae79.csv
+Blob SHA256: d9651c9956352e5a3629fc47fa8de273be0d1cb2c35fd17504a6b8a7241f6f8c
+Verifier: spectra_cleaned.check_spectrum(path, layout="rows")
+Result: PASSED
+Reason: text header, finite numeric values and at least one nonzero signal intensity

@@ -1,0 +1,122 @@
+{
+  "status": "passed",
+  "dimension": "1d",
+  "min_pearson": 0.32,
+  "pearson_passed": true,
+  "original": {
+    "pearson_r": 0.8989128573047376,
+    "Q": 273.1589363614168,
+    "K": 74615.80451410054,
+    "rmse": 0.040698126994743074,
+    "rss": 0.9954588620690212,
+    "residual_mean": -0.002473345966597975,
+    "n_points": 601,
+    "n_parameters": 6,
+    "noise_sigma": 0.0001497399772430304
+  },
+  "perturbations": [
+    {
+      "D": -2.0,
+      "E": -1.0
+    }
+  ],
+  "controls": [
+    {
+      "factors": {
+        "D": -2.0,
+        "E": -1.0
+      },
+      "D_Hz": -3986696313.382278,
+      "E_Hz": -399772927.04878616,
+      "metrics": {
+        "pearson_r": -0.2877891473981738,
+        "Q": 767.9102255469804,
+        "K": 589686.1144996143,
+        "rmse": 0.11441144227667731,
+        "rss": 7.8670768524215084,
+        "residual_mean": -0.014432625238302594,
+        "n_points": 601,
+        "n_parameters": 6,
+        "noise_sigma": 0.0001497399772430304
+      },
+      "Q_original_minus_control": -494.7512891855636,
+      "rounding_tolerance": 1.0912660649566141e-11,
+      "original_not_worse": true
+    }
+  ],
+  "comparison_passed": true,
+  "max_k": null,
+  "noise_passed": true,
+  "inputs_sha256": {
+    "results/spectra/slices/PBIAn2_exp2_slice_max_b7827b4c8c4d4df68cb6ecd7efd1f5d4.csv": "9ee1af6c00a328eba013622716daea020a2675827f28c5a4697ee9227adb53d3",
+    "results/spectra/processed/PBIAn2_exp2_processed_b7827b4c8c4d4df68cb6ecd7efd1f5d4.csv": "0886383b93f99cc567b3a1eea9d8731e8c7c8925ae827d4a64866a36f59ed024",
+    "results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/tpe/tpe_best_spectrum.npz": "ebefebe93198b93234ddeceb9b0a762024c09c88d9c823ed1f8890c561f427b6",
+    "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/snapshots/PBIAn2_tpe.json": "13ef32f954884ed40e2b7ec89b033485e7b6c00d1bcff4ea1ffb49ec01fd67d1"
+  },
+  "noise_window_ns": [
+    0.0,
+    500.0
+  ],
+  "projection": {
+    "operation": "point",
+    "samples_per_slice": 1,
+    "noise_blocks_used": 41,
+    "window_ns": [
+      5100.0,
+      5100.0
+    ],
+    "slice_scale": 1.0,
+    "slice_offset": 0.0
+  },
+  "warnings": [
+    "One fixed control does not establish a global optimum or parameter uniqueness",
+    "The same signed population numbers and basis are retained for every control",
+    "Control D/E may lie outside the original search bounds; no clipping or skipping is allowed"
+  ],
+  "D_Hz": 1993348156.691139,
+  "E_Hz": 399772927.04878616,
+  "spectrum_relative_error": 0.0,
+  "normalization": {
+    "snapshot_mode": "none",
+    "frozen_divisor": 1.0,
+    "calibration": {
+      "scale": 8.852408785809338e-06,
+      "offset": 0.0
+    }
+  },
+  "backend_metadata": {
+    "dimension": "1d",
+    "shape": [
+      601
+    ],
+    "axis_order": [
+      "field"
+    ],
+    "mars_epr_version": "0.0.5.post5",
+    "numpy_version": "2.4.6",
+    "torch_version": "2.14.1+cu130",
+    "python_version": "3.11.16",
+    "population_mode": "raw",
+    "input_populations": {
+      "p_x": 0.9663276622813018,
+      "p_y": 0.01931499376185995,
+      "p_z": 0.014357343956838204
+    },
+    "effective_populations": [
+      0.9663276622813018,
+      0.01931499376185995,
+      0.014357343956838204
+    ],
+    "context": null,
+    "rise_time_us": null,
+    "normalization": "none",
+    "normalization_divisor": 1.0,
+    "threads": 2,
+    "relaxation_basis": null,
+    "decay_basis": null,
+    "population_basis": "xyz",
+    "backend": "MaRS StationarySpectra"
+  },
+  "reason": "all_controls_not_better",
+  "elapsed_seconds": 27.337703711003996
+}

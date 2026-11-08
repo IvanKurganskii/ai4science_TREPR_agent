@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "dimension": "1d",
+  "max_k": 70000.0,
+  "noise_window_ns": [
+    0.0,
+    500.0
+  ],
+  "source_2d": "results/spectra/processed/PBIAn2_exp2_processed_b7827b4c8c4d4df68cb6ecd7efd1f5d4.csv",
+  "projection": {
+    "operation": "point",
+    "samples_per_slice": 1,
+    "noise_blocks_used": 41,
+    "window_ns": [
+      5100.0,
+      5100.0
+    ],
+    "slice_scale": 1.0,
+    "slice_offset": 0.0
+  },
+  "metrics": {
+    "n_points": 601,
+    "n_parameters": 6,
+    "residual_df_nominal": 595,
+    "rss": 0.8694837322042838,
+    "rmse": 0.038035882266278284,
+    "residual_mean": -0.0007998303483741445,
+    "noise_sigma": 0.0001497399772430304,
+    "k_variance_ratio": 65173.188629312775,
+    "rms_noise_ratio": 255.29040058198973,
+    "alignment": {
+      "mode": "none",
+      "scale": 1.0,
+      "offset": 0.0,
+      "added_parameters": 0
+    },
+    "residual_lag1_field": 0.9800849394380383,
+    "noise_rows": 41,
+    "noise_fields": 601,
+    "noise_df_nominal": 23439,
+    "noise_lag1_time": 0.32940399583599883,
+    "noise_lag1_field": 0.7056954103438199
+  },
+  "sha256": {
+    "results/spectra/slices/PBIAn2_exp2_slice_max_b7827b4c8c4d4df68cb6ecd7efd1f5d4.csv": "9ee1af6c00a328eba013622716daea020a2675827f28c5a4697ee9227adb53d3",
+    "results/spectra/processed/PBIAn2_exp2_processed_b7827b4c8c4d4df68cb6ecd7efd1f5d4.csv": "0886383b93f99cc567b3a1eea9d8731e8c7c8925ae827d4a64866a36f59ed024",
+    "results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/cobyla/cobyla_best_spectrum.npz": "94a07d315646f5416c287ef68ac906309630b492a2665ccccda50fae9b02cf38"
+  },
+  "warnings": [
+    "K is descriptive; no automatic F-test or proof of noise independence is claimed",
+    "Legacy Source path is unavailable; the processed parent was verified by reconstructing the slice"
+  ]
+}

@@ -1,0 +1,4 @@
+[порожденоКодекс] Оформление записи; значения ниже получены проверяющим кодом.
+
+processed .csv: reference=4, found=4
+OK: processed spectra counts, headers, and finite nonzero signal

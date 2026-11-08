@@ -1,0 +1,122 @@
+[
+  {
+    "id": "PBIAn1_cobyla",
+    "authorship": "[порожденоКодекс]",
+    "policy": "Final numbers, basis and scale from saved CSV/NPZ; only original bounds/vary from config; no reoptimization",
+    "sources": {
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/cobyla/cobyla_best_spectrum.npz": "46f31153ba85c956732d8897845f226e3c3ee4d24a1894f85f02a78c3c5b527a",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/cobyla/cobyla_fit_results.csv": "4805f7eab606d1071b6bed3b766166e5e841c3eec1acf893ac50ee750bed3284",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/cobyla/cobyla_fit_config.json": "7abfe18fc56e1ed7147a816ddfd76c561aa8f6bc258d26c1f0f9871d35d75f72"
+    },
+    "snapshot": "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/snapshots/PBIAn1_cobyla.json",
+    "snapshot_sha256": "e26c0bab56bbc7c72ded7910d1db971f403217774a6195f1cf68397e24f30eae"
+  },
+  {
+    "id": "PBIAn1_cobyla2",
+    "authorship": "[порожденоКодекс]",
+    "policy": "Final numbers, basis and scale from saved CSV/NPZ; only original bounds/vary from config; no reoptimization",
+    "sources": {
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/cobyla2/cobyla_best_spectrum.npz": "e72dbb67bd038225a56e5dfcb8e290c491e569e60d7a59943f6125a95dce5242",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/cobyla2/cobyla_fit_results.csv": "41504ff8eb62095494bb10cd99d3c9954b5de8efa25c6196de6cd9880eea82b5",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/cobyla2/cobyla_fit_config.json": "83079f88405928e2713b2e45611c323418978545d77e2cb3f7343ab69f7584d2"
+    },
+    "snapshot": "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/snapshots/PBIAn1_cobyla2.json",
+    "snapshot_sha256": "f1219546f6c4680a3859d9059e67d3b563b2ea268006ab4e4f57be37277ab495"
+  },
+  {
+    "id": "PBIAn1_cobyla_lorentz",
+    "authorship": "[порожденоКодекс]",
+    "policy": "Final numbers, basis and scale from saved CSV/NPZ; only original bounds/vary from config; no reoptimization",
+    "sources": {
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/cobyla_lorentz/cobyla_best_spectrum.npz": "eb892e4f27f84e09185783e76d4eaa4792116a7ecc4bba67152c19907ff34a8d",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/cobyla_lorentz/cobyla_fit_results.csv": "b0ef35ca48ff8161ed310a9263974f3ff338ce480b99ea41a1e7caa7adb9d7d0",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/cobyla_lorentz/cobyla_fit_config.json": "a25b83e189614398dfb223a7bb0576680b315780835426471c44dc78f766a10b"
+    },
+    "snapshot": "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/snapshots/PBIAn1_cobyla_lorentz.json",
+    "snapshot_sha256": "fc6c582acf7cc5db7351ca6d01d4f40d2ed306d2c70e3a2bf5bbc60c79476f5c"
+  },
+  {
+    "id": "PBIAn1_cobyla_mesh50",
+    "authorship": "[порожденоКодекс]",
+    "policy": "Final numbers, basis and scale from saved CSV/NPZ; only original bounds/vary from config; no reoptimization",
+    "sources": {
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/cobyla_mesh50/cobyla_best_spectrum.npz": "c70ea886d4e1391018afd108157a098ab1b6a95cef2c81f8dc5b8cd6d806ddb1",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/cobyla_mesh50/cobyla_fit_results.csv": "175b5b5a54442b294790fde05718a901571cc4a1292b077a9eb4410c51b6eef0",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/cobyla_mesh50/cobyla_fit_config.json": "dfcc8741a989ee9a1fcc773e262991d65b0adf032d49d5b29c2031eb83f31cc1"
+    },
+    "snapshot": "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/snapshots/PBIAn1_cobyla_mesh50.json",
+    "snapshot_sha256": "cd37a8beaf727df76cadbc60fdd48d21b3175371f985b4754b658e596c2e5457"
+  },
+  {
+    "id": "PBIAn1_tpe",
+    "authorship": "[порожденоКодекс]",
+    "policy": "Final numbers, basis and scale from saved CSV/NPZ; only original bounds/vary from config; no reoptimization",
+    "sources": {
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/tpe/tpe_best_spectrum.npz": "fc06838eee7c1d49ed18db2c2959237505500cfafb6c344fa1f59a4b033d8747",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/tpe/tpe_best_params.csv": "e81360a50c9734f71da06f0e1f84f8e80b875f62aee3d60adc3762b942c58395",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/tpe/tpe_fit_config.json": "6b298b0c8040450a2454708f62d2eb09f62d5ec4c2bec8e5704eb7312416ab6d"
+    },
+    "snapshot": "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/snapshots/PBIAn1_tpe.json",
+    "snapshot_sha256": "df58d99341e1fb03696909d2fbc49282bfe9f83eeb98bcc08db801b425b43e34"
+  },
+  {
+    "id": "PBIAn1_tpe_eigen",
+    "authorship": "[порожденоКодекс]",
+    "policy": "Final numbers, basis and scale from saved CSV/NPZ; only original bounds/vary from config; no reoptimization",
+    "sources": {
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/tpe_eigen/tpe_best_spectrum.npz": "9e4ab8d16e10f69cb4b389f6b313fc6e98059395882318e5901b0053aa397908",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/tpe_eigen/tpe_best_params.csv": "e86299f5095fb1c82c1b4f90357147f7b60807fa573bba81dc22ca8295ba1ffe",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/tpe_eigen/tpe_fit_config.json": "8dae24484481e98d133d14e40a3aa2bc856b04157864d8e40f4b7cdfba4c4d53"
+    },
+    "snapshot": "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/snapshots/PBIAn1_tpe_eigen.json",
+    "snapshot_sha256": "6e14775e08fdd64b071c827c06386fcb2415f468b2ffb6d8ee9fc9f4fcd8ad1e"
+  },
+  {
+    "id": "PBIAn1_tpe_lorentz",
+    "authorship": "[порожденоКодекс]",
+    "policy": "Final numbers, basis and scale from saved CSV/NPZ; only original bounds/vary from config; no reoptimization",
+    "sources": {
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/tpe_lorentz/tpe_best_spectrum.npz": "8d53d80b4b8c49ea9ab6c0edb415ce329fcb857e6e94c7f4bfe1528b8e808f09",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/tpe_lorentz/tpe_best_params.csv": "f7ea7b6450bea7c934c59135486725af0714897def1fdc45f529f4e8cd7e5bb5",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/tpe_lorentz/tpe_fit_config.json": "805aab10571813f353f37162f0a57161f4540cd39bcbe6d6043fa32827f7fecb"
+    },
+    "snapshot": "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/snapshots/PBIAn1_tpe_lorentz.json",
+    "snapshot_sha256": "086335c10a45c7f3cde1d7c239ae4fecd65e06bd51998634fb753367ae027e43"
+  },
+  {
+    "id": "PBIAn1_tpe_product",
+    "authorship": "[порожденоКодекс]",
+    "policy": "Final numbers, basis and scale from saved CSV/NPZ; only original bounds/vary from config; no reoptimization",
+    "sources": {
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/tpe_product/tpe_best_spectrum.npz": "088239485230bfe2d5aa75194af436a14f9fda1fb23b44deefe04cf6a4956ca9",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/tpe_product/tpe_best_params.csv": "1fbc200c64cd1d8f17f580adf79d3deff58cee12eb65709f51040083236661c2",
+      "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/tpe_product/tpe_fit_config.json": "140000cda4cf438f2f947c7ef728e8a14a8a11175c1ea76536f7b90e05c2d82d"
+    },
+    "snapshot": "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/snapshots/PBIAn1_tpe_product.json",
+    "snapshot_sha256": "0f036b45d47f36e6804b6ed6a45ef1e5bab895e6845c321ce06983b52d43ee04"
+  },
+  {
+    "id": "PBIAn2_cobyla",
+    "authorship": "[порожденоКодекс]",
+    "policy": "Final numbers, basis and scale from saved CSV/NPZ; only original bounds/vary from config; no reoptimization",
+    "sources": {
+      "results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/cobyla/cobyla_best_spectrum.npz": "94a07d315646f5416c287ef68ac906309630b492a2665ccccda50fae9b02cf38",
+      "results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/cobyla/cobyla_fit_results.csv": "00120fb01030f6a3aeb8e0d32a3b8dc0e8f74f0e43ad3ffc722176a24e2be1d9",
+      "results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/cobyla/cobyla_fit_config.json": "81a74ba5e7126587f586631014e741d58402e7798b42854c401d097fe7268426"
+    },
+    "snapshot": "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/snapshots/PBIAn2_cobyla.json",
+    "snapshot_sha256": "100b60d089292447b81d5113cbb030226756ce6b5bcb7fda064997350f34a625"
+  },
+  {
+    "id": "PBIAn2_tpe",
+    "authorship": "[порожденоКодекс]",
+    "policy": "Final numbers, basis and scale from saved CSV/NPZ; only original bounds/vary from config; no reoptimization",
+    "sources": {
+      "results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/tpe/tpe_best_spectrum.npz": "ebefebe93198b93234ddeceb9b0a762024c09c88d9c823ed1f8890c561f427b6",
+      "results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/tpe/tpe_best_params.csv": "ff89081f1ddbfacd022d4c6e5ba94aaf6a20e2e5df1cfb55dd46c34450bb6f1f",
+      "results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/tpe/tpe_fit_config.json": "f75bbb5432006fa4045309e26f35f01ff2a5b46736cc3a52e26618ad0131198a"
+    },
+    "snapshot": "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/snapshots/PBIAn2_tpe.json",
+    "snapshot_sha256": "13ef32f954884ed40e2b7ec89b033485e7b6c00d1bcff4ea1ffb49ec01fd67d1"
+  }
+]

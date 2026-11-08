@@ -1,0 +1,5 @@
+{
+  "status": "invalid",
+  "error": "Snapshot does not reproduce the saved spectrum within --spectrum-rtol",
+  "elapsed_seconds": 28.473405641008867
+}

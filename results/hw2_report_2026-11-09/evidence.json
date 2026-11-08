@@ -1,0 +1,180 @@
+{
+  "date": "2026-11-09",
+  "source": "diary.md and existing Git/data artifacts; read-only checks only",
+  "git_head": "28a96e56f4d992610fd97c0c5f2f4a73dadcb143",
+  "method_first_commit": "28a96e56f4d992610fd97c0c5f2f4a73dadcb143",
+  "diary_sha256": "b9d11046f4b07a8c3be89990a590c3fadfb5ae0ac798e0b9e4283dda9d4eec44",
+  "review_python_version": "3.13.2",
+  "current_data_checks": [
+    {
+      "check": "spectra_cleaned.py",
+      "exit_code": 0,
+      "seconds": 4.030761600006372,
+      "stdout": "processed .csv: reference=4, found=4\nOK: processed spectra counts, headers, and finite nonzero signal",
+      "stderr": ""
+    },
+    {
+      "check": "spectra_sliced.py",
+      "exit_code": 0,
+      "seconds": 0.14032370003405958,
+      "stdout": "processed .csv: reference=4, found=4\nslices .csv: reference=4, found=8\nOK: slice counts, headers, and finite nonzero signal",
+      "stderr": ""
+    }
+  ],
+  "historical_error": [
+    {
+      "revision": "1517edb",
+      "label": "before",
+      "source": "results/spectra/slices/PBIAn1_exp_slice_max_7fa112cd9c81459eb36b403a510aae79.csv",
+      "status": "failed",
+      "output": "FAIL: C:\\Users\\kurga\\OneDrive\\Документы\\YSDA\\AI4Science\\.utils\\reference\\hw2_report_2026-11-09\\historical_before.csv: all signal intensities are zero (coordinate axes excluded)",
+      "sha256": "a1e724718ab0c29624820b453e47ca6d058ee96de729059a27b8273924135352",
+      "full_revision": "1517edbcb7e8f77e7bdb4ac0ce16f48d23679d82"
+    },
+    {
+      "revision": "c970b94",
+      "label": "after",
+      "source": "results/spectra/slices/PBIAn1_exp_slice_max_7fa112cd9c81459eb36b403a510aae79.csv",
+      "status": "passed",
+      "output": "OK: finite nonzero signal; text header and rows layout are valid",
+      "sha256": "d9651c9956352e5a3629fc47fa8de273be0d1cb2c35fd17504a6b8a7241f6f8c",
+      "full_revision": "c970b94bb8db8bdab40798ddc5d4feef130e2b2a"
+    }
+  ],
+  "fit_reports": [
+    {
+      "path": "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/check_fit_1d_diag.json",
+      "sha256": "e683c3d41c25438a83cb8398fbd126894cbf399c2f817517d15cb127fa1d6556",
+      "status": "diagnostic",
+      "max_k": null,
+      "K": 1888305603302517.0,
+      "Q": 43454638.45554945,
+      "rmse": 14510.309181504806,
+      "noise_sigma": 0.0003381544567075128,
+      "error": null
+    },
+    {
+      "path": "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/check_fit_1d_diag2.json",
+      "sha256": "c72619c305d7ac8041a0439c4cf25bcc357151ddfdfd2cea450e890ca9f4dfda",
+      "status": "diagnostic",
+      "max_k": null,
+      "K": 46.10966249737098,
+      "Q": 6.7904095971723955,
+      "rmse": 0.0022674436199674767,
+      "noise_sigma": 0.0003381544567075128,
+      "error": null
+    },
+    {
+      "path": "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/check_fit_1d_mesh50.json",
+      "sha256": "04d2bc5dc56ca138b970782f88e2542e2d1d121bc1f524c9891c6c90df74570e",
+      "status": "diagnostic",
+      "max_k": null,
+      "K": 44.5968668000104,
+      "Q": 6.678088558862513,
+      "rmse": 0.0022299375434842676,
+      "noise_sigma": 0.0003381544567075128,
+      "error": null
+    },
+    {
+      "path": "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/check_fit_1d_pass.json",
+      "sha256": "e46d035e8a613d5439f3a4d2252f4155819559410cc38d16e3c50d870db4e73a",
+      "status": "passed",
+      "max_k": 50.0,
+      "K": 46.10966249737098,
+      "Q": 6.7904095971723955,
+      "rmse": 0.0022674436199674767,
+      "noise_sigma": 0.0003381544567075128,
+      "error": null
+    },
+    {
+      "path": "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/check_refit_1d.json",
+      "sha256": "fc3612a434dce00e5793522d222b2900329a5a56971ac7bd80088ebb2abed0e2",
+      "status": "invalid",
+      "max_k": null,
+      "K": null,
+      "Q": null,
+      "rmse": null,
+      "noise_sigma": null,
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "path": "results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/check_refit_1d2.json",
+      "sha256": "7280272d88d83be39c811d56a9684e0890a5563a4bfa423efebf0468ea911569",
+      "status": "invalid",
+      "max_k": null,
+      "K": null,
+      "Q": null,
+      "rmse": null,
+      "noise_sigma": null,
+      "error": "Unknown or invalid problem fields"
+    },
+    {
+      "path": "results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/check_fit_1d.json",
+      "sha256": "c00bc64b413d019ef0d7cb36c64320bb270dddea5d30a4d56ef2eaf0753ac79c",
+      "status": "diagnostic",
+      "max_k": null,
+      "K": 65173.188629312775,
+      "Q": 255.29040058198973,
+      "rmse": 0.038035882266278284,
+      "noise_sigma": 0.0001497399772430304,
+      "error": null
+    },
+    {
+      "path": "results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/check_fit_1d_pass.json",
+      "sha256": "4a64b55d9e47138f47a45a61d95a5a561fd7f2ed7820f4c32dc199a1573ebeda",
+      "status": "passed",
+      "max_k": 70000.0,
+      "K": 65173.188629312775,
+      "Q": 255.29040058198973,
+      "rmse": 0.038035882266278284,
+      "noise_sigma": 0.0001497399772430304,
+      "error": null
+    },
+    {
+      "path": "results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/check_refit_1d.json",
+      "sha256": "cea8e9012abb840a46de450f0b77ff4df5e8d53d6691e46d078625affc435023",
+      "status": "invalid",
+      "max_k": null,
+      "K": null,
+      "Q": null,
+      "rmse": null,
+      "noise_sigma": null,
+      "error": "Unknown or invalid problem fields"
+    }
+  ],
+  "checker_sha256": {
+    "spectra_cleaned.py": "705559822c3e4ef97d6806e58d887833d7351c999efd74ada4ab78e4873c2cde",
+    "spectra_sliced.py": "b4ac91b09b945f111de63fc4673ec7fd4a09f9098384718b46d76e50f43ae2c3",
+    "fit_noise.py": "5f414032715683aa638f9dd3917341ef1031114b1e0b9a0dfe373087fa4dfcf6",
+    "fit_perturbation.py": "71a04980780ee06602cbb7fdf133382b6a7bac1e093ce7b4ee12068a2b85c7c3",
+    "fit_refinement.py": "5fdc2fe57ba40a2ca518089578b647dec38f34291f702c205ebb3ed58adec2a4"
+  },
+  "authorship": {
+    "status": "[порожденоКодекс]",
+    "scope": "Оформление и сводка независимой проверки при подготовке отчёта; действия научного агента описаны отдельно по diary.md"
+  },
+  "report_authorship_convention": {
+    "codex": "[порожденоКодекс]",
+    "scientific_agent": "[порождено: название модели]"
+  },
+  "output_sha256": {
+    "caught_error_after.txt": "c3ef5b87ae7848bc3b0be68498259993c6f38935f2f56e0b3346a88b440a83ca",
+    "caught_error_before.txt": "ef8f86de7804bbe18902bcae70a2236e82dd4fff3129f69238b94165137744fb",
+    "preprocessing_cleaned.txt": "b4ee45677518fc4b3055946c9996d4794bda7a1624990c4cbcf4e13a11296927",
+    "preprocessing_sliced.txt": "10c6c6a297ddfba15fd6c68382f1c0248e0753dfc912cf2953ca3f68b47e346d"
+  },
+  "diary_at_initial_audit": {
+    "sha256": "b9d11046f4b07a8c3be89990a590c3fadfb5ae0ac798e0b9e4283dda9d4eec44",
+    "size_bytes": 29262
+  },
+  "diary_after_fit_check_append": {
+    "sha256": "f4fdbf27afa79f8eba2367e29885c0a67cbc9f731ecd400dfc30671ecf9c74e5",
+    "size_bytes": 33128
+  },
+  "new_fit_checks": {
+    "path": "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557",
+    "initial_invalid": 2,
+    "complete_passed": 10,
+    "full_fit_acceptance_confirmed": false
+  }
+}

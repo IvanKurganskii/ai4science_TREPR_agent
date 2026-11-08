@@ -1,0 +1,13 @@
+{
+  "authorship": "[порожденоКодекс]",
+  "base": "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557",
+  "initial_invalid": 2,
+  "complete_passed": 10,
+  "all_reproduction_errors_zero": true,
+  "no_optimization": true,
+  "full_acceptance_confirmed": false,
+  "planned_seed_series_completed": false,
+  "protocol_sections_0_7_sha256": "6fffdc1c03189c41b17e5315bbceefc69f5a68229d3ad74f56a5aeee8683e769",
+  "wall_seconds_complete": 141.265999,
+  "sum_seconds_complete": 281.04878950092825
+}

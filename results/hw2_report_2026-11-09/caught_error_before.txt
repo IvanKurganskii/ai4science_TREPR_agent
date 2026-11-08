@@ -1,0 +1,9 @@
+[порожденоКодекс] Оформление записи; значения ниже получены проверяющим кодом.
+
+Historical replay during report preparation, 2026-11-09
+Source revision: 1517edbcb7e8f77e7bdb4ac0ce16f48d23679d82
+Source file: results/spectra/slices/PBIAn1_exp_slice_max_7fa112cd9c81459eb36b403a510aae79.csv
+Blob SHA256: a1e724718ab0c29624820b453e47ca6d058ee96de729059a27b8273924135352
+Verifier: spectra_cleaned.check_spectrum(path, layout="rows")
+Result: FAILED
+Reason: all signal intensities are zero (coordinate axes excluded)

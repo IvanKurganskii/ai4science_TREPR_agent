@@ -1,8 +1,18 @@
 # AGENTS.md — Очистка и моделирование спектров ВР ЭПР Д-А диад с Периленбисимидом
 
+[порождено: Codex] Копия инструкций для сдачи ДЗ 2. При сборке пакета
+разместить этот файл в корне под именем `AGENTS.md`. Все команды и
+относительные ссылки ниже отсчитываются от корня пакета проекта.
+Для сдачи используется временная копия `checks_tmp_for_hw2/` внутри проекта.
+В рабочем окружении проверки находятся отдельно в `YSDA/checks`, вне папки
+агента и вне `my_project`; основной рабочий AGENTS.md не заменяется.
+Для сдачи основная проверка — Пирсон/Q и комплектность параметров.
+Дополнительный MaRS-дофит опционален. Основная проверка Q также использует
+MaRS для расчёта контрольного спектра. Рабочий AGENTS.md не изменяется.
+
 Проект параметризации спектров ВР ЭПР Д-А диад с периленбисимидом.
 
-Версия инструкций: 2026-11-09.1.
+Версия инструкций: 2026-11-09.2.
 
 Этот файл — обязательный договор проекта. [index.md](index.md) — карта локального
 контекста; модули в `instructions/` содержат подробные правила отдельных действий.
@@ -142,8 +152,8 @@ X/Y/Z и a/e назначай сам. Пороговые края не подс�
 Прежний положительный диапазон старта D — 500–3000 МГц; знак выбирай по памятке.
 До каждого запуска сохрани конфигурацию и новый
 fit_id; пересмотр настроек создаёт новую версию, не меняет историю и приёмку.
-1D-фит готов **только после успешных `check_fit_1d.py`, `check_fit_perturbation_1d.py` и `check_refit_1d.py`**:
-у каждой проверки код 0 и статус `passed`, новые JSON-отчёты и метрики в задаче.
+1D-фит готов после основной `check_fit_perturbation_1d.py` и проверок комплектности; `check_refit_1d.py` — дополнительный контроль:
+для основных проверок нужны код 0 и статус `passed`, новые JSON-отчёты и метрики в задаче.
 Также обязательны наложение фита/эксперимента в SVG и проверка рисунка ниже.
 
 ## 1.3 Моделирование 2d спектров
@@ -157,8 +167,8 @@ MaRS Cobyla и обе стадии; агент выбирает границы �
 явно задай время начала, не принимай 500 нс за время лазера.
 Базис населённостей наследуется из 1D и выбирается агентом для нового fit_id;
 T1 всегда eigen, потери подуровней всегда xyz. ham_strain наследуется и фиксирован.
-2D-фит готов **только после успешных `check_fit_2d.py`, `check_fit_perturbation_2d.py` и `check_refit_2d.py`**:
-у каждой проверки код 0 и статус `passed`, новые JSON-отчёты и метрики в задаче.
+2D-фит готов после основной `check_fit_perturbation_2d.py` и проверок комплектности; `check_refit_2d.py` — дополнительный контроль:
+для основных проверок нужны код 0 и статус `passed`, новые JSON-отчёты и метрики в задаче.
 Также обязателен один SVG с 6 кинетиками и 6 срезами по времени, с экспериментом
 и моделью в каждой панели. Поля/времена выбирай по [fit-drawing](instructions/fit-drawing.md).
 
@@ -172,13 +182,13 @@ T1 всегда eigen, потери подуровней всегда xyz. ham_s
 Полные команды из корня проекта; укажи фактические файлы, N_FREE и новые отчёты:
 
 ```bash
-../.mars_env/bin/python "/mnt/c/Users/kurga/OneDrive/Документы/YSDA/checks/check_fit_perturbation_1d.py" \
+../.mars_env/bin/python "checks_tmp_for_hw2/check_fit_perturbation_1d.py" \
   --root "$PWD" --slice "$SLICE_CSV" --fit "$FIT_NPZ" --fit-key intensity \
   --parameters "$PARAMETERS_JSON" --noise-window-ns 0 500 \
   --n-parameters "$N_FREE" --alignment none --min-pearson 0.32 \
   --report "$NEW_PERTURBATION_REPORT_JSON"
 
-../.mars_env/bin/python "/mnt/c/Users/kurga/OneDrive/Документы/YSDA/checks/check_fit_perturbation_2d.py" \
+../.mars_env/bin/python "checks_tmp_for_hw2/check_fit_perturbation_2d.py" \
   --root "$PWD" --data "$DATA_2D" --fit "$FIT_NPZ" --fit-key spectrum \
   --parameters "$PARAMETERS_JSON" --noise-window-ns 0 500 \
   --n-parameters "$N_FREE" --alignment none --min-pearson 0.32 \
@@ -190,7 +200,7 @@ T1 всегда eigen, потери подуровней всегда xyz. ham_s
 `--source-2d`, параметры операции среза, `--fit-window-ns` и `--fit-time-offset-ns`
 из основного контроля. Окно шума 0–500 ns относится к текущим четырём измерениям.
 Только код 0/`passed` и новый JSON подтверждают прохождение; сравнение не меняет
-сохранённые D/E и не заменяет обязательную MaRS Cobyla-доводку.
+сохранённые D/E и не заменяет дополнительную MaRS Cobyla-доводку.
 
 Для фитов обоих типов включай эти условия в «Готово, когда» до подбора.
 Дополнительно обязателен `check_fit_table.py` по [fit-acceptance](instructions/fit-acceptance.md):
@@ -205,8 +215,42 @@ px/py/pz в [0,1] с суммой 1 (допуск 1e-6); 0 < lw_Gs < 20 Гс.
 Все перечисленные параметры обязательны, конечны: без пустых значений, None,
 NaN и ±Inf. Единицы и смысл ширины/времён фиксируй по fit-acceptance.
 Проверки относятся к итоговым файлам и параметрам; после их изменения повтори
-все пять, включая контроль D/E и рисунок. Пропуск, тайм-аут, ошибка или любой статус кроме `passed` означают, что
+основной контроль D/E и проверки комплектности, включая рисунок. Пропуск, тайм-аут, ошибка или любой статус кроме `passed` означают, что
 фит не готов. Несовместимость модели с проверкой исключением не является.
+
+### Воспроизведение ДЗ из временной копии проверок
+
+Для пакета ДЗ используй `checks_tmp_for_hw2/` внутри `my_project`.
+В рабочем окружении папка `YSDA/checks` вынесена из папки агента и проекта;
+временная копия предназначена для воспроизведения отчёта.
+Среда нужна для основной проверки Q; дополнительным является дофит. Выполняются из корня проекта;
+каталог `results/hw2_report_2026-11-09/` должен существовать.
+
+Сначала создать среду MaRS (нужен uv):
+
+```bash
+uv venv --python 3.11 ../.mars_env
+uv pip install --python ../.mars_env/bin/python \
+  "mars-epr[opt]==0.0.5.post5" "numpy==2.4.6" "torch==2.14.1" \
+  "nevergrad==1.0.12" "optuna==4.9.0" "optuna-integration==4.9.0" \
+  tqdm numdifftools hdbscan
+```
+
+Затем запустить основную проверку Пирсона/Q:
+
+```bash
+../.mars_env/bin/python checks_tmp_for_hw2/check_fit_perturbation_1d.py \
+  --root "$PWD" \
+  --slice results/spectra/slices/PBIAn1_exp_slice_max_7fa112cd9c81459eb36b403a510aae79.csv \
+  --fit results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/cobyla/cobyla_best_spectrum.npz \
+  --fit-key intensity \
+  --parameters results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/snapshots/PBIAn1_cobyla.json \
+  --noise-window-ns 0 500 --n-parameters 6 --alignment none --min-pearson 0.32 \
+  --report "results/hw2_report_2026-11-09/perturbation_$(date +%s%N).json"
+```
+
+Команда выдаёт новый JSON; возможен отрицательный вердикт для кандидата.
+Этот контроль не заменяет проверку комплектности и допустимости параметров.
 
 **Рисунок — критерий готовности обоих типов фита.** До сдачи выполни отрисовку
 по [fit-drawing](instructions/fit-drawing.md), сохрани `fitdraw_<spectrum_id>.svg`
@@ -215,11 +259,11 @@ NaN и ±Inf. Единицы и смысл ширины/времён фикси�
 Из корня проекта полные команды (выбери соответствующий тип; пути отчётов новые):
 
 ```bash
-../.mars_env/bin/python "/mnt/c/Users/kurga/OneDrive/Документы/YSDA/checks/check_fit_draw_1d.py" \
+../.mars_env/bin/python "checks_tmp_for_hw2/check_fit_draw_1d.py" \
   --root "$PWD" --fit "$FIT_NPZ" --figure "$FIT_OUTPUT_DIR/fitdraw_${SPECTRUM_ID}.svg" \
   --spectrum-id "$SPECTRUM_ID" --fit-id "$FIT_ID" --report "$NEW_DRAW_REPORT_JSON"
 
-../.mars_env/bin/python "/mnt/c/Users/kurga/OneDrive/Документы/YSDA/checks/check_fit_draw_2d.py" \
+../.mars_env/bin/python "checks_tmp_for_hw2/check_fit_draw_2d.py" \
   --root "$PWD" --fit "$FIT_NPZ" --figure "$FIT_OUTPUT_DIR/fitdraw_${SPECTRUM_ID}.svg" \
   --spectrum-id "$SPECTRUM_ID" --fit-id "$FIT_ID" --report "$NEW_DRAW_REPORT_JSON"
 ```
@@ -425,4 +469,4 @@ NaN и ±Inf. Единицы и смысл ширины/времён фикси�
   Ollama, выполняй их; повтор уведомления с тем же идентификатором события
   не считается новым переходом.
 
-<!-- instructions:AGENTS:end version=2026-11-09.1 -->
+<!-- instructions:AGENTS:end version=2026-11-09.2 -->

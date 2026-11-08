@@ -1,0 +1,1 @@
+{"status": "invalid", "error": "Snapshot does not reproduce the saved spectrum within --spectrum-rtol", "elapsed_seconds": 28.473405641008867, "report": "results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/existing_snapshots/PBIAn1_existing_snapshot.json"}

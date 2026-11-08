@@ -1,0 +1,103 @@
+{
+  "model": "high_j",
+  "dimension": "1d",
+  "objective": "noise_k",
+  "simulation": {
+    "hamiltonian": {
+      "g": 2.001829329327345,
+      "D": 1967512744.3231916,
+      "E": 400000000.0,
+      "gauss": 0.0004934980358154592,
+      "lorentz": 0.0,
+      "ham_strain": 0.0
+    },
+    "populations": {
+      "p_x": 0.952116394924936,
+      "p_y": 0.04786380439492613,
+      "p_z": 1.980068013784919e-05
+    },
+    "settings": {
+      "freq": 9738438740.0,
+      "temperature": 79.963,
+      "harmonic": 0,
+      "mesh": 25,
+      "frame": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "device": "cpu",
+      "dtype": "float64"
+    },
+    "population_mode": "raw",
+    "normalization": "none",
+    "population_basis": "xyz"
+  },
+  "calibration": {
+    "scale": 8.976597867695052e-06,
+    "offset": 0.0
+  },
+  "variables": [
+    {
+      "path": "simulation.hamiltonian.g",
+      "bounds": [
+        2.0,
+        2.12
+      ]
+    },
+    {
+      "path": "simulation.hamiltonian.D",
+      "bounds": [
+        500000000.0,
+        3000000000.0
+      ]
+    },
+    {
+      "path": "simulation.hamiltonian.E",
+      "bounds": [
+        0.0,
+        400000000.0
+      ]
+    },
+    {
+      "path": "simulation.hamiltonian.gauss",
+      "bounds": [
+        1e-05,
+        0.0005
+      ]
+    },
+    {
+      "path": "simulation.populations.p_x",
+      "bounds": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "path": "simulation.populations.p_y",
+      "bounds": [
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "target": "simulation.populations.p_z",
+      "constant": 1.0,
+      "terms": {
+        "simulation.populations.p_x": -1.0,
+        "simulation.populations.p_y": -1.0
+      }
+    }
+  ],
+  "constraints": [
+    {
+      "path": "simulation.populations.p_z",
+      "bounds": [
+        0.0,
+        1.0
+      ]
+    }
+  ]
+}

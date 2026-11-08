@@ -1,0 +1,11 @@
+[порожденоКодекс] Фактический запуск check_fit_perturbation_1d.py, 2026-11-09.
+
+PBIAn1_existing_snapshot
+status=invalid; exit_code=2
+parameters=results/fits/1d/PBIAn1_exp_slice_max_2026-11-08/problem_1d.json
+error=Snapshot does not reproduce the saved spectrum within --spectrum-rtol
+
+PBIAn2_existing_snapshot
+status=invalid; exit_code=2
+parameters=results/fits/1d/PBIAn2_exp2_slice_max_2026-11-09/problem_1d.json
+error=Snapshot does not reproduce the saved spectrum within --spectrum-rtol

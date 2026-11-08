@@ -1,0 +1,17 @@
+[порожденоКодекс] Фактический запуск check_fit_perturbation_1d.py, 2026-11-09.
+
+PBIAn1_cobyla
+status=passed; exit_code=0
+parameters=results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/snapshots/PBIAn1_cobyla.json
+r=0.9923120040700094
+Q_original=6.7904095971723955
+Q_control=55.850782599586935
+spectrum_relative_error=0.0
+
+PBIAn2_cobyla
+status=passed; exit_code=0
+parameters=results/hw2_report_2026-11-09/perturbation_saved_fits_20261109_024557/snapshots/PBIAn2_cobyla.json
+r=0.914616341573737
+Q_original=255.29040058198973
+Q_control=779.416204321305
+spectrum_relative_error=0.0
