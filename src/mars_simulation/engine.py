@@ -115,6 +115,7 @@ class SimulationEngine:
                 electron_electron=[(0, 1, de+exchange)], device=device, dtype=dtype)
         sample = spin_model.MultiOrientedSample(
             base_spin_system=system, gauss=h["gauss"], lorentz=h["lorentz"],
+            ham_strain=h.get("ham_strain", 0.),
             mesh=(config["mesh"], config["mesh"]), device=device, dtype=dtype)
         cls = spectra_manager.StationarySpectra if dimension == "1d" else spectra_manager.CoupledTimeSpectra
         manager = cls(freq=config["freq"], sample=sample, harmonic=config["harmonic"],
@@ -125,35 +126,37 @@ class SimulationEngine:
         self._cache[key] = item
         return (*item, effective)
 
-    def _context(self, backend, model, sample, weights, kinetic, device, dtype):
+    def _context(self, backend, model, sample, weights, kinetic, device, dtype, population_basis="xyz"):
         _, torch, _, population, _ = backend
         args = {"sample": sample, "device": device, "dtype": dtype}
         losses = None if kinetic is None else [_rate(kinetic["tau_out_"+k]) for k in (
             ("x", "y", "z") if model == "high_j" else ("s", "x", "y", "z"))]
-        xyz = population.Context(basis="xyz", init_populations=weights, decay_rates=losses, **args)
+        initial = population.Context(basis=population_basis, init_populations=weights, **args)
         if kinetic is None:
-            return xyz
+            return initial
+        # Population preparation, sublevel loss and T1 need separate bases.
+        losses_xyz = population.Context(basis="xyz", decay_rates=losses, **args)
         if model == "high_j":
             matrix = torch.tensor([[0, 1, 0], [1, 0, 1], [0, 1, 0]], device=device, dtype=dtype)
             matrix *= _rate(kinetic["tau_intra"])
-            basis = "multiplet"
         else:
             outer = torch.tensor([[0, 1, 1, 0], [1, 0, 0, 1],
                                   [1, 0, 0, 1], [0, 1, 1, 0]], device=device, dtype=dtype)
             inner = torch.tensor([[0, 0, 0, 0], [0, 0, 1, 0],
                                   [0, 1, 0, 0], [0, 0, 0, 0]], device=device, dtype=dtype)
             matrix = outer*_rate(kinetic["tau_outer"]) + inner*_rate(kinetic["tau_inner"])
-            basis = "eigen"
-        return xyz + population.Context(basis=basis, thermal_rates=matrix, **args)
+        return initial + losses_xyz + population.Context(basis="eigen", thermal_rates=matrix, **args)
 
     def simulate(self, model, dimension, *, hamiltonian=None, settings=None, spin_model=None,
                  fields_T, times_s=None, populations=None, context=None,
-                 population_mode="notebook", rise_time_us=None, normalization="none", device=None):
+                 population_mode="notebook", rise_time_us=None, normalization="none", device=None,
+                 population_basis="xyz"):
         """Return CPU numpy arrays and the effective, portable spin_model snapshot.
 
         fields_T/times_s are explicit SI-unit axes. Lifetimes in context and
         rise_time_us use microseconds; null disables an individual rate.
         """
+        population_basis = v.population_basis(population_basis)
         if dimension not in ("1d", "2d", "2d_full"):
             raise ValueError("dimension must be 1d, 2d or 2d_full")
         if dimension == "2d":
@@ -194,7 +197,7 @@ class SimulationEngine:
             weights, weight_mode = _weights(np, model, values, dimension, population_mode)
             kind = "1d" if dimension == "1d" else "2d"
             sample, manager, actual_device, dtype, effective = self._manager(backend, snapshot, fields, kind)
-            current = self._context(backend, model, sample, weights, kinetic, actual_device, dtype)
+            current = self._context(backend, model, sample, weights, kinetic, actual_device, dtype, population_basis)
             manager.update_context(current)
             field_tensor = torch.as_tensor(fields, device=actual_device, dtype=dtype)
             with torch.no_grad():
@@ -237,8 +240,8 @@ class SimulationEngine:
                     "effective_populations": weights, "context": kinetic,
                     "rise_time_us": rise_time_us, "normalization": normalization,
                     "normalization_divisor": divisor, "threads": self.threads,
-                    "relaxation_basis": None if times is None else (
-                        "multiplet" if model == "high_j" else "eigen"),
-                    "population_basis": "molecular_xyz" if model == "high_j" else "singlet_molecular_xyz",
+                    "relaxation_basis": None if times is None else "eigen",
+                    "decay_basis": None if times is None else "xyz",
+                    "population_basis": population_basis,
                     "backend": "MaRS StationarySpectra" if times is None else "MaRS CoupledTimeSpectra"},
             }

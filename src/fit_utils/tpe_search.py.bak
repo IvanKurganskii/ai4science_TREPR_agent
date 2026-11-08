@@ -1,0 +1,401 @@
+"""
+Global parameter search for 1D EPR slice spectra using Optuna TPE sampler.
+
+The script now varies:
+  * isotropic g‑factor (single value, applied to all three axes)
+  * spin populations in either the Cartesian basis [p_x, p_y, p_z] or the
+    spherical basis [p_+, p_0, p_-]
+  * zero‑field splitting parameters D and E
+  * Hamiltonian strain (ham_strain)
+  * Gaussian line‑broadening (gauss) – Lorentzian broadening is removed.
+
+Usage example::
+
+    python src/fit_utils/tpe_search.py \
+        --input results/spectra/slices/slice_001.npy \
+        --freq 9.8e9 \
+        --temperature 10.0 \
+        --n-trials 500 \
+        --seed 42 \
+        --output-dir results/tables
+
+Input format:
+    CSV: two rows (field in G by default, intensity); NPY: (N, 2);
+    NPZ: ``field`` and ``intensity``. NPY/NPZ fields default to tesla.
+    Use --field-unit to specify another unit explicitly. No unit guessing.
+"""
+
+import argparse
+import csv
+from pathlib import Path
+
+import numpy as np
+import torch
+
+# ---------------------------------------------------------------------------
+# Optuna is imported by main; the shared simulator also works without Optuna.
+# ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+# Mars imports from the active mars-epr environment.
+# ---------------------------------------------------------------------------
+from mars import spin_model
+from mars import spectra_manager
+from mars.population.contexts import Context
+
+# ---------------------------------------------------------------------------
+# Device configuration – use CUDA if available, otherwise CPU.
+# ---------------------------------------------------------------------------
+dtype = torch.float64
+device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+
+PARAMETER_BOUNDS = {
+    "g_iso": (2.0, 2.12), "D": (40e6, 200e6), "E": (5e6, 40e6),
+    "ham_strain": (1e7, 1e8), "gauss": (1e-5, 5e-4),
+    "pop_x": (0.0, 1.0), "pop_y": (0.0, 1.0), "pop_z": (0.0, 1.0),
+}
+FIELD_SCALES = {"T": 1.0, "mT": 1e-3, "G": 1e-4, "uT": 1e-6}
+# Unit-maxabs MSE is at most 4 for valid spectra.
+INVALID_LOSS = 1e6
+
+
+class InvalidSimulationError(ValueError):
+    """The model returned no usable spectrum for a candidate."""
+
+
+def normalize_populations(values):
+    pop = np.asarray(values, dtype=float)
+    if pop.shape != (3,) or not np.isfinite(pop).all() or np.any(pop < 0) or not np.any(pop > 0):
+        raise ValueError("Populations must be three finite nonnegative values with positive sum")
+    pop = pop / pop.max()
+    return (pop / pop.sum()).tolist()
+
+
+def validate_parameters(params):
+    result = dict(params)
+    for key in ("g_iso", "D", "E", "ham_strain", "gauss"):
+        result[key] = float(result[key])
+        if not np.isfinite(result[key]):
+            raise ValueError(f"{key} must be finite")
+    if result["g_iso"] <= 0 or result["ham_strain"] < 0 or result["gauss"] <= 0:
+        raise ValueError("g_iso and gauss must be positive; ham_strain must be nonnegative")
+    if abs(result["E"]) > abs(result["D"])/3 + 1e-8:
+        raise ValueError("The chosen ZFS convention requires |E| <= |D|/3")
+    if result.get("basis") not in ("xyz", "product"):
+        raise ValueError("basis must be xyz or product")
+    result["pop"] = normalize_populations(result["pop"])
+    result.update(zip(("pop_x", "pop_y", "pop_z"), result["pop"]))
+    return result
+
+
+def _vector(values, name):
+    raw = np.asarray(values)
+    if np.iscomplexobj(raw):
+        raise ValueError(f"{name} must be real")
+    if raw.ndim == 2 and 1 in raw.shape:
+        raw = raw.reshape(-1)
+    if raw.ndim != 1 or raw.size < 2:
+        raise ValueError(f"{name} must be a vector with at least two points")
+    array = np.asarray(raw, dtype=float)
+    if not np.isfinite(array).all():
+        raise ValueError(f"{name} contains NaN or Inf")
+    return array
+
+
+def validate_spectrum(fields, intensity):
+    fields, intensity = _vector(fields, "field"), _vector(intensity, "intensity")
+    if fields.shape != intensity.shape:
+        raise ValueError("Field and intensity shapes differ")
+    if np.any(fields < 0) or np.any(np.diff(fields) <= 0):
+        raise ValueError("Fields must be nonnegative and strictly increasing")
+    if not np.any(intensity != 0):
+        raise ValueError("Experimental spectrum is entirely zero")
+    return fields, intensity
+
+
+def normalized_mse(simulated, experimental):
+    """MSE of independently maxabs-normalized real vectors; polarity is retained."""
+    exp = torch.as_tensor(experimental, device=device)
+    if exp.ndim == 2 and 1 in exp.shape:
+        exp = exp.reshape(-1)
+    if exp.is_complex() or exp.ndim != 1 or exp.numel() < 2:
+        raise ValueError("Experimental spectrum must be a real vector with at least two points")
+    exp = exp.to(dtype=dtype)
+    sim = torch.as_tensor(simulated, device=device)
+    if sim.ndim == 2 and 1 in sim.shape:
+        sim = sim.reshape(-1)
+    if sim.is_complex() or sim.shape != exp.shape or not bool(torch.isfinite(sim).all()):
+        raise InvalidSimulationError("Simulation must be a finite real vector matching the data")
+    sim = sim.to(dtype=dtype)
+    if not bool(torch.isfinite(exp).all()) or not bool(exp.abs().max() > 0):
+        raise ValueError("Experimental spectrum must be finite and nonzero")
+    sim_max = sim.abs().max()
+    if not bool(sim_max > 0):
+        raise InvalidSimulationError("Simulation is entirely zero")
+    return float(torch.mean((sim / sim_max - exp / exp.abs().max()) ** 2).item())
+
+
+def save_results(out_dir, prefix, params, loss, fields, simulated, experimental, *,
+                 freq, temperature, harmonic, mesh, extra=None):
+    """Write numeric NPZ arrays and unambiguous, reproducible parameter CSV."""
+    params = validate_parameters(params)
+    fields, experimental = validate_spectrum(fields, experimental)
+    loss_check = normalized_mse(simulated, experimental)
+    if not np.isfinite(loss) or not np.isclose(loss, loss_check, rtol=1e-7, atol=1e-12):
+        raise ValueError("Saved loss does not match the simulated spectrum")
+    simulated = torch.as_tensor(simulated).detach().to(dtype=dtype).cpu().numpy().reshape(-1)
+    # Positive scale puts the saved simulation on the experimental amplitude scale.
+    scale = float(np.max(np.abs(experimental)) / np.max(np.abs(simulated)))
+    if not np.isfinite(scale):
+        raise ValueError("Amplitude scale is not finite")
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    csv_name = "tpe_best_params.csv" if prefix == "tpe" else "cobyla_fit_results.csv"
+    csv_path = out_dir / csv_name
+    values = {k: params[k] for k in PARAMETER_BOUNDS}
+    values.update(basis=params["basis"], freq=freq, temperature=temperature,
+                  harmonic=harmonic, mesh=mesh, loss_mse=loss_check, scale=scale)
+    values.update(extra or {})
+    units = {"D": "Hz", "E": "Hz", "ham_strain": "Hz", "gauss": "T",
+             "freq": "Hz", "temperature": "K"}
+    with csv_path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(["parameter", "value", "unit"])
+        writer.writerows((k, v, units.get(k, "")) for k, v in values.items())
+    npz_path = out_dir / f"{prefix}_best_spectrum.npz"
+    np.savez(npz_path, field=fields, intensity=simulated * scale,
+             simulated=simulated, experimental=experimental,
+             simulated_normalized=simulated / np.max(np.abs(simulated)),
+             experimental_normalized=experimental / np.max(np.abs(experimental)),
+             field_unit="T", loss_mse=loss_check, scale=scale)
+    return csv_path, npz_path
+
+# ---------------------------------------------------------------------------
+# Helper: build a MultiOrientedSample and associated Context with the desired
+# population basis.
+# ---------------------------------------------------------------------------
+
+def build_sample_and_context(params: dict) -> tuple[spin_model.MultiOrientedSample, Context]:
+    """Create a sample and a Context that holds the initial populations.
+
+    Parameters
+    ----------
+    params:
+        Dictionary with keys:
+        - ``g_iso`` – isotropic g‑factor (float)
+        - ``D``, ``E`` – ZFS parameters (Hz)
+        - ``ham_strain`` – strain (Hz)
+        - ``gauss`` – Gaussian broadening (Tesla)
+        - ``pop`` – list/array of three population numbers (must sum to 1)
+        - ``basis`` – either ``"xyz"`` (Cartesian) or ``"product"`` (spherical)
+    """
+    params = validate_parameters(params)
+    # Isotropic g‑tensor – same value on all three axes
+    g_tensor = spin_model.Interaction([params["g_iso"]] * 3, dtype=dtype, device=device)
+
+    # Zero‑field splitting interaction
+    zfs = spin_model.DEInteraction([params["D"], params["E"]], dtype=dtype, device=device)
+
+    # Base spin system (triplet, S=1)
+    base_spin_system = spin_model.SpinSystem(
+        electrons=[1.0],
+        g_tensors=[g_tensor],
+        electron_electron=[(0, 0, zfs)],
+        dtype=dtype,
+        device=device,
+    )
+
+    # Sample – only Gaussian broadening is used (Lorentzian set to 0)
+    sample = spin_model.MultiOrientedSample(
+        base_spin_system=base_spin_system,
+        ham_strain=params["ham_strain"],
+        gauss=params["gauss"],
+        lorentz=0.0,
+        mesh=(params.get("mesh", 20), params.get("mesh", 20)),
+        dtype=dtype,
+        device=device,
+    )
+
+    context = Context(
+        sample=sample,
+        basis=params["basis"],
+        init_populations=params["pop"],
+        device=device,
+        dtype=dtype,
+    )
+    return sample, context
+
+# ---------------------------------------------------------------------------
+# Simulator – wraps the Mars ``StationarySpectra`` creator.  The Context is used
+# to obtain the transformed populations before the spectrum is evaluated.
+# ---------------------------------------------------------------------------
+
+class TripletSpectraSimulator:
+    """Simulator for a triplet EPR spectrum with variable parameters.
+
+    The ``__call__`` method receives a field tensor and a parameter dictionary
+    and returns the simulated intensity array.
+    """
+
+    def __init__(self, freq: float, temperature: float, harmonic: int = 0, mesh: int = 20):
+        if not np.isfinite(freq) or freq <= 0 or not np.isfinite(temperature) or temperature <= 0:
+            raise ValueError("Frequency and temperature must be finite and positive")
+        # Very coarse meshes can suppress the powder spectrum in the installed MaRS.
+        if harmonic not in (0, 1) or not isinstance(mesh, int) or isinstance(mesh, bool) or mesh < 5:
+            raise ValueError("harmonic must be 0 or 1; mesh must be an integer >= 5")
+        self.freq = freq
+        self.temperature = temperature
+        self.harmonic = harmonic
+        self.mesh = mesh
+
+    def __call__(self, fields: torch.Tensor, params: dict) -> torch.Tensor:
+        fields = torch.as_tensor(_vector(torch.as_tensor(fields).detach().cpu().numpy(), "field"),
+                                 dtype=dtype, device=device)
+        if bool(torch.any(fields < 0)) or not bool(torch.all(torch.diff(fields) > 0)):
+            raise ValueError("Fields must be nonnegative and strictly increasing")
+        sample, context = build_sample_and_context(dict(params, mesh=self.mesh))
+        creator = spectra_manager.StationarySpectra(
+            freq=self.freq,
+            sample=sample,
+            temperature=self.temperature,
+            context=context,
+            harmonic=self.harmonic,
+            device=device,
+            dtype=dtype,
+        )
+        with torch.inference_mode():
+            spectrum = creator(sample, fields)
+        if spectrum.shape != fields.shape or not bool(torch.isfinite(spectrum).all()):
+            raise InvalidSimulationError("MaRS returned an unexpected shape or nonfinite spectrum")
+        return spectrum
+
+# ---------------------------------------------------------------------------
+# Data loading utilities.
+# ---------------------------------------------------------------------------
+
+def load_spectrum(path: str, field_unit: str | None = None) -> tuple[np.ndarray, np.ndarray]:
+    """Load two-row CSV (default G), (N,2) NPY or NPZ (default T), without pickle."""
+    p = Path(path)
+    suffix = p.suffix.lower()
+    unit = "G" if suffix == ".csv" else "T"
+    if suffix == ".csv":
+        data = np.loadtxt(p, delimiter=",", comments="#", encoding="utf-8-sig", ndmin=2)
+        if data.shape[0] != 2:
+            raise ValueError("CSV must contain exactly two data rows: field, intensity")
+        fields, intensity = data
+    elif suffix == ".npy":
+        data = np.load(p, allow_pickle=False)
+        if data.ndim != 2 or data.shape[1] != 2:
+            raise ValueError("NPY must contain exactly two columns: field, intensity")
+        fields, intensity = data[:, 0], data[:, 1]
+    elif suffix == ".npz":
+        with np.load(p, allow_pickle=False) as data:
+            fields, intensity = data["field"].copy(), data["intensity"].copy()
+            if "field_unit" in data:
+                unit = str(data["field_unit"].item())
+    else:
+        raise ValueError(f"Unsupported file format: {p.suffix}")
+    unit = field_unit if field_unit is not None else unit
+    if unit not in FIELD_SCALES:
+        raise ValueError(f"Unsupported field unit {unit!r}; choose from {tuple(FIELD_SCALES)}")
+    return validate_spectrum(_vector(fields, "field") * FIELD_SCALES[unit], intensity)
+
+# ---------------------------------------------------------------------------
+# Optuna objective – mean‑squared error between normalized spectra.
+# ---------------------------------------------------------------------------
+
+def objective(trial, fields_exp, intensity_exp, freq, temperature, harmonic=0, mesh=20):
+    fields_exp, intensity_exp = validate_spectrum(fields_exp, intensity_exp)
+    # Parameter space -------------------------------------------------------
+    params = {
+        "g_iso": trial.suggest_float("g_iso", 2.0, 2.12),
+        "D": trial.suggest_float("D", 40e6, 200e6),   # 40–200 MHz
+        "E": trial.suggest_float("E", 5e6, 40e6),     # 5–40 MHz
+        "ham_strain": trial.suggest_float("ham_strain", 1e7, 1e8),
+        "gauss": trial.suggest_float("gauss", 1e-5, 5e-4),
+        # Populations – we sample three numbers and renormalise.
+        "pop_x": trial.suggest_float("pop_x", 0.0, 1.0),
+        "pop_y": trial.suggest_float("pop_y", 0.0, 1.0),
+        "pop_z": trial.suggest_float("pop_z", 0.0, 1.0),
+        "basis": trial.suggest_categorical("basis", ["xyz", "product"]),
+    }
+    # Keep the conventional principal-axis ordering of the ZFS tensor.
+    if params["E"] > params["D"]/3:
+        return INVALID_LOSS
+    try:
+        params["pop"] = normalize_populations([params[k] for k in ("pop_x", "pop_y", "pop_z")])
+    except ValueError:
+        return INVALID_LOSS
+    fields_t = torch.tensor(fields_exp, dtype=dtype, device=device)
+    simulator = TripletSpectraSimulator(freq=freq, temperature=temperature, harmonic=harmonic, mesh=mesh)
+    try:
+        return normalized_mse(simulator(fields_t, params), intensity_exp)
+    except InvalidSimulationError:
+        return INVALID_LOSS
+
+# ---------------------------------------------------------------------------
+# Main entry point.
+# ---------------------------------------------------------------------------
+
+def main():
+    parser = argparse.ArgumentParser(description="Global TPE search for 1D EPR slice")
+    parser.add_argument("--input", required=True, help="Path to experimental .csv/.npy/.npz file")
+    parser.add_argument("--field-unit", choices=tuple(FIELD_SCALES), default=None,
+                        help="Input field unit (CSV default G; NPY/NPZ default T)")
+    parser.add_argument("--freq", type=float, default=9.8e9, help="Microwave frequency (Hz)")
+    parser.add_argument("--temperature", type=float, default=10.0, help="Temperature (K)")
+    parser.add_argument("--n-trials", type=int, default=500, help="Number of Optuna trials")
+    parser.add_argument("--seed", type=int, default=42, help="Random seed for reproducibility")
+    parser.add_argument("--output-dir", type=str, default="results/tables", help="Directory for results")
+    parser.add_argument("--harmonic", type=int, choices=(0, 1), default=0,
+                        help="0: absorption/emission (default); 1: first derivative")
+    parser.add_argument("--mesh", type=int, default=20, help="Powder mesh frequency (>=5)")
+    args = parser.parse_args()
+    if args.n_trials < 1:
+        parser.error("--n-trials must be positive")
+    simulator = TripletSpectraSimulator(args.freq, args.temperature, args.harmonic, args.mesh)
+    import optuna
+
+    # Load experimental spectrum.
+    print(f"Loading spectrum from {args.input} …")
+    fields_exp, intensity_exp = load_spectrum(args.input, args.field_unit)
+    print(f"  {len(fields_exp)} points, field range [{fields_exp.min():.4f}, {fields_exp.max():.4f}] T")
+
+    # Prepare output directory.
+    out_dir = Path(args.output_dir)
+
+    # Optuna study with TPE sampler.
+    sampler = optuna.samplers.TPESampler(seed=args.seed)
+    study = optuna.create_study(sampler=sampler, direction="minimize")
+
+    # Wrapper for Optuna.
+    def opt_obj(trial):
+        return objective(trial, fields_exp, intensity_exp, args.freq, args.temperature, args.harmonic, args.mesh)
+
+    print(f"Running TPE optimisation ({args.n_trials} trials)…")
+    study.optimize(opt_obj, n_trials=args.n_trials)
+
+    best_params = study.best_params
+    best_loss = study.best_value
+    if not np.isfinite(best_loss) or best_loss >= INVALID_LOSS:
+        raise RuntimeError("No trial produced a valid nonzero spectrum; no fit is saved")
+
+    # Re‑build populations (normalised) for reporting.
+    best_params["pop"] = normalize_populations([best_params[k] for k in ("pop_x", "pop_y", "pop_z")])
+    best_params = validate_parameters(best_params)
+
+    # Generate best‑fit spectrum.
+    fields_t = torch.tensor(fields_exp, dtype=dtype, device=device)
+    best_spectrum = simulator(fields_t, best_params)
+
+    # Save results.
+    csv_path, npz_path = save_results(out_dir, "tpe", best_params, best_loss, fields_exp,
+                                     best_spectrum, intensity_exp, freq=args.freq,
+                                     temperature=args.temperature, harmonic=args.harmonic,
+                                     mesh=args.mesh, extra={"n_evaluations": len(study.trials)})
+    print(f"Parameters saved to {csv_path}")
+    print(f"Best spectrum saved to {npz_path}")
+    print("Done.")
+
+if __name__ == "__main__":
+    main()

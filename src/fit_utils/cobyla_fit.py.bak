@@ -1,0 +1,261 @@
+"""COBYLA refinement of 1D triplet EPR spectra, optionally starting from TPE.
+
+The MaRS simulator and maxabs-normalized MSE are shared with tpe_search.py.
+SciPy COBYLA works in scaled coordinates with two independent populations.
+The best feasible point, including the starting point, is saved.
+
+Example (run from the project root in the mars-epr environment)::
+
+    python src/fit_utils/cobyla_fit.py --input slice.csv \
+        --tpe-results results/tables/tpe_best_params.csv --budget 300
+
+CSV contains two rows: magnetic field (G by default), then intensity.
+NPY (N,2) and NPZ (field, intensity) use T by default. Override with --field-unit.
+For manual initialization supply --g-iso, --D, --E; all frequencies are in Hz.
+"""
+
+import argparse
+import csv
+from pathlib import Path
+
+import numpy as np
+import torch
+
+if __package__:
+    from .tpe_search import (
+        FIELD_SCALES, INVALID_LOSS, PARAMETER_BOUNDS, InvalidSimulationError,
+        TripletSpectraSimulator, build_sample_and_context, device, dtype,
+        load_spectrum, normalized_mse, normalize_populations, save_results,
+        validate_parameters, validate_spectrum,
+    )
+else:
+    from tpe_search import (
+        FIELD_SCALES, INVALID_LOSS, PARAMETER_BOUNDS, InvalidSimulationError,
+        TripletSpectraSimulator, build_sample_and_context, device, dtype,
+        load_spectrum, normalized_mse, normalize_populations, save_results,
+        validate_parameters, validate_spectrum,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Load TPE results
+# ---------------------------------------------------------------------------
+
+def load_tpe_results(path: str) -> dict:
+    """Read numeric parameters and the string basis without losing TPE settings."""
+    numeric = set(PARAMETER_BOUNDS) | {
+        "freq", "temperature", "harmonic", "mesh", "loss_mse", "scale",
+        "n_evaluations", "initial_loss_mse", "converged", "seed",
+    }
+    params = {}
+    with Path(path).open(newline="", encoding="utf-8-sig") as handle:
+        reader = csv.DictReader(handle)
+        if not {"parameter", "value"} <= set(reader.fieldnames or ()):
+            raise ValueError("Parameter CSV must have parameter and value columns")
+        for row in reader:
+            key = row["parameter"]
+            if key in params:
+                raise ValueError(f"Duplicate parameter {key!r}")
+            if key == "basis":
+                params[key] = row["value"]
+            elif key in numeric:
+                params[key] = float(row["value"])
+                if not np.isfinite(params[key]):
+                    raise ValueError(f"Parameter {key} must be finite")
+    required = set(PARAMETER_BOUNDS)
+    if required - params.keys():
+        raise ValueError(f"Missing parameters: {sorted(required - params.keys())}")
+    params["pop"] = normalize_populations([params[k] for k in ("pop_x", "pop_y", "pop_z")])
+    params.setdefault("basis", "xyz")
+    return validate_parameters(params)
+
+
+# ---------------------------------------------------------------------------
+# COBYLA objective. The globals retain the original single-fit Python interface.
+# ---------------------------------------------------------------------------
+_exp_fields = None
+_exp_intensity = None
+_freq = None
+_temperature = None
+_basis = "xyz"
+_harmonic = 0
+_mesh = 20
+
+
+def set_global_data(fields, intensity, freq, temperature, basis="xyz", harmonic=0, mesh=20):
+    """Validate the data and settings for calls to cobyla_objective."""
+    global _exp_fields, _exp_intensity, _freq, _temperature, _basis, _harmonic, _mesh
+    fields, intensity = validate_spectrum(fields, intensity)
+    TripletSpectraSimulator(freq, temperature, harmonic, mesh)
+    if basis not in ("xyz", "product"):
+        raise ValueError("basis must be xyz or product")
+    _exp_fields, _exp_intensity = fields.copy(), intensity.copy()
+    _freq, _temperature, _basis, _harmonic, _mesh = freq, temperature, basis, harmonic, mesh
+
+
+def _parameters_from_vector(values, basis):
+    vector = np.asarray(values, dtype=float)
+    if vector.shape != (8,) or not np.isfinite(vector).all():
+        raise ValueError("Expected eight finite parameters")
+    params = dict(zip(PARAMETER_BOUNDS, vector.tolist()))
+    params.update(basis=basis, pop=vector[5:].tolist())
+    return validate_parameters(params)
+
+
+def _evaluate(params, fields, intensity, freq, temperature, harmonic, mesh):
+    simulator = TripletSpectraSimulator(freq, temperature, harmonic, mesh)
+    try:
+        spectrum = simulator(torch.as_tensor(fields, dtype=dtype, device=device), params)
+        return normalized_mse(spectrum, intensity), spectrum
+    except InvalidSimulationError:
+        return INVALID_LOSS, None
+
+
+def cobyla_objective(params_vec):
+    """Maxabs MSE for [g_iso, D, E, ham_strain, gauss, p_x, p_y, p_z]."""
+    if _exp_fields is None:
+        raise RuntimeError("Call set_global_data before cobyla_objective")
+    try:
+        params = _parameters_from_vector(params_vec, _basis)
+    except ValueError:
+        return INVALID_LOSS
+    return _evaluate(params, _exp_fields, _exp_intensity, _freq, _temperature, _harmonic, _mesh)[0]
+
+
+# ---------------------------------------------------------------------------
+# Local optimization
+# ---------------------------------------------------------------------------
+
+def run_cobyla(fields, intensity, initial, *, freq, temperature, budget=300, harmonic=0, mesh=20):
+    """Return the best feasible parameters/spectrum and optimizer diagnostics."""
+    from scipy.optimize import minimize
+
+    fields, intensity = validate_spectrum(fields, intensity)
+    simulator = TripletSpectraSimulator(freq, temperature, harmonic, mesh)
+    del simulator  # Validate settings even if every trial is rejected by constraints.
+    initial = validate_parameters(initial)
+    for name, (lo, hi) in PARAMETER_BOUNDS.items():
+        if not lo <= initial[name] <= hi:
+            raise ValueError(f"Initial {name} must be in [{lo}, {hi}]")
+    # p_z = 1 - p_x - p_y removes the unidentifiable common population scale.
+    names = tuple(PARAMETER_BOUNDS)[:7]
+    lower = np.array([PARAMETER_BOUNDS[k][0] for k in names])
+    width = np.array([PARAMETER_BOUNDS[k][1] - PARAMETER_BOUNDS[k][0] for k in names])
+    x0 = (np.array([initial[k] for k in names]) - lower) / width
+    if not isinstance(budget, int) or budget < len(names) + 2:
+        raise ValueError(f"budget must be an integer >= {len(names) + 2}")
+
+    def unpack(x):
+        params = dict(zip(names, (lower + np.asarray(x) * width).tolist()))
+        params["pop_z"] = 1.0 - params["pop_x"] - params["pop_y"]
+        params.update(basis=initial["basis"], pop=[params[k] for k in ("pop_x", "pop_y", "pop_z")])
+        return validate_parameters(params)
+
+    best = {"loss": INVALID_LOSS, "params": None, "spectrum": None}
+    cache = {}
+
+    def evaluate(x):
+        key = tuple(np.asarray(x, dtype=float))
+        if key in cache:
+            return cache[key]
+        # COBYLA may visit infeasible points; do not simulate negative linewidths/populations.
+        loss = INVALID_LOSS
+        if np.isfinite(x).all() and np.all(np.asarray(x) >= 0) and np.all(np.asarray(x) <= 1):
+            try:
+                params = unpack(x)
+            except ValueError:
+                pass
+            else:
+                loss, spectrum = _evaluate(params, fields, intensity, freq, temperature, harmonic, mesh)
+                if loss < best["loss"]:
+                    best.update(loss=loss, params=params, spectrum=spectrum.detach().clone())
+        cache[key] = loss
+        return loss
+
+    constraints = [
+        {"type": "ineq", "fun": lambda x: np.asarray(x)},
+        {"type": "ineq", "fun": lambda x: 1.0 - np.asarray(x)},
+        {"type": "ineq", "fun": lambda x: 1.0 - x[5] - x[6]},
+        {"type": "ineq", "fun": lambda x: ((lower[1] + x[1]*width[1])/3
+                                                   - (lower[2] + x[2]*width[2]))/width[2]},
+    ]
+    initial_loss = evaluate(x0)
+    result = minimize(evaluate, x0=x0, method="COBYLA", constraints=constraints,
+                      options={"maxiter": budget, "rhobeg": 0.1, "tol": 1e-6, "catol": 1e-9})
+    if best["params"] is None:
+        raise RuntimeError("No feasible point produced a valid nonzero spectrum; no fit is saved")
+    best.update(initial_loss=initial_loss, n_evaluations=len(cache),
+                converged=bool(result.success), message=str(result.message))
+    return best
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+def main():
+    parser = argparse.ArgumentParser(description="COBYLA local refinement for 1D EPR slice spectra")
+    parser.add_argument("--input", required=True, help="Experimental two-row CSV, NPZ or (N,2) NPY")
+    parser.add_argument("--field-unit", choices=tuple(FIELD_SCALES), default=None,
+                        help="Input field unit (CSV default G; NPY/NPZ default T)")
+    parser.add_argument("--tpe-results", help="TPE parameter CSV; explicit arguments override its values")
+    parser.add_argument("--freq", type=float, default=None, help="Microwave frequency (Hz; TPE value or 9.8e9)")
+    parser.add_argument("--temperature", type=float, default=None, help="Temperature (K; TPE value or 10)")
+    parser.add_argument("--harmonic", type=int, choices=(0, 1), default=None,
+                        help="0: absorption/emission; 1: derivative (TPE value or 0)")
+    parser.add_argument("--mesh", type=int, default=None, help="Powder mesh frequency (TPE value or 20)")
+    parser.add_argument("--budget", type=int, default=300, help="Maximum objective evaluations (>=9)")
+    parser.add_argument("--seed", type=int, default=42, help="Compatibility option; COBYLA is deterministic")
+    parser.add_argument("--output-dir", default="results/tables", help="Directory for CSV and NPZ results")
+    for option, help_text in (
+        ("g-iso", "Isotropic g-factor"), ("D", "ZFS D (Hz)"), ("E", "ZFS E (Hz)"),
+        ("ham-strain", "Hamiltonian strain FWHM (Hz)"), ("gauss", "Gaussian FWHM (T)"),
+        ("pop-x", "First basis population"), ("pop-y", "Second basis population"),
+        ("pop-z", "Third basis population"),
+    ):
+        parser.add_argument(f"--{option}", type=float, default=None, help=help_text)
+    parser.add_argument("--basis", choices=("xyz", "product"), default=None, help="Population basis")
+    args = parser.parse_args()
+
+    if args.tpe_results:
+        initial = load_tpe_results(args.tpe_results)
+    else:
+        if any(getattr(args, k) is None for k in ("g_iso", "D", "E")):
+            parser.error("--tpe-results or --g-iso, --D, --E are required")
+        initial = dict(g_iso=args.g_iso, D=args.D, E=args.E, ham_strain=5e7, gauss=1e-4,
+                       pop_x=0.2, pop_y=0.5, pop_z=0.3, basis="xyz")
+    for key in (*PARAMETER_BOUNDS, "basis"):
+        manual = getattr(args, key)
+        if manual is not None:
+            initial[key] = manual
+    initial["pop"] = normalize_populations([initial[k] for k in ("pop_x", "pop_y", "pop_z")])
+    initial = validate_parameters(initial)
+    settings = {}
+    for key, default in (("freq", 9.8e9), ("temperature", 10.0), ("harmonic", 0), ("mesh", 20)):
+        manual = getattr(args, key)
+        value = manual if manual is not None else initial.get(key, default)
+        if key in ("harmonic", "mesh"):
+            if not float(value).is_integer():
+                parser.error(f"{key} must be an integer")
+            value = int(value)
+        settings[key] = value
+
+    fields, intensity = load_spectrum(args.input, args.field_unit)
+    print(f"Loaded {len(fields)} points, field range [{fields.min():.6f}, {fields.max():.6f}] T")
+    print(f"Running COBYLA ({args.budget} evaluations; basis={initial['basis']})")
+    result = run_cobyla(fields, intensity, initial, budget=args.budget, **settings)
+    csv_path, npz_path = save_results(
+        args.output_dir, "cobyla", result["params"], result["loss"], fields,
+        result["spectrum"], intensity, **settings,
+        extra={"initial_loss_mse": result["initial_loss"], "n_evaluations": result["n_evaluations"],
+               "converged": int(result["converged"])},
+    )
+    print(f"Loss before COBYLA: {result['initial_loss']:.8g}")
+    print(f"Best feasible loss: {result['loss']:.8g}")
+    print(f"Converged: {result['converged']}; {result['message']}")
+    print(f"Parameters saved to {csv_path}")
+    print(f"Best spectrum saved to {npz_path}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,960 @@
+4194
+
+J. Phys. Chem. A 2008, 112, 4194-4201
+
+Intersystem Crossing Mediated by Photoinduced Intramolecular Charge Transfer:
+Julolidine-Anthracene Molecules with Perpendicular π Systems
+Zachary E. X. Dance, Sarah M. Mickley, Thea M. Wilson, Annie Butler Ricks, Amy M. Scott,
+Mark A. Ratner,* and Michael R. Wasielewski*
+Department of Chemistry, Argonne-Northwestern Solar Energy Research (ANSER) Center, and International
+Institute of Nanotechnology, Northwestern UniVersity, EVanston, Illinois, 60208-3113
+ReceiVed: January 20, 2008; In Final Form: February 19, 2008
+
+Introduction
+In the past four decades, the photophysics of electron donoracceptor (D-A) molecules covalently linked by a single bond
+have been studied extensively.1 A large fraction of this work
+has been directed toward understanding the electronic structures
+and conformations of these molecules in their ground and lowest
+excited singlet charge-transfer (CT) states.1-14 These molecules
+usually display CT absorption and emission bands and exhibit
+large excited-state dipole moments, which imply that the
+electronic coupling matrix element between the donor and the
+acceptor, VDA, is reasonably large and that significant electron
+density is transferred from the donor to the acceptor in the
+excited state. One particular group of molecules that fulfills these
+criteria are 4-(9-anthryl)-N,N-dimethylaniline (ADMA) derivatives.2-16 The nature of the ADMA excited CT state has been
+studied by Okada et al.17 and Herbich et al. 3,18 and the relevant
+issues have been summarized by Grabowski et al. 1,19 Many of
+these studies have examined ADMA derivatives with substituents that sterically control rotations about the nitrogen-phenyl
+or phenyl-anthracene single bonds to simplify the photophysics
+exhibited by ADMA itself. For example, in julolidine-anthracene (J-An), Figure 1, the structure of julolidine severely
+restricts rotation about the nitrogen-phenyl single bond, which
+maximizes the overlap of the nitrogen lone pair with the π
+system of the phenyl ring.2 This leaves the julolidine-anthracene
+torsional angle, θ1, in J-An as a key parameter that determines
+its excited-state properties.11,12,20-22
+Despite the attention ADMA systems have received, there
+have been relatively few studies on the mechanism of radiationless decay of their CT states.2,23 As is usually the case, this
+decay can occur by internal conversion to the ground state or
+intersystem crossing (ISC) to the triplet manifold, Figure 2. In
+the present work, we explore the ISC mechanism associated
+with the formation of the triplet state localized on anthracene
+following photoexcitation into the CT absorption bands of
+* Corresponding author. E-mail: m-wasielewski@northwestern.edu.
+
+Figure 1. Principal axis system and molecular structures of anthracene
+and its julolidine-substituted derivatives.
+
+Figure 2. Energy level ordering for J-An, DMJ-An, and DMJ-An-tol,
+where D ) J or DMJ, and A ) An.
+
+J-An, DMJ-An, and DMJ-An-tol, Figure 1. DMJ-An is
+modeled after J-An, but uses additional methyl groups on
+julolidine to enforce a geometry in which the π system of DMJ
+is perpendicular to that of the anthracene, i.e., θ1 ≈ 90°. DMJ-
+
+10.1021/jp800561g CCC: $40.75 © 2008 American Chemical Society
+Published on Web 04/03/2008
+
+Downloaded from pubs.​acs.​org/​jpcafh/​article-pdf/​112/​18/​4194/​12522084/​jp800561g.​pdf by INTL TOMOGRAPHY INST user on 10 September 2026
+
+Time-resolved electron paramagnetic resonance studies show that the primary mechanism of triplet formation
+following photoexcitation of julolidine-anthracene molecules linked by a single bond and having perpendicular
+π systems is a spin-orbit, charge-transfer intersystem crossing mechanism (SOCT-ISC). This mechanism
+depends on the degree of charge transfer from julolidine to anthracene, the dihedral angle (θ1) between their
+π systems, and the magnitude of the electronic coupling between julolidine and anthracene. We compare
+4-(9-anthracenyl)-julolidine with the more sterically encumbered 4-(9-anthracenyl)-3,5-dimethyljulolidine and
+find that fixing θ1 = 90° serves to enhance SOCT-ISC by increasing the change in orbital angular momentum
+accompanying charge transfer. Given that the requirements for the SOCT-ISC mechanism are quite general,
+we expect it to occur in a variety of electron donor-acceptor systems.
+
+Intersystem Crossing by Photoinduced Charge Transfer
+
+J. Phys. Chem. A, Vol. 112, No. 18, 2008 4195
+
+An-tol was also studied as a control molecule because 9-phenyl
+and 9,10-diphenyl substitution of anthracene have been shown
+to dramatically reduce its ISC yield.24-33
+A detailed analysis of the ISC mechanism in J-An, DMJAn, and DMJ-An-tol requires consideration of the nature of
+their CT states, which can be represented as a mixture of the
+locally excited (LE) states of the anthracene acceptor and the
+radical ion pair (RP) states shown in Figure 2 and expressed in
+eq 11,13,34-39 where Σci2 ) 1. The energies of the ground state
+
+ΨCT ) c1*Aφ1*A + c3*A(T1)φ3*A(T1) + c3*A(T2)φ3*A(T2) +
+c1(D+‚A-‚) φ1(D+‚A-‚) + c3(D+‚A-‚)φ3(D+‚A-‚) (1)
+and the LE states of the julolidine donor are well separated from
+those of the RP states, 1(D+•-A-•) and 3(D+•-A-•), so that
+these LE states should not contribute significantly to ΨCT. In
+contrast, the contribution of the lowest excited LE singlet state
+of the anthracene acceptor, 1*A, as well as its two lowest LE
+triplet states, 3*A(T1) and 3*A(T2), to ΨCT may be more
+significant because they are energetically much closer to 1(D+•A-•) and 3(D+•-A-•). Both of these RP states may also be
+important to the overall mechanism leading to the formation of
+D-3*A.
+When 1(D+•-A-•) dominates the overall electronic description of the Franck-Condon CT state produced upon photoexcitation, Figure 2, two ISC mechanisms distinct from ordinary
+spin-orbit induced ISC (SO-ISC) typical of LE singlet states
+in aromatic molecules may yield a triplet state localized on D
+or A. One mechanism, radical pair-intersystem crossing (RPISC), involves mixing between the 1(D+•-A-•) and 3(D+•-A-•)
+states induced by electron-nuclear hyperfine coupling within
+the two radicals. The theory and mechanistic details of RP-ISC
+have been researched extensively40-44 and have been applied
+
+to many donor-acceptor systems.45-53 This mechanism is
+generally important when the singlet-triplet energy splitting,
+2J, between 1(D+•-A-•) and 3(D+•-A-•) is smaller than the
+sum of the hyperfine couplings in D+• and A-•. RP-ISC is
+usually followed by spin-selective charge recombination to
+produce a significant yield of the lowest neutral molecular triplet
+state, in this case D-3*A. Alternatively, intersystem crossing
+from 1(D+•-A-•) may take place via a spin-orbit coupling
+mechanism to produce the neutral triplet state directly, Figure
+2, provided that the symmetries of the orbitals involved in the
+charge transfer are such that the spin flip is coupled to a
+significant change in orbital angular momentum.35,54-57 Whether
+either of these ISC mechanisms involves formation of the T2
+state of the acceptor, followed by internal conversion to its T1
+state, and/or direct formation of the T1 state, depends on the
+energetic proximity of T2 to 1(D+•-A-•) and 3(D+•-A-•) and
+will be discussed below.
+Time-resolved electron paramagnetic resonance (TREPR)
+techniques, which are particularly well-suited for investigating
+the behavior of CT mechanisms involving paramagnetic
+states,44,58-69 were used to examine the triplet states of An,
+J-An, DMJ-An, and DMJ-An-tol. Application of a magnetic
+field results in Zeeman splitting of the triplet sublevels, which
+at low fields are best described by the zero-field eigenstates,
+TX, TY, and TZ that are quantized in the molecular framework,
+and at high fields by the T+1, T0, and T-1 eigenstates that are
+quantized along the applied magnetic field, Figure 3. The main
+features of the EPR spectrum of D-3*A arise from zero-field
+splitting (ZFS), which is a result of the magnetic dipole-dipole
+interaction between the two unpaired electrons in the triplet state.
+The Hamiltonian that describes this interaction is70-73
+
+Hdipolar ) D(Sz2 - S2/3) + E(Sx2 - Sy2)
+
+(2)
+
+Downloaded from pubs.​acs.​org/​jpcafh/​article-pdf/​112/​18/​4194/​12522084/​jp800561g.​pdf by INTL TOMOGRAPHY INST user on 10 September 2026
+
+Figure 3. Energy levels of D-3*A formed by (A) SO-ISC with selective population of TY (D > 0, E < 0) and (B) S-T0 mixing within a radical
+pair precursor. The arrows indicate the direction of the transition and are labeled a ) enhanced absorption, e ) emission. The solid ovals depict
+relative populations.
+
+4196 J. Phys. Chem. A, Vol. 112, No. 18, 2008
+
+Experimental Section
+Zone-refined An (Aldrich) was used without further purification. The syntheses and characterization of J-An,2 DMJ-An,
+and DMJ-An-tol are given in the Supporting Information.
+J-An, DMJ-An, and DMJ-An-tol were purified by preparative TLC prior to use. A 10 mm path length quartz cuvette was
+used for both the absorption and fluorescence measurements,
+and the optical density at λmaxfor the fluorescence measurements
+was maintained at <0.1 ( 0.05 to avoid reabsorption artifacts.
+Samples for steady state and time-resolved fluorescence measurements as well as nanosecond transient absorption measurements were subjected to several freeze-pump-thaw degassing
+cycles on a vacuum line (1 × 10-4 Torr). Steady state absorption
+and emission spectra were performed on a Shimadzu 1601 UV/
+vis spectrophotometer and PTI single photon counting spectrofluorimeter, respectively. Emission quantum yields were
+determined relative to that of quinine sulfate, φF ) 0.546 in
+0.5 M H2SO4.75
+Fluorescence lifetime measurements were made using a
+Hamamatsu C4780 picosecond fluorescence lifetime measurement system, consisting of a C4334 Streakscope and a C479201 synchronous delay generator. The excitation light source was
+supplied by a home-built cavity-dumped Ti:sapphire laser76 with
+a NEOS N13389 3-mm fused-silica acoustooptic modulator
+(AOM). The AOM was driven by an NEOS Technologies
+N64389-SYN 10 W driver to deliver 30 nJ, sub-50 fs pulses at
+an 820 kHz repetition rate. The laser pulses were frequency
+doubled to 400 nm by focusing the 800 nm fundamental into a
+0.3 mm type I BBO crystal. The energy of the resulting blue
+pulses was attenuated to approximately 0.5 nJ/pulse for all
+fluorescence lifetime experiments. The total instrument response
+function (IRF) of the streak camera system was 20 ps. All
+fluorescence data were acquired in single-photon-counting mode
+using the Hamamatsu HPD-TA software. The data were fit using
+the Hamamatsu fitting module and deconvoluted using the laser
+pulse profile.
+Nanosecond transient absorption measurements were made
+using a Continuum Panther OPO pumped by the frequencytripled output of a Continuum 8000 Nd:YAG laser. The probe
+light in the nanosecond experiment was generated using a xenon
+flashlamp (EG&G Electrooptics FX-200) and detected using a
+
+photomultiplier tube with high voltage applied to only four
+dynodes (Hamamatsu R928). The total IRF is 7 ns and is
+determined primarily by the laser pulse duration. Triplet
+quantum yields, φISC, were obtained from the amplitude of the
+transient absorption change at 430 nm and the extinction
+coefficient of 3*An.77
+Samples for TREPR (∼1 mM in toluene) were loaded in 4
+mm OD × 2 mm ID quartz tubes and subjected to several
+freeze-pump-thaw degassing cycles on a vacuum line (1 ×
+10-4 Torr). The tubes were then sealed with a hydrogen torch.
+All samples were prepared in freshly distilled ACS grade
+toluene.
+TREPR field-swept electron spin echo (ESE) measurements
+of the triplet EPR spectra were made using a Bruker Elexsys
+E580 X-Band EPR spectrometer outfitted with a variable Q
+dielectric resonator (ER-4118X-MD4-W1). High-power microwave pulses were generated by a 1 kW TWT amplifier (Applied
+Systems Engineering 117X). The resonator was fully overcoupled to achieve Q < 200 and a dead time of ∼68 ns. The
+temperature was controlled by an Oxford Instruments CF935
+continuous flow cryostat using liquid nitrogen or helium.
+Samples were photoexcited at 416 nm (355 nm for anthracene)
+using the output from a frequency tripled, H2-Raman shifted
+Nd:YAG laser (1-2 mJ/pulse, 7 ns, 10 Hz, QuantaRay DCR2). The polarization of the laser was set to 54.7° relative to the
+direction of the static magnetic field to avoid magnetophotoselection effects on the spectra.
+In the basic Hahn-echo technique,58 the FID signal generated
+with the first 8 ns π/2 pulse is refocused by a second 16-ns π
+pulse. The time between the two microwave pulses was 68 ns,
+so that the spin echo appears 68 ns following the second
+microwave pulse. The microwave pulse sequence begins after
+the triplet state is created by the laser pulse. Following
+photoexcitation, the integral of the echo intensity at a given
+delay time at each magnetic field value gives the spectrum of
+the spin-polarized triplets. Microwave signals in emission (e)
+and/or enhanced absorption (a) were detected in both the real
+and the imaginary channels (quadrature detection). Four-step
+phase cycling was performed in order to suppress artifacts due
+to imbalances in the quadrature detection. Sweeping the
+magnetic field gave 2D complex spectra versus time and
+magnetic field. The spectra were subsequently phased into a
+Lorentzian part and a dispersive part, and the former, also known
+as the imaginary magnetic susceptibility χ′′, is presented.
+Simulation of the powder-pattern spectra of the spin-polarized
+triplet states was performed using a home-written MATLAB
+program78 following published procedures.72
+Results and Discussion
+Photophysical Properties of Singlet CT States. The groundstate absorption (A) and fluorescence (F) spectra of J-An,
+DMJ-An, and DMJ-An-tol, plotted in their respective transition dipole moment representations,79 i.e., A(νj)/νj and F(νj)/νj3,
+are given in Figure 4. The CT absorption band of J-An appears
+as a distinct shoulder on the vibronic progression of the
+anthracene LE state,3 whereas those of DMJ-An and DMJAn-tol appear as significant broadening on the red edge of their
+spectra. Each absorption spectrum can be decomposed into a
+sum of Gaussians both to account for the anthracene FranckCondon progression and to fit the broad CT absorption of each
+molecule. The absorption maxima of the CT bands obtained in
+this manner are given in Table 1. The fluorescence spectra for
+J-An, DMJ-An, and DMJ-An-tol are all strongly red-shifted
+relative to the emission from the An LE state and are
+
+Downloaded from pubs.​acs.​org/​jpcafh/​article-pdf/​112/​18/​4194/​12522084/​jp800561g.​pdf by INTL TOMOGRAPHY INST user on 10 September 2026
+
+where D and E are the zero-field-splitting parameters and Sx,y,z
+are the components of the total spin angular momentum operator
+(S) for the triplet state. The effect of this term is to lift the
+degeneracy of the triplet manifold in the absence of an external
+magnetic field as a function of the symmetry of the molecule.
+The polarization of the EPR transitions exhibited by D-3*A
+formed by the SO-ISC mechanism can be differentiated from
+the RP-ISC mechanism by the electron spin polarization (ESP)
+pattern of the six EPR transitions, i.e., the two transitions at
+each canonical (x, y, z) orientation.74 In SO-ISC, the three zerofield levels TX, TY, and TZ of D-3*A are selectively populated
+and this selectivity is carried over to the high-field energy levels.
+For example, assuming selective population of the TY zerofield level and D > 0, Figure 3A shows that the six EPR
+transitions from low to high field yield an (e, a, e, a, e, a)
+polarization pattern, where a ) enhanced absorption and e )
+emission of microwave radiation. In contrast, RP-ISC acts
+directly on the high-field triplet sublevels of the RP via S-T0
+mixing, Figure 3B. Spin polarization is preserved upon charge
+recombination, and the resulting (a, e, e, a, a, e) polarization
+pattern exhibited by D-3*A is the unique signature of the RPISC mechanism.
+
+Dance et al.
+
+Intersystem Crossing by Photoinduced Charge Transfer
+
+J. Phys. Chem. A, Vol. 112, No. 18, 2008 4197
+
+characteristic of CT emission as observed earlier for J-An.3
+The energies of the LE and CT states are obtained by averaging
+the energies of their absorption and emission bands, Table 1.
+Given that the energy of the LE absorption maximum of J-An
+is nearly identical to that of DMJ-An, we assume that the
+energies of their LE states are comparable, even though LE
+emission from J-An was not observed.
+The excited-state dipole moments (µe) of DMJ-An and
+DMJ-An-tol were determined by the fluorescence solvatochromic shift method,80,81 using eq 3
+
+jνmax ) jν0 -
+
+2µe2
+
+[
+
+( - 1)
+(n2 - 1)
+hca03 (2 + 1) 2(2n2 + 1)
+
+]
+
+(3)
+
+where h is Planck’s constant, c is the speed of light, jν0 is the
+gas-phase emission maximum, and jνmax is the energy of the
+CT emission band measured in several solvents with dielectric
+constant  and index of refraction n. The radius of the Onsager
+spherical cavity, a03, was determined to be 6.5 Å using the
+PM382 optimized DMJ-An structure, which is in agreement
+with that previously estimated for J-An.2 Using this value and
+the slope of the plot of hcνjmax vs [( - 1)/(2 + 1) - 0.5(n2
+- 1)/(2n2 + 1)], Figures S1 and S2 of the Supporting
+Information, µe ) 26 ( 1 D for both DMJ-An and DMJAn-tol. The same value of µe was obtained for J-An using
+the fluorescence data reported earlier3 and a0 ) 6.5 Å. We
+estimate the degree of charge separation in the 1CT state as 26
+D/4.8 D esu-1 Å-1 ) 5.4 esu Å. Using the centers of the spin
+density distributions in DMJ+• and An-•, the distance that a
+full charge is transferred to yield DMJ+•-An-• is 5.6 Å. Thus,
+the estimated percentage of charge separation in 1CT is (5.4
+esu Å/5.6 esu Å) × 100 ) 96%. These data indicate that charge
+separation within the 1CT states of J-An, DMJ-An, and DMJAn-tol is essentially quantitative, so that their 1CT states can
+be described by 1(D+•-A-•).
+The data in Table 1 show that the radiative rate constants,
+kR, for DMJ-An and DMJ-An-tol are about 7-9 times
+smaller than that of J-An, whereas their corresponding
+intersystem crossing rate constants, kISC, are about 6-20 times
+larger. The most likely source of these rate differences are
+molecular properties that depend on the dihedral angle θ1
+between the π systems of the julolidine donors and that of An
+about the single bond joining them. Density functional theory
+(DFT) calculations83 using the B3LYP84,85 functional and the
+6-31G* basis set have been used to determine the ground state
+
+Downloaded from pubs.​acs.​org/​jpcafh/​article-pdf/​112/​18/​4194/​12522084/​jp800561g.​pdf by INTL TOMOGRAPHY INST user on 10 September 2026
+
+Figure 4. Ground-state absorption (solid lines) and fluorescence spectra
+(dashed lines) of the indicated molecules in toluene. The fluorescence
+spectra are normalized at their maxima.
+
+values of θ1 for J-An, DMJ-An, and DMJ-An-tol, Table 2.
+The value of θ2, the tolyl-anthracene torsional angle in DMJAn-tol, and the phenyl-anthracene angle in 9-phenylanthracene
+(9-PhAn), were obtained using the same methodology, Table
+2. These calculations show that the π systems of the julolidine
+donor and the anthracene acceptor are nearly perpendicular (θ1
+= 90°) for DMJ-An and DMJ-An-tol in both their singlet
+ground state and their lowest triplet state, whereas the corresponding angles for J-An are significantly smaller. Due to
+issues involving the accuracy of excited-state calculations,
+comparable calculations of the CT states were not attempted.
+However, it is likely that the conformational restrictions
+provided by the methyl groups in DMJ-An and DMJ-Antol also result in larger dihedral angles between the π systems
+of DMJ and An in their CT states relative to that of J-An.
+Changing θ1 may impact the energies of both the LE and
+CT states, the symmetry-dependent selection rules for transitions
+between these states, and the electronic coupling matrix element
+between the donor and the acceptor, VDA. The data in Table 1
+show that the energies of the CT states for all three molecules
+are comparable, whereas the energy of the LE state of DMJAn-tol is 0.11 eV lower than that of DMJ-An due to the
+additional conjugative interaction of the tolyl group. Thus, the
+energy differences between the LE and CT states for J-An,
+DMJ-An, and DMJ-An-tol are all about 0.3 eV, so that the
+observed differences in kISC more strongly reflect the effects of
+changing θ1 on VDA and orbital symmetry-based ISC selection
+rules. These issues will be discussed in the context of the
+TREPR data.
+Triplet State TREPR Spectrum of Anthracene. Following
+direct photoexcitation into its LE absorption band, the observed
+TREPR spectrum of An in toluene at 85 K exhibits a broad
+triplet spectrum with a width of ∼150 mT, having an (e, e, e,
+a, a, a) ESP phase pattern, which results from a SO-ISC
+mechanism, Figure 5. The photophysical behavior of anthracene
+and its derivatives following photoexcitation has been studied
+extensively.31,63,86-92 Experimental and theoretical92 studies have
+shown the energetic order of anthracene’s triplet sublevels to
+be TX > TY > TZ, such that the ZFS parameters D > 0 and E
+< 0, where the principal axis system is shown in Figure 1.
+Symmetry arguments suggest that TX should be preferentially
+populated, however experimental evidence has shown that TY
+is also populated to a similar extent giving the (e, e, e, a, a, a)
+ESP phase pattern, Table 3.63,64,91,92 Computer simulations of
+the triplet spectra for 3*An confirm that the (e, e, e, a, a, a)
+ESP phase pattern is the result of the SO-ISC coupling
+mechanism with preferential population of both the TY and TX
+sublevels for D > 0, E < 0.93,94
+Triplet State TREPR Spectra of DMJ-An and DMJAn-tol. In contrast to anthracene, the triplet spectra of DMJ3*An and DMJ-3*An-tol both exhibit an (e, a, e, a, e, a) ESP
+phase pattern, Figure 5, whereas no triplet spectrum is observed
+for J-An following photoexcitation. The |D| and |E| values
+for DMJ-3*An and DMJ-3*An-tol are only slightly smaller
+than those of An indicating that the triplet excitation is localized
+on An. The ZFS parameters and the relative population rates
+of the triplet sublevels were determined by computer simulation
+of the triplet line shape and are presented in Table 3. It has
+been suggested for similar D-A systems that ISC resulting in
+the population of D-3*A occurs via the triplet CT state. 2,11 This
+mechanism requires a high degree of charge separation, so that
+the initially formed CT state must be well described by 1(D+•A-•). As noted above, an analysis of the CT emission spectra
+of DMJ-An and DMJ-An-tol show that this criterion is
+
+4198 J. Phys. Chem. A, Vol. 112, No. 18, 2008
+
+Dance et al.
+
+TABLE 1: Photophysical Data in Toluene
+molecule
+
+λabs-LE
+(nm)
+
+λems-LE
+(nm)
+
+ELE (eV)
+
+λabs-CT
+(nm)
+
+λems-CT
+(nm)
+
+ECT
+(eV)
+
+φems-CT
+
+τems-CT
+(ns)
+
+kRa
+(× 107 s-1)
+
+φISC
+
+kISCb
+(× 107 s-1)
+
+J-An
+DMJ-An
+DMJ-An-tol
+
+388
+389
+399
+
+392
+410
+
+3.18c
+3.18
+3.07
+
+386
+375
+391
+
+498
+528
+533
+
+2.85
+2.83
+2.75
+
+0.62
+0.31
+0.40
+
+10.0 ( 0.1
+45.2 ( 0.1
+42.0 ( 0.1
+
+6.2
+0.69
+0.95
+
+<0.02
+0.45
+0.13
+
+<0.05
+1.0
+0.29
+
+a
+
+kR ) φems-CT/τems-CT. b kISC ) φISC/τems-CT. c Estimated from absorption data alone.
+
+TABLE 2: Calculated Dihedral Anglesa
+molecule
+
+singlet θ1
+
+J-An
+DMJ-An
+DMJ-An-tol
+9-PhAn
+
+75.1
+89.6
+90.0
+
+singlet θ2
+
+81.5
+86.9
+
+triplet θ1
+56.9
+89.6
+89.2
+
+triplet θ2
+
+65.8
+67.5
+
+Figure 5. TREPR spectra of the indicated molecules in toluene at 85
+K and 900 ns following a 416 nm (355 nm for An), 7 ns, 1.5 mJ laser
+pulse. The canonical orientations of each transition are indicated.
+Smooth curves below the experimental spectra are computer simulations
+of spectra of the triplet spectra with parameters given in Table 3.
+Positive features are in enhanced absorption (a) and negative features
+are in emission (e).
+
+fulfilled. However, the fact that CT emission from these
+molecules is observed at all indicates that VDA between DMJ+•
+and An-• is large, and since 2J ∝ VDA2, 2J is most likely much
+too large for the RP-ISC mechanism to occur.49 Our TREPR
+results confirm this conclusion because RP-ISC followed by
+charge recombination to produce D-3*A is selective with respect
+to the high-field eigenfunctions and not the molecular zerofield eigenfunctions as is the case for SO-ISC. Specifically, if
+the high-field T0 triplet sublevel was overpopulated at all
+canonical orientations within DMJ-3*An and DMJ-3*An-tol,
+their triplet EPR spectra should exhibit an (a, e, e, a, a, e)
+polarization pattern, which is not the case, Figures 3B and
+5.93,95,96
+We similarly conclude that any contribution from direct SOISC operative in 1*An f 3*An is also negligible, because the
+ESP phase patterns observed for 3*An are not observed for
+DMJ-3*An and DMJ-3*An-tol. However, an alternative spinorbit mechanism that couples 1(D+•-A-•) and D-3*A has been
+suggestedbyseveralgroupsstudyingmolecularCTcomplexes.23,97-101
+Iwata et al.97 analyzed complexes between a 1,2,4,5-tetracyanobenzene acceptor and mesitylene, durene, and hexamethylbenzene donors at 77 K and found that the CT lifetime decreases
+
+molecule
+
+D (mT)
+
+E (mT)
+
+AX
+
+AY
+
+AZ
+
+An
+DMJ-An
+DMJ-An-tol
+
+77.81
+74.96
+73.00
+
+-8.81
+-8.01
+-7.56
+
+0.78
+0.26
+0.45
+
+1.00
+1.00
+1.00
+
+0.07
+0.21
+0.32
+
+as the donor ability increases. They concluded that CT complex
+formation created additional singlet-triplet mixing processes
+which resulted in faster decay of the CT complex. Similarly,
+Gould et al.35 determined that rapid SO-ISC from the singlet
+exciplex results in direct population of the excited cyanoanthracene triplet in a series of exciplexes between cyanoanthracene acceptors and alkylbenzene donors. In these intermolecular CT complexes, the orientation and distances between D
+and A are not well defined, so that a detailed mechanistic
+understanding is difficult to determine.
+In comparison, intramolecular D-A molecules provide
+relatively well-defined conformations and fixed distances. In
+these systems, if the orientation between the relevant orbitals
+of D and A is such that charge transfer between them is
+accompanied by a significant change in orbital angular momentum, recombination of 1(D+•-A-•) may be accompanied
+by a spin flip to directly yield D-3*A.35,54,56 Okada et al.54
+discovered that the ISC rate in a covalently linked pyrene-Nmethylaniline derivative was strongly dependent upon the
+relative orientation of the donor and acceptor groups. RP-ISC,
+which usually occurs on a time scale of a few nanoseconds,
+could not explain formation of a pyrene triplet state within 30
+ps following photoexcitation of pyrene to its lowest excited
+singlet state. They concluded that when the electron donating
+and accepting molecular orbitals are approximately perpendicular to each other, the rate of 1(D+•-A-•) f D-3*A is increased.
+In this case the spin-orbit interaction does not result in1(D+•A-•) f3(D+•-A-•) because 〈1(D+•-A-•)|HSO |3(D+•-A-•)〉 )
+0, due to the fact that there is no change in the spatial orbital
+for this process.102 This mechanism is formally similar to rapid
+SO-ISC that occurs in an n-π* electronic transition within a
+single chromophore. However, because it requires a 1(D+•A-•) precursor, we will refer to it as spin-orbit, charge-transfer
+intersystem crossing (SOCT-ISC) for the remainder of this
+paper, so that the matrix element which describes this interaction
+is 〈1(D+•-A-•) |HSOCT |D-3*A〉.
+Using TREPR, van Willigen et al.56 studied 10-methylacridinium systems having arene electron donors attached to their
+9-position. Although the ZFS parameters remained essentially
+constant, the relative population rates, AX, AY, and AZ, and thus
+the ESP phase pattern, were found to be a sensitive function of
+the orientation of the donor and acceptor π systems. They found
+that the SOCT-ISC rate was enhanced with an approximately
+perpendicular orientation between the donor and acceptor, θ1
+≈ 90°. In another example, Wasielewski et al.55 compared triplet
+formation between zinc porphyrins both isolated and serving
+as electron donors to which tetracyano-naphthoquinodimethane
+
+Downloaded from pubs.​acs.​org/​jpcafh/​article-pdf/​112/​18/​4194/​12522084/​jp800561g.​pdf by INTL TOMOGRAPHY INST user on 10 September 2026
+
+a
+θ1 is the angle between julolidine and anthracene; θ2 is the angle
+between anthracene and the phenyl group (when present).
+
+TABLE 3: Zero-Field Splitting Parameters (D and E) and
+Relative Population Rates aX,Y,Z of the Zero-Field Spin States
+Obtained from Simulations of the Triplet-State TREPR
+Spectra of the Indicated Molecules in a Toluene Matrix at
+85 K
+
+Intersystem Crossing by Photoinduced Charge Transfer
+
+J. Phys. Chem. A, Vol. 112, No. 18, 2008 4199
+
+acceptors were rigidly attached, so that the π systems of the
+donor and acceptor were oriented approximately 60° relative
+to one another. Following photoexcitation at 10 K, TREPR of
+the isolated zinc porphyrin revealed a porphyrin triplet state
+where SO-ISC exclusively populates the out-of-plane sublevel,
+TZ, whereas in the D-A system, the porphyrin triplet state
+displayed an ESP pattern indicative of SOCT-ISC to the inplane sublevels, TX and TY. More recently, Dance et al.44 showed
+that in addition to the dependence on orientation between the
+orbitals relevant to charge transfer, the magnitude of the
+electronic coupling between D and A strongly influences the
+contribution from the SOCT-ISC process. While studying a
+series of donor-bridge-acceptor (D-B-A) molecules where D
+) phenothiazine, B ) a series of p-phenylene (Phn) oligomers,
+with n ) 1-5, and A ) perylene-3,4:9,10-bis(dicarboximide),103
+they found that with shorter bridge lengths the increased
+electronic coupling leads to a larger SOCT-ISC contribution
+producing D-B-3*A.
+In anthracene, the triplet axis system coincides with the lowest
+electronic transitions and is clearly dictated by the molecular
+structure, Figure 6.104-106 Computer simulations of the triplet
+spectra for DMJ-3*An and DMJ-3*An-tol indicate that the
+(e, a, e, a, e, a) ESP phase pattern is the result of preferential
+population of the TY sublevel, Figure 3A, for D > 0, E < 0.93,94
+Charge transfer from DMJ to An involves moving an electron
+between two orbitals having a geometry change in the x-z plane
+as defined in Figure 6. Using the right-hand rule, this implies
+that the angular momentum change is along the y direction, so
+that the SOCT interaction which couples 1(D+•-A-•) and
+D-3*A preferentially populates TY (i.e., AY > AX,Z) of D-3*A,
+as is observed in the TREPR spectra of the triplet states of
+DMJ-3*An and DMJ-3*An-tol, Table 3.107,108 Although TY
+is preferentially populated in both cases, there is an increase of
+the AX and AZ population rates in DMJ-3*An-tol relative to
+DMJ-3*An. This suggests that conjugation between the anthracene and the phenyl group relaxes the symmetry restrictions
+in a way that alters the sublevel population rates.
+Absence of a Triplet State TREPR Spectrum in J-An. It
+is particularly interesting that J-An has a very low triplet yield
+and consequently its triplet EPR spectrum is not observed
+following photoexcitation despite its obvious similarity to DMJAn. As discussed above, SOCT-ISC requires a 1(D+•-A-•)
+precursor and depends strongly on the orientation of the
+molecular orbitals involved in the charge transfer as well as
+the magnitude of VDA.35,55,57,106,109,110 The solvatochromism data
+for J-An, DMJ-An, and DMJ-An-tol show that the formation of 1(D+•-A-•) is essentially quantitative for all three
+molecules. Thus, the differences in triplet intersystem crossing
+
+Figure 7. Fluorescence spectra of the indicated molecules in toluene
+at 293 and 77 K. The spectra are normalized at their maxima.
+
+rates most likely depend on differences in VDA and donoracceptor orbital orientation. Our results show that even when
+θ1 ≈ 90°, as is the case for DMJ-An and DMJ-An-tol, VDA
+is large enough to enable SOCT-ISC to occur at a rate sufficient
+to produce a high yield of DMJ-3*An and DMJ-3*An-tol.
+Thus it is likely that the negligible yield of J-3*An results from
+the diminished change in orbital angular momentum that occurs
+between the π systems of J and An, when θ1 deviates from
+90°.
+Participation of the Anthracene Triplet LE states in ISC.
+To account for the solvent and temperature dependence of the
+CT emission of ADMA and its derivatives, it has been shown
+that it is necessary to include mixing with an energetically
+proximate, symmetry-allowed 1LE state of An.1,3,10,18,37,38,111 In
+considering the mechanism of ISC within the analogous systems
+discussed here, we must also consider contributions from
+energetically relevant triplet 3LE states of An. The smaller value
+of kISC for DMJ-An-tol relative to that of DMJ-An is
+consistent with similar observations on the effects of conjugated
+substituents at the 9,10-positions of An on these rate constants.24-33 Anthracene itself undergoes efficient SO-ISC
+because the energy of its T2 state at 3.22 eV is about 0.06 eV
+below that of S1.24,27,32,33 This SO-ISC process (S1 f T2 f
+T1) occurs in fluid solution at 295 K as well as in a frozen
+solvent matrix at 77 K. Placing conjugated substituents at the
+9- and/or 10-positions may reverse this energy ordering, so that
+S1 is below T2.24,27,32,33 For example, this reversal is responsible
+for the dramatic decrease in the ISC rate of 9,10-diphenylanthracene relative to that of anthracene.24,28
+Our results show that the energies of 1(DMJ+•-An-•) and
+1(DMJ+•-An-•-tol) are 2.83 and 2.75 eV at 293 K, well below
+that of the pure LE T2 (3.22 eV) state of anthracene and
+significantly above its T1 state (1.83 eV).33,86,112 Under these
+conditions, SOCT-ISC via T2 (similar to anthracene) becomes
+a strongly activated process, so that significant population of
+T2 is unlikely. However, our TREPR results were obtained at
+85 K in a frozen toluene matrix, where solvent reorganization
+is inhibited, so that the energies of 1(DMJ+•-An-•) and
+1(DMJ+•-An-•-tol) are higher because they are no longer
+stabilized by solvent dipole reorientation.113,114 The fluorescence
+spectra of J-An, DMJ-An, and DMJ-An-tol indicate that
+their CT state energy levels all increase by ∼0.2 eV upon
+cooling from 293 to 77 K in toluene, Figure 7. This change
+places the energies of 1(DMJ+•-An-•) and1(DMJ+•-An-•-tol)
+much closer to that of the T2 LE state of An. Thus, the SOCTISC process at 85K most likely has a contribution from the
+
+Downloaded from pubs.​acs.​org/​jpcafh/​article-pdf/​112/​18/​4194/​12522084/​jp800561g.​pdf by INTL TOMOGRAPHY INST user on 10 September 2026
+
+Figure 6. Charge transfer from DMJ to An in DMJ-An between
+orbitals oriented in the x-z plane results in an angular momentum
+component along y. This angular momentum component coincides with
+SO-ISC to the corresponding spin sublevels of 3*An.
+
+4200 J. Phys. Chem. A, Vol. 112, No. 18, 2008
+matrix element involving the T2 state of An, 〈1(D+•-A-•)
+|HSOCT |D-3*A(T2)〉, in addition to a contribution from the
+corresponding matrix element involving T1, 〈1(D+•-A-•) |HSOCT
+|D-3*A(T1)〉.
+Conclusions
+
+Acknowledgment. This work was supported by the Chemical Sciences, Geosciences, and Biosciences Division, Office of
+Basic Energy Sciences, U.S. Department of Energy under Grant
+DE-FG02-99ER14999 (MRW) and the NSF and ONR Chemistry Divisions (MAR).
+Supporting Information Available: Synthesis of compounds; Figures S1 and S2 (PDF). This material is available
+free of charge via the Internet at http://pubs.acs.org.
+References and Notes
+(1) Grabowski, Z. R.; Rotkiewicz, K.; Rettig, W. Chem. ReV. 2003,
+103, 3899-4031.
+(2) Herbich, J.; Kapturkiewicz, A. Chem. Phys. 1991, 158, 143-153.
+(3) Herbich, J.; Kapturkiewicz, A. Chem. Phys. Lett. 1997, 273, 9-17.
+(4) Kapturkiewicz, A. Chem. Phys. 1992, 166, 259-273.
+(5) Mataga, N.; Nishikawa, S.; Asahi, T.; Okada, T. J. Phys. Chem.
+1990, 94, 1443-1447.
+(6) Nagarajan, V.; Brearley, A. M.; Kang, T. J.; Barbara, P. F. J. Chem.
+Phys. 1987, 86, 3183-3196.
+(7) Okada, T.; Fujita, T.; Kubota, M.; Masaki, S.; Mataga, N.; Ide, R.;
+Sakata, Y.; Misumi, S. Chem. Phys. Lett. 1972, 14, 563-568.
+(8) Okada, T.; Fujita, T.; Mataga, N. Z. Phys. Chem. N. F. 1976, 101,
+57-66.
+(9) Siemiarczuk, A. Chem. Phys. Lett. 1984, 110, 437.
+(10) Siemiarczuk, A.; Ware, W. R. J. Phys. Chem. 1987, 91, 36773682.
+(11) Siemiarczuk, A.; Grabowski, Z. R.; Krowczynski, A.; Asher, M.;
+Ottolenghi, M. Chem. Phys. Lett. 1977, 51, 315-320.
+(12) Siemiarczuk, A.; Koput, J.; Pohorille, A. Z. Naturforsch 1982, A37,
+598.
+(13) Tominaga, K.; Walker, G. C.; Jarzeba, W.; Barbara, P. F. J. Phys.
+Chem. 1991, 95, 10475-10485.
+(14) Tominaga, K.; Walker, G. C.; Kang, T. J.; Barbara, P. F.; Fonseca,
+T. J. Phys. Chem. 1991, 95, 10485-10492.
+(15) Menzel, R.; Windsor, M. W. Chem. Phys. Lett. 1991, 184, 6-10.
+
+(16) Okada, T.; Nakatani, K.; Hagihara, M.; Mataga, N. In Ultrafast
+Phenomena VI; Springer Series in Chemical Physics; Springer Verlag:
+Berlin, 1988; Vol. 48, pp 555-558.
+(17) Okada, T.; Mataga, N.; Baumann, W.; Siemiarczuk, A. J. Phys.
+Chem. 1987, 91, 4490-4495.
+(18) Herbich, J.; Kapturkiewicz, A. J. Am. Chem. Soc. 1998, 120, 10141029.
+(19) Grabowski, Z. R.; Rotkiewicz, K.; Siemiarczuk, A.; Cowley, D.
+J.; Baumann, W. NouV. J. Chim. 1979, 3, 443-454.
+(20) Lee, S.; Arita, K.; Kajimoto, O.; Tamao, K. J. Phys. Chem. A 1997,
+101, 5228-5231.
+(21) Lee, S.; Kajimoto, O. J. Phys. Chem. A 1997, 101, 5232-5240.
+(22) Martin, M. M.; Plaza, P.; Changenet-Barret, P.; Siemiarczuk, A. J.
+Phys. Chem. A 2002, 106, 2351-2358.
+(23) Ottolenghi, M.; Goldschmidt, C. R.; Potashnik, R. J. Phys. Chem.
+1971, 75, 1025-1031.
+(24) Hirayama, S.; Lampert, R. A.; Phillips, D. J. Chem. Soc., Faraday
+Trans. I 1985, 81, 371-382.
+(25) Lampert, R. A.; Phillips, D. J. Chem. Soc., Faraday Trans. I 1985,
+81, 383-393.
+(26) Tanaka, M.; Tanaka, I.; Tai, S.; Hamanoue, K.; Sumitani, M.;
+Yoshihara, K. J. Phys. Chem. 1983, 87, 813-816.
+(27) Nijegorodov, N. I.; Downey, W. S. Spectrochim. Acta, Part A 1995,
+51, 2335-2346.
+(28) Nijegorodov, N. I.; Downey, W. S. J. Phys. Chem. 1994, 98, 56395643.
+(29) Hamanoue, K.; Hirayama, S.; Nakayama, T.; Teranishi, H. Chem.
+Lett. 1980, 407-410.
+(30) Wu, K. C.; Ware, W. R. J. Am. Chem. Soc. 1979, 101, 59065909.
+(31) Lim, E. C.; Laposa, J. D.; Yu, J. M. H. J. Mol. Spectrosc. 1966,
+19, 412-&.
+(32) Tanaka, F.; Okamoto, M.; Hirayama, S. J. Phys. Chem. 1995, 99,
+525-530.
+(33) Fukumura, H.; Kikuchi, K.; Koike, K.; Kokubun, H. J. Photochem.
+Photobiol., A 1988, 42, 283-291.
+(34) Hirayama, S. J. Chem. Soc., Faraday Trans. I 1982, 78, 24112421.
+(35) Gould, I. R.; Boiani, J. A.; Gaillard, E. B.; Goodman, J. L.; Farid,
+S. J. Phys. Chem. A 2003, 107, 3515-3524.
+(36) Tsubomura, H.; Mulliken, R. S. J. Am. Chem. Soc. 1960, 82, 59665974.
+(37) Murrell, J. N. J. Am. Chem. Soc. 1959, 81, 5037-5043.
+(38) Mulliken, R. S. J. Am. Chem. Soc. 1950, 72, 600-608.
+(39) Bixon, M.; Jortner, J.; Verhoeven, J. W. J. Am. Chem. Soc. 1994,
+116, 7349-7355.
+(40) Weller, A.; Staerk, H.; Treichel, R. Faraday Discuss. Chem. Soc.
+1984, 78, 271-278.
+(41) Hoff, A. J.; Gast, P.; van der Vos, R.; Franken, E. M.; Lous, E. J.
+Z. Phys. Chem. 1993, 180, 175-192.
+(42) Till, U.; Hore, P. J. Mol. Phys. 1997, 90, 289-296.
+(43) Steiner, U. E.; Ulrich, T. Chem. ReV. 1989, 89, 51-147.
+(44) Dance, Z. E. X.; Mi, Q. X.; McCamant, D. W.; Ahrens, M. J.;
+Ratner, M. A.; Wasielewski, M. R. J. Phys. Chem. B 2006, 110, 2516325173.
+(45) Schulten, K.; Staerk, H.; Weller, A.; Werner, H.-J.; Nickel, B. Z.
+Phys. Chem. 1976, 101, 371-390.
+(46) Tanimoto, Y.; Okada, N.; Itoh, M.; Iwai, K.; Sugioka, K.; Takemura,
+F.; Nakagaki, R.; Nagakura, S. Chem. Phys. Lett. 1987, 136, 42-46.
+(47) Sakaguchi, Y.; Hayashi, H. J. Phys. Chem. A 1997, 101, 549555.
+(48) Werner, U.; Kuhnle, W.; Staerk, H. J. Phys. Chem. 1993, 97, 92809287.
+(49) Weiss, E. A.; Ratner, M. A.; Wasielewski, M. R. J. Phys. Chem.
+A 2003, 107, 3639-3647.
+(50) Weiss, E. A.; Ahrens, M. J.; Sinks, L. E.; Gusev, A. V.; Ratner,
+M. A.; Wasielewski, M. R. J. Am. Chem. Soc. 2004, 126, 5577-5584.
+(51) Lukas, A. S.; Bushard, P. J.; Weiss, E. A.; Wasielewski, M. R. J.
+Am. Chem. Soc. 2003, 125, 3921-3930.
+(52) Tadjikov, B.; Smirnov, S. Phys. Chem. Chem. Phys. 2001, 3, 204212.
+(53) Tsentalovich, Y. P.; Morozova, O., B.; Avdievich, N. I.; Ananchenko, G. S.; Yurkovskaya, A. V.; Ball, J. D.; Forbes, M. D. E. J. Phys. Chem.
+A 1997, 101, 8809-8816.
+(54) Okada, T.; Karaki, I.; Matsuzawa, E.; Mataga, N.; Sakata, Y.;
+Misumi, S. J. Phys. Chem. 1981, 85, 3957-3960.
+(55) Wasielewski, M. R.; Johnson, D. G.; Svec, W. A.; Kersey, K. M.;
+Minsek, D. W. J. Am. Chem. Soc. 1988, 110, 7219-7221.
+(56) van Willigen, H.; Jones, G., II; Farahat, M. S. J. Phys. Chem. 1996,
+100, 3312-3316.
+(57) Khudyakov, I. V.; Serebrennikov, Y. A.; Turro, N. J. Chem. ReV.
+1993, 93, 537-570.
+(58) Lin, T. S. Chem. ReV. 1984, 84, 1-15.
+
+Downloaded from pubs.​acs.​org/​jpcafh/​article-pdf/​112/​18/​4194/​12522084/​jp800561g.​pdf by INTL TOMOGRAPHY INST user on 10 September 2026
+
+TREPR studies show that the primary mechanism of triplet
+formation in DMJ-An and DMJ-An-tol following photoexcitation is the SOCT-ISC mechanism, which is similar to that
+which occurs in an n-π* electronic transition within a single
+chromophore. The SOCT-ISC mechanism is characterized by
+the (e, a, e, a, e, a) ESP phase pattern in the DMJ-3*An and
+DMJ-3*An-tol TREPR spectra and depends on the degree of
+charge separation, the relative orientation of the orbitals involved
+in the charge transfer, and the magnitude of the electronic
+coupling between the donor and acceptor. In J-An, DMJ-An,
+and DMJ-An-tol, where the donor and acceptor are formally
+linked by a single bond, all of these parameters depend on the
+torsional angle (θ1) between the π system of the anthracene
+and the phenyl of the julolidine. Despite its similar structure,
+photoexcitation of J-An produces a very low triplet yield. This
+results from the decrease in θ1 in the1(J+•-An-•) state due to
+the absence of the 3,5-dimethyl substituents on julolidine.
+Although this decrease is most likely only about 15-30° relative
+to that of 1(DMJ+•-An-•) and1(DMJ+•-An-•-tol), it is sufficient to significantly decrease SOCT-ISC for J-An by
+decreasing the change in orbital angular momentum accompanying charge transfer. Given that the requirements for
+the SOCT-ISC mechanism are quite general, we expect it to
+occur in a variety of electron donor-acceptor systems in which
+the donor π system is structurally restricted to a nearly
+perpendicular orientation relative to that of the acceptor.
+
+Dance et al.
+
+Intersystem Crossing by Photoinduced Charge Transfer
+
+Replogle, E. S.; Pople, J. A. Gaussian, version 5.2; Gaussian, Inc.:
+Pittsburgh, PA, 1998.
+(84) Becke, A. D. J. Chem. Phys. 1993, 98, 1372-1377.
+(85) Lee, C.; Yang, W.; Parr, R. G. Phys. ReV. B 1988, 37, 785-789.
+(86) Tanaka, F.; Osugi, J. Chem. Phys. Lett. 1974, 27, 133-137.
+(87) Hunter, T. F.; Wyatt, R. F. Chem. Phys. Lett. 1970, 6, 221-224.
+(88) Kellogg, R. E. J. Chem. Phys. 1966, 44, 411-412.
+(89) Bohne, C.; Kennedy, S. R.; Boch, R.; Negri, F.; Orlandi, G.;
+Siebrand, W.; Scaiano, J. C. J. Phys. Chem. 1991, 95, 10300-10306.
+(90) Hamanoue, K.; Hirayama, S.; Nakayama, T.; Teranishi, H. J. Phys.
+Chem. 1980, 84, 2074-2078.
+(91) Antheunis, D. A.; Schmidt, J.; van der Waals, J. H. Mol. Phys.
+1974, 27, 1521-1541.
+(92) van der Waals, J. H.; ter Maten, G. Mol. Phys. 1964, 8, 301.
+(93) Thurnauer, M. C. ReV. Chem. Interm. 1979, 3, 197-230.
+(94) Thurnauer, M. C.; Katz, J. J.; Norris, J. R. Proc. Natl. Acad. Sci.
+U.S.A. 1975, 72, 3270-3274.
+(95) Dutton, P. L.; Leigh, J. S.; Reed, D. W. Biochim. Biophys. Acta
+1973, 292, 654-664.
+(96) Dutton, P. L.; Leigh, J. S.; Seibert, M. Biochem. Biophys. Res.
+Commun. 1972, 46, 406-413.
+(97) Iwata, S.; Tanaka, J.; Nagakura, S. J. Chem. Phys. 1967, 47, 22032209.
+(98) Christodouleas, N. D.; McGlynn, S. P. J. Chem. Phys. 1964, 40,
+166-174.
+(99) Webster, D.; Baugher, J. F.; Lim, B. T.; Lim, E. C. Chem. Phys.
+Lett. 1981, 77, 294-298.
+(100) Chandra, A. K.; Lim, E. C. Chem. Phys. Lett. 1977, 45, 79-83.
+(101) van der Auweraer, M.; Grabowski, Z. R.; Rettig, W. J. Phys. Chem.
+1991, 95, 2083-2092.
+(102) Lim, B. T.; Okajima, S.; Chandra, A. K.; Lim, E. C. Chem. Phys.
+Lett. 1981, 79, 22-27.
+(103) van der Boom, T.; Hayes, R. T.; Zhao, Y.; Bushard, P. J.; Weiss,
+E. A.; Wasielewski, M. R. J. Am. Chem. Soc. 2002, 124, 9582-9590.
+(104) Siegel, S.; Goldstein, L. J. Chem. Phys. 1965, 43, 4185-4187.
+(105) Siegel, S.; Judeikis, H. S. J. Phys. Chem. 1965, 70, 2205-2211.
+(106) El-Sayed, M. A. J. Chem. Phys. 1974, 60, 4502-4507.
+(107) van der Waals, J. H.; de Groot, M. S. In The Triplet State; Zahlan,
+A. B., Ed.; University Press: Cambridge, U.K., 1967; pp 101-132.
+(108) El-Sayed, M. A., Lim, E. C., Ed.; Academic Press: New York,
+1974; Vol. 1, pp 35-77.
+(109) Salem, L.; Rowland, C. Angew. Chem., Int. Ed. 1972, 11, 92111.
+(110) Morais, J.; Hung, R. R.; Grabowski, J. J.; Zimmt, M. B. J. Phys.
+Chem. 1993, 97, 13138-13144.
+(111) Bixon, M.; Jortner, J.; Cortes, J.; Heitele, H.; Michel-Beyerle, M.
+E. J. Phys. Chem. 1994, 98, 7289-7299.
+(112) Langelaar, J.; Rettschnick, R. P. H.; Hoijtink, G. J. J. Chem. Phys.
+1971, 54, 1-7.
+(113) Gaines, G. L., III; O’Neil, M. P.; Svec, W. A.; Niemczyk, M. P.;
+Wasielewski, M. R. J. Am. Chem. Soc. 1991, 113, 719-721.
+(114) Marcus, R. A. J. Phys. Chem. 1990, 94, 4963-4966.
+
+Downloaded from pubs.​acs.​org/​jpcafh/​article-pdf/​112/​18/​4194/​12522084/​jp800561g.​pdf by INTL TOMOGRAPHY INST user on 10 September 2026
+
+(59) Yagi, M.; Shirai, H.; Ohta, J.; Higuchi, J. Chem. Phys. Lett. 1989,
+160, 13-16.
+(60) Krzystek, J. Org. Magn. Reson. 1980, 13, 151-152.
+(61) Hayashi, H.; Iwata, S.; Nagakura, S. J. Chem. Phys. 1969, 50, 9931000.
+(62) Hayashi, H.; Nagakura, S.; Iwata, S. Mol. Phys. 1967, 13, 489490.
+(63) Kamata, Y.; Akiyama, K.; Tero-Kubota, S. J. Phys. Chem. A 1999,
+103, 1714-1718.
+(64) Mclauchlan, K. A.; Shkrob, I. A.; Yeung, M. T. Chem. Phys. Lett.
+1994, 217, 157-162.
+(65) Hasharoni, K.; Levanon, H.; Greenfield, S. R.; Gosztola, D. J.; Svec,
+W. A.; Wasielewski, M. R. J. Am. Chem. Soc. 1995, 117, 8055-8056.
+(66) Levanon, H.; Galili, T.; Regev, A.; Wiederrecht, G. P.; Svec, W.;
+Wasielewski, M. R. J. Am. Chem. Soc. 1998, 120, 6366-6373.
+(67) Shaakov, S.; Galili, T.; Stavitski, E.; Levanon, H.; Lukas, A. S.;
+Wasielewski, M. R. J. Am. Chem. Soc. 2003, 125, 6563-6572.
+(68) Wiederrecht, G. P.; Svec, W. A.; Wasielewski, M. R. J. Am. Chem.
+Soc. 1999, 121, 7726-7727.
+(69) Kawai, A.; Okutsu, T.; Obi, K. Chem. Phys. Lett. 1995, 235, 450455.
+(70) Hutchinson, C. A.; Mangum, B. W. J. Chem. Phys. 1958, 29, 952953.
+(71) Hutchinson, C. A.; Mangum, B. W. J. Chem. Phys. 1961, 34, 908922.
+(72) Wasserman, E.; Snyder, L. C.; Yager, W. A. J. Chem. Phys. 1964,
+41, 1763-1772.
+(73) Blank, A.; Levanon, H. Concepts Magn. Reson., Part A 2005, 25,
+18-39.
+(74) Levanon, H.; Norris, J. R. Chem. ReV. 1978, 78, 185-198.
+(75) Crosby, G. A.; Demas, J. N. J. Phys. Chem. 1971, 75, 991-1024.
+(76) Pshenichnikov, M. S.; de Boerij, W. P.; Wiersma, D. A. Opt. Lett.
+1994, 19, 572-575.
+(77) Pavlopoulos, T. G. J. Appl. Phys. 1992, 72, 845-848.
+(78) MATLAB; The MathWorks, Inc.: Natick, MA, 2006.
+(79) Angulo, G.; Grampp, G.; Rosspeintner, A. Spectrochim. Acta, Part
+A 2006, 65A, 727-731.
+(80) Lippert, E. Z. Naturforsch. 1955, 10a, 541-546.
+(81) Mataga, N.; Kaifu, Y.; Koizumi, M. Bull. Chem. Soc. Jpn. 1956,
+29, 465-470.
+(82) Hyperchem; Hypercube Inc.: Gainesville, FL.
+(83) Frisch, M. J.; Trucks, G. W.; Schlegel, H. B.; Scuseria, G. E.; Robb,
+M. A.; Cheeseman, J. R.; Zakrzewski, V. G.; Montgomery, J. A.; Stratmann,
+R. E.; Burant, J. C.; Dapprich, S.; Millam, J. M.; Daniels, A. D.; Kudin, K.
+N.; Strain, M. C.; Farkas, O.; Tomasi, J.; Barone, V.; Cossi, M.; Cammi,
+R.; Mennucci, B.; Pomelli, C.; Adamo, C.; Clifford, S.; Ochterski, J.;
+Petersson, G. A.; Ayala, P. Y.; Cui, Q.; Morokuma, K.; Malick, D. K.;
+Rabuck, A. D.; Raghavachari, K.; Foresman, J. B.; Cioslowski, J.; Ortiz, J.
+V.; Stefanov, B. B.; Liu, G.; Liashenko, A.; Piskorz, P.; Komaromi, I.;
+Gomperts, R.; Martin, R. L.; Fox, D. J.; Keith, T.; Al-Laham, M. A.; Peng,
+C. Y.; Nanayakkara, A.; Gonzalez, C.; Challacombe, M.; Gill, P. M. W.;
+Johnson, B. G.; Chen, W.; Wong, M. W.; Andres, J. L.; Head-Gordon, M.;
+
+J. Phys. Chem. A, Vol. 112, No. 18, 2008 4201
+
+

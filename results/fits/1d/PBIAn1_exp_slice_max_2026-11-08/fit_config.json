@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "parameters": {
+    "g_iso": {"value": 2.013, "bounds": [2.0, 2.12], "vary": true},
+    "D": {"value": 967000000, "bounds": [500000000, 1500000000], "vary": true},
+    "E": {"value": 105000000, "bounds": [0, 400000000], "vary": true},
+    "ham_strain": {"value": 0, "bounds": [0, 100000000], "vary": false},
+    "gauss": {"value": 0.0001, "bounds": [0.00001, 0.0005], "vary": true},
+    "lorentz": {"value": 0, "bounds": [0, 0.0005], "vary": false},
+    "pop_x": {"value": 0.8, "bounds": [0, 1], "vary": true},
+    "pop_y": {"value": 0.1, "bounds": [0, 1], "vary": true},
+    "pop_z": {"value": 0.1, "bounds": [0, 1], "vary": true},
+    "basis": {"value": "xyz", "choices": ["xyz"], "vary": false},
+    "freq": {"value": 9707944540, "vary": false},
+    "temperature": {"value": 80.031, "vary": false}
+  },
+  "settings": {"harmonic": 0, "mesh": 25}
+}

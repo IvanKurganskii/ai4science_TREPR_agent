@@ -55,6 +55,19 @@
               }
             ]
           },
+          "population_basis": {
+            "type": "string",
+            "enum": [
+              "xyz",
+              "product",
+              "eigen",
+              "zfs",
+              "multiplet",
+              "zeeman"
+            ],
+            "default": "xyz",
+            "description": "Basis of the ordered initial populations only; T1 always eigen, sublevel loss always xyz."
+          },
           "population_mode": {
             "type": "string",
             "enum": [
@@ -115,6 +128,24 @@
                 "type": "number",
                 "description": "Lorentzian FWHM in tesla; at least one linewidth must be positive.",
                 "minimum": 0
+              },
+              "ham_strain": {
+                "description": "Optional residual Gaussian FWHM in Hz: scalar or three principal widths; default 0.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  }
+                ]
               },
               "g": {
                 "description": "Dimensionless g factor or three principal values for effective S=1.",
@@ -297,6 +328,19 @@
               }
             ]
           },
+          "population_basis": {
+            "type": "string",
+            "enum": [
+              "xyz",
+              "product",
+              "eigen",
+              "zfs",
+              "multiplet",
+              "zeeman"
+            ],
+            "default": "xyz",
+            "description": "Basis of the ordered initial populations only; T1 always eigen, sublevel loss always xyz."
+          },
           "population_mode": {
             "type": "string",
             "enum": [
@@ -366,6 +410,24 @@
                     "type": "number",
                     "description": "Lorentzian FWHM in tesla; at least one linewidth must be positive.",
                     "minimum": 0
+                  },
+                  "ham_strain": {
+                    "description": "Optional residual Gaussian FWHM in Hz: scalar or three principal widths; default 0.",
+                    "anyOf": [
+                      {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      {
+                        "type": "array",
+                        "minItems": 3,
+                        "maxItems": 3,
+                        "items": {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      }
+                    ]
                   },
                   "g": {
                     "description": "Dimensionless g factor or three principal values for effective S=1.",
@@ -540,7 +602,7 @@
                 "maximum": 1
               },
               "tau_intra": {
-                "description": "Neighboring multiplet links (-1,0,+1); lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "description": "T1 parameter: neighboring energy-ordered eigenstate links; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
                 "anyOf": [
                   {
                     "type": "number",
@@ -671,6 +733,19 @@
               }
             ]
           },
+          "population_basis": {
+            "type": "string",
+            "enum": [
+              "xyz",
+              "product",
+              "eigen",
+              "zfs",
+              "multiplet",
+              "zeeman"
+            ],
+            "default": "xyz",
+            "description": "Basis of the ordered initial populations only; T1 always eigen, sublevel loss always xyz."
+          },
           "population_mode": {
             "type": "string",
             "enum": [
@@ -731,6 +806,24 @@
                 "type": "number",
                 "description": "Lorentzian FWHM in tesla; at least one linewidth must be positive.",
                 "minimum": 0
+              },
+              "ham_strain": {
+                "description": "Optional residual Gaussian FWHM in Hz: scalar or three principal widths; default 0.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  }
+                ]
               },
               "g": {
                 "description": "Dimensionless g factor or three principal values for effective S=1.",
@@ -888,7 +981,7 @@
                 "maximum": 1
               },
               "tau_intra": {
-                "description": "Neighboring multiplet links (-1,0,+1); lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
+                "description": "T1 parameter: neighboring energy-ordered eigenstate links; lifetime in microseconds, rate=1e6/tau s^-1. null disables this rate.",
                 "anyOf": [
                   {
                     "type": "number",
@@ -1019,6 +1112,19 @@
               }
             ]
           },
+          "population_basis": {
+            "type": "string",
+            "enum": [
+              "xyz",
+              "product",
+              "eigen",
+              "zfs",
+              "multiplet",
+              "zeeman"
+            ],
+            "default": "xyz",
+            "description": "Basis of the ordered initial populations only; T1 always eigen, sublevel loss always xyz."
+          },
           "population_mode": {
             "type": "string",
             "enum": [
@@ -1079,6 +1185,24 @@
                 "type": "number",
                 "description": "Lorentzian FWHM in tesla; at least one linewidth must be positive.",
                 "minimum": 0
+              },
+              "ham_strain": {
+                "description": "Optional residual Gaussian FWHM in Hz: scalar or three principal widths; default 0.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  }
+                ]
               },
               "g0": {
                 "type": "number",
@@ -1265,6 +1389,19 @@
               }
             ]
           },
+          "population_basis": {
+            "type": "string",
+            "enum": [
+              "xyz",
+              "product",
+              "eigen",
+              "zfs",
+              "multiplet",
+              "zeeman"
+            ],
+            "default": "xyz",
+            "description": "Basis of the ordered initial populations only; T1 always eigen, sublevel loss always xyz."
+          },
           "population_mode": {
             "type": "string",
             "enum": [
@@ -1334,6 +1471,24 @@
                     "type": "number",
                     "description": "Lorentzian FWHM in tesla; at least one linewidth must be positive.",
                     "minimum": 0
+                  },
+                  "ham_strain": {
+                    "description": "Optional residual Gaussian FWHM in Hz: scalar or three principal widths; default 0.",
+                    "anyOf": [
+                      {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      {
+                        "type": "array",
+                        "minItems": 3,
+                        "maxItems": 3,
+                        "items": {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      }
+                    ]
                   },
                   "g0": {
                     "type": "number",
@@ -1669,6 +1824,19 @@
               }
             ]
           },
+          "population_basis": {
+            "type": "string",
+            "enum": [
+              "xyz",
+              "product",
+              "eigen",
+              "zfs",
+              "multiplet",
+              "zeeman"
+            ],
+            "default": "xyz",
+            "description": "Basis of the ordered initial populations only; T1 always eigen, sublevel loss always xyz."
+          },
           "population_mode": {
             "type": "string",
             "enum": [
@@ -1729,6 +1897,24 @@
                 "type": "number",
                 "description": "Lorentzian FWHM in tesla; at least one linewidth must be positive.",
                 "minimum": 0
+              },
+              "ham_strain": {
+                "description": "Optional residual Gaussian FWHM in Hz: scalar or three principal widths; default 0.",
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  }
+                ]
               },
               "g0": {
                 "type": "number",

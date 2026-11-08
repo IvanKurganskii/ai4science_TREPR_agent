@@ -43,6 +43,10 @@ def hamiltonian_schema(model):
         "E": _number("E in Hz; |E| <= |D|/3."),
         "gauss": _number("Gaussian FWHM in tesla.", minimum=0),
         "lorentz": _number("Lorentzian FWHM in tesla; at least one linewidth must be positive.", minimum=0),
+        "ham_strain": {"description": "Optional residual Gaussian FWHM in Hz: scalar or three principal widths; default 0.",
+                       "anyOf": [{"type": "number", "minimum": 0},
+                                 {"type": "array", "minItems": 3, "maxItems": 3,
+                                  "items": {"type": "number", "minimum": 0}}]},
     }
     if model == "high_j":
         properties["g"] = {"description": "Dimensionless g factor or three principal values for effective S=1.",
@@ -55,7 +59,7 @@ def hamiltonian_schema(model):
             "delta_g": _number("Signed isotropic g1-g2 difference, dimensionless."),
             "J": _number("Exchange in Hz, convention +J*S1 dot S2; negative J is allowed."),
         })
-    return _object(properties, properties)
+    return _object(properties, [key for key in properties if key != "ham_strain"])
 
 
 def populations_schema(model):
@@ -66,7 +70,7 @@ def populations_schema(model):
 
 def context_schema(model):
     properties = populations_schema(model)["properties"]
-    lifetimes = {"tau_intra": "Neighboring multiplet links (-1,0,+1)"} if model == "high_j" else {
+    lifetimes = {"tau_intra": "T1 parameter: neighboring energy-ordered eigenstate links"} if model == "high_j" else {
         "tau_outer": "Energy-ordered eigenstate links 1-2, 1-3, 2-4, 3-4",
         "tau_inner": "Energy-ordered eigenstate link 2-3"}
     losses = ("x", "y", "z") if model == "high_j" else ("s", "x", "y", "z")
@@ -89,6 +93,8 @@ def tool_schema(model, dimension):
     label = "High-J effective S=1 triplet" if model == "high_j" else "Moderate-J two S=1/2 radical pair"
     properties = {
         "field_axis": _axis("tesla", 2),
+        "population_basis": {"type": "string", "enum": ["xyz", "product", "eigen", "zfs", "multiplet", "zeeman"],
+                             "default": "xyz", "description": "Basis of the ordered initial populations only; T1 always eigen, sublevel loss always xyz."},
         "population_mode": {"type": "string", "enum": ["notebook", "raw", "minmax", "max"],
                             "default": "notebook", "description": "notebook: high-J 1D minmax, high-J 2D raw, moderate-J max."},
         "normalization": {"type": "string", "enum": ["none", "maxabs"], "default": "none",

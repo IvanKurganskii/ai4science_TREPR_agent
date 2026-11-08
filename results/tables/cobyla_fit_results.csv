@@ -1,0 +1,12 @@
+parameter,value,unit
+g_iso,2.0599999999999996,
+D,120000000.0,Hz
+E,20000000.0,Hz
+ham_strain,50000000.0,Hz
+gauss,0.0001,T
+basis,xyz,
+pop_x,0.2,
+pop_y,0.5,
+pop_z,0.3,
+loss_mse,1000000.0,
+n_evaluations,32,
