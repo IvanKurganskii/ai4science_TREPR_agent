@@ -65,8 +65,6 @@ E/D<1/3, , населённости в [0,1] с суммой 1±1e−6,
 
 ## 4. Декомпозиция проверки
 
-[порождено: Codex]
-
 ```text
 Получить и проверить 1D-фит
 ├── Поиск TPE — 500 проб, кандидаты сохранены
@@ -121,17 +119,33 @@ cd ai4science_TREPR_agent
 git checkout hw2
 ```
 
-**Создание среды для основного контроля и дополнительного дофита**
-(нужен uv; Python 3.11, [mars-epr 0.0.5.post5](https://pypi.org/project/mars-epr/0.0.5.post5/)):
+### Окружение
+
+Нужен `uv`. Выберите одну опцию для создания среды Python 3.11 в `../.mars_env`.
+Если среда уже подготовлена, перейдите к основной проверке.
+
+**Вариант 1. Локальная копия MaRS с GitHub.** [Репозиторий MaRS](https://github.com/ArkadySamsonenkoWork/MaRs)
+
+```bash
+git clone https://github.com/ArkadySamsonenkoWork/MaRs.git ../MaRs
+git -C ../MaRs checkout --detach fb8ce860b61d5d822c7eaf92f744c2ddf3262447
+uv venv --python 3.11 ../.mars_env
+uv pip install --python ../.mars_env/bin/python -e "../MaRs[opt]" \
+  "numpy==2.4.6" "torch==2.14.1" "nevergrad==1.0.12" \
+  "optuna==4.9.0" "optuna-integration==4.9.0" tqdm numdifftools hdbscan PyYAML
+```
+
+**Вариант 2. Установка из PyPI.** [mars-epr 0.0.5.post5](https://pypi.org/project/mars-epr/0.0.5.post5/)
 
 ```bash
 uv venv --python 3.11 ../.mars_env
 uv pip install --python ../.mars_env/bin/python \
   "mars-epr[opt]==0.0.5.post5" "numpy==2.4.6" "torch==2.14.1" \
   "nevergrad==1.0.12" "optuna==4.9.0" "optuna-integration==4.9.0" \
-  tqdm numdifftools hdbscan
+  tqdm numdifftools hdbscan PyYAML
 ```
 
+### Основная проверка
 **Основная проверка Пирсона/Q:**
 
 ```bash
